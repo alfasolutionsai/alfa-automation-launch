@@ -1,0 +1,54 @@
+export function Footer() {
+  return (
+    <footer className="border-t border-border bg-card py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+                <span className="text-lg font-bold text-primary-foreground">A</span>
+              </div>
+              <span className="text-lg font-bold text-foreground">Alfa Solutions</span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Custom AI automation for Canadian service businesses
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-foreground mb-3">Solutions</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#services" className="hover:text-primary transition-colors">Voice AI Agents</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Workflow Automation</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Lead Qualification</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Custom Integrations</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-foreground mb-3">Company</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="#results" className="hover:text-primary transition-colors">Case Studies</a></li>
+              <li><a href="#faq" className="hover:text-primary transition-colors">FAQ</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-foreground mb-3">Legal</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Data Security</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <p>© 2024 Alfa Solutions. All rights reserved. Made in Canada 🇨🇦</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
