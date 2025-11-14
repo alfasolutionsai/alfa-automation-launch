@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { BackgroundPaths } from "@/components/ui/background-paths";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-background to-card py-20 md:py-32">
-      {/* Animated background lines */}
+      {/* Animated background paths */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
-        <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent top-1/4 animate-pulse"></div>
-        <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent top-2/4 animate-pulse delay-75"></div>
-        <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent top-3/4 animate-pulse delay-150"></div>
+        <BackgroundPaths />
       </div>
 
       <div className="container relative mx-auto px-4">
