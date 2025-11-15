@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Zap, Target, LineChart, Shield } from "lucide-react";
+import { SplineScene } from "@/components/ui/splite";
+import { Spotlight } from "@/components/ui/spotlight";
 
 const solutions = [
   {
@@ -28,15 +30,35 @@ export function Solutions() {
   return (
     <section id="solutions" className="py-20 bg-gradient-to-b from-background to-card">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            AI Automation That Actually Works
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We build AI systems that integrate seamlessly with your existing tools and deliver measurable results
-          </p>
-        </div>
+        {/* Featured 3D Section */}
+        <Card className="w-full h-[500px] mb-16 bg-card relative overflow-hidden border-border">
+          <Spotlight
+            className="-top-40 left-0 md:left-60 md:-top-20"
+            fill="hsl(var(--primary))"
+          />
+          
+          <div className="flex flex-col md:flex-row h-full">
+            {/* Left content */}
+            <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                AI Automation That Actually Works
+              </h2>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
+                We build AI systems that integrate seamlessly with your existing tools and deliver measurable results
+              </p>
+            </div>
 
+            {/* Right content - 3D Scene */}
+            <div className="flex-1 relative hidden md:block">
+              <SplineScene 
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </Card>
+
+        {/* Solution Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {solutions.map((solution, index) => (
             <Card
