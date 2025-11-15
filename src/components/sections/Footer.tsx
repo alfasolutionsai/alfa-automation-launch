@@ -43,7 +43,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2024 Alfa Solutions. All rights reserved. Made in Canada 🇨🇦</p>
+          <p>© 2024 Alfa Solutions. Tous droits réservés. Fait au Québec </p>
         </div>
       </div>
     </footer>;
