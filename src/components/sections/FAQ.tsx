@@ -22,9 +22,7 @@ export function FAQ() {
   return <section id="faq" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Frequently Asked Questions
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Questions fréquentes</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Tout ce que vous voulez savoir sur Alfa Solutions</p>
         </div>
 
