@@ -21,7 +21,7 @@ export function Hero() {
               <span className="text-muted-foreground">Nous sommes fiers d'être une entreprise québécoise                   </span>
             </div>
 
-            <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl">​Utilisez l'intelligence artificielle pour faire grandir votre entrepri           faire grandir votre entreprise            <span className="text-primary">AI Automation</span> That Actually Works
+            <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl">​Utilisez l'intelligence artificielle pour faire grandir votre entrepri                                                              <span className="text-primary">AI Automation</span> That Actually Works
             </h1>
 
             <p className="mb-10 text-lg text-muted-foreground md:text-xl">Nous concevons des solutions d'IA sur mesure qui éliminent les tâches inutiles, captent chaque prospect et libèrent votre équipe pour se concentrer sur ce qui fait vraiment croître votre entreprise.</p>
