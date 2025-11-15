@@ -18,13 +18,11 @@ export function Hero() {
           </div>
 
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Stop Losing Revenue to{" "}
-            <span className="text-primary">Manual Tasks</span> and{" "}
-            <span className="text-primary">Missed Opportunities</span>
+            <span className="text-primary">AI Automation</span> That Actually Works
           </h1>
 
           <p className="mb-10 text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
-            Custom AI systems that automate your busywork, capture every lead, and free your team to focus on what actually grows your business
+            We build AI systems that integrate seamlessly with your existing tools and deliver measurable results
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
