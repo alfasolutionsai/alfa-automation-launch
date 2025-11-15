@@ -31,9 +31,7 @@ export function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Nos services</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Systèmes IA personnalisés conçus pour résoudre les défis particuliers de votre entreprise.                                            
-          </p>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-center">Systèmes IA personnalisés conçus pour résoudre les défis particuliers de votre entreprise.                                            </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">

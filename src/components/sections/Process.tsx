@@ -27,7 +27,7 @@ export function Process() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Transformer une idée en résultats                                </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Notre processus éprouvé te met en place rapidement, sans perturber tes opérations.
+            Notre processus éprouvé vous met en place rapidement, sans perturber vos opérations et s'intègre à n'importe quels systèmes existants.
 
 
 
