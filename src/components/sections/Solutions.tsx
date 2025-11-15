@@ -29,9 +29,9 @@ export function Solutions() {
           <div className="flex flex-col md:flex-row h-full">
             {/* Left content */}
             <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Une IA faites spécialement pour vous</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Une IA faite spécialement pour vous</h2>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                Nos solutions sont personnalisées pour les besoins particuliers de votre entreprises pour produire des vrais résultats et suivre les données importantes                                                                                                                  
+                Nos solutions sont personnalisées pour les besoins particuliers de votre entreprises pour produire des vrais résultats et suivre les données importantes pour vous.                                                                                                                           
               </p>
             </div>
 
