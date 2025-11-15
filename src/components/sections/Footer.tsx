@@ -1,6 +1,5 @@
 export function Footer() {
-  return (
-    <footer className="border-t border-border bg-card py-12">
+  return <footer className="border-t border-border bg-card py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -10,9 +9,7 @@ export function Footer() {
               </div>
               <span className="text-lg font-bold text-foreground">Alfa Solutions</span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Custom AI automation for Canadian service businesses
-            </p>
+            <p className="text-sm text-muted-foreground">Solutions IA personnalisées pour entreprises </p>
           </div>
 
           <div>
@@ -49,6 +46,5 @@ export function Footer() {
           <p>© 2024 Alfa Solutions. All rights reserved. Made in Canada 🇨🇦</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
