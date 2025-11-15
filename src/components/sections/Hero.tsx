@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -15,7 +15,9 @@ export function Hero() {
           {/* Left content */}
           <div className="text-center lg:text-left">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm">
-              <CheckCircle className="h-4 w-4 text-primary" />
+              <svg className="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C11.5 2 11 2.5 11 3V4C11 4.5 10.5 5 10 5C9.5 5 9 5.5 9 6V8C9 8.5 8.5 9 8 9C7.5 9 7 9.5 7 10V12C7 13 7.5 14 8.5 14.5C8.5 14.5 9 15 9 16V21C9 21.5 9.5 22 10 22H14C14.5 22 15 21.5 15 21V16C15 15 15.5 14.5 15.5 14.5C16.5 14 17 13 17 12V10C17 9.5 16.5 9 16 9C15.5 9 15 8.5 15 8V6C15 5.5 14.5 5 14 5C13.5 5 13 4.5 13 4V3C13 2.5 12.5 2 12 2Z"/>
+              </svg>
               <span className="text-muted-foreground">Fiers d'être une entreprise québécoise                    </span>
             </div>
 
