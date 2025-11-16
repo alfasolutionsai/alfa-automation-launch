@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { SplineScene } from "@/components/ui/splite";
 import StackFeatureSection from "@/components/ui/stack-feature-section";
-import { BioluminescentGrid, BioluminescentGridItem } from "@/components/ui/bioluminescent-grid";
+import { FeaturesSectionMinimal } from "@/components/ui/bento-monochrome";
 import { Wrench, Cloud, Settings, Rocket, Lock } from "lucide-react";
 export function Solutions() {
   const features = [{
@@ -64,64 +64,7 @@ export function Solutions() {
       {/* Key Differentiators */}
       <div className="container mx-auto px-4">
         <div className="mt-20">
-          <header className="mb-10 flex flex-col gap-6 pb-6">
-            <div className="flex flex-col gap-2 text-center">
-              <h2 className="text-3xl font-black tracking-tight text-foreground md:text-5xl">
-                Tout ce qu'il faut pour mieux opérer
-              </h2>
-            </div>
-          </header>
-
-          <BioluminescentGrid className="mt-12">
-            {features.map((feature, i) => (
-              <BioluminescentGridItem key={i} className={i === 0 ? "col-span-2 row-span-2" : ""}>
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background">
-                    <feature.icon
-                      className="h-7 w-7 text-foreground"
-                      strokeWidth={1.5}
-                      style={{ animation: feature.animation }}
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <header className="flex items-start gap-3">
-                      <h3 className="text-base font-semibold uppercase tracking-wide text-foreground">
-                        {feature.title}
-                      </h3>
-                      <span className="ml-auto rounded-full border border-border px-2 py-0.5 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                        {feature.meta}
-                      </span>
-                    </header>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {feature.blurb}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-4">
-                  <a 
-                    href="#contact" 
-                    className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
-                  >
-                    En savoir plus
-                    <svg 
-                      className="ml-1 h-4 w-4" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M9 5l7 7-7 7" 
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </BioluminescentGridItem>
-            ))}
-          </BioluminescentGrid>
+          <FeaturesSectionMinimal features={features} headline="Tout ce qu'il faut pour mieux opérer" subheadline="" />
         </div>
       </div>
     </section>;
