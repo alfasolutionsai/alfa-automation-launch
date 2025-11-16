@@ -46,7 +46,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <a href="#contact">
                 <Button size="lg" className="glow-primary text-lg px-8">
-                  Obtenez un audit gratuit
+                  Obtenez une consultation gratuite
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
