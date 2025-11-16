@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { TrendingUp, DollarSign, Users, Lightbulb, CheckCircle } from "lucide-react";
+import { Meteors } from "@/components/ui/meteors";
 
 const benefits = [
   {
@@ -57,8 +58,8 @@ export function Results() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => (
-            <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur">
-              <div className="flex items-start gap-4 mb-6">
+            <Card key={index} className="relative p-8 hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur overflow-hidden">
+              <div className="flex items-start gap-4 mb-6 relative z-10">
                 <div className="p-3 rounded-lg bg-primary/10">
                   <benefit.icon className={`h-8 w-8 ${benefit.color}`} />
                 </div>
@@ -66,7 +67,7 @@ export function Results() {
                   {benefit.title}
                 </h3>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-3 relative z-10">
                 {benefit.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -74,6 +75,7 @@ export function Results() {
                   </li>
                 ))}
               </ul>
+              <Meteors number={20} />
             </Card>
           ))}
         </div>
