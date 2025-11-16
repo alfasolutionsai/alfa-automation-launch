@@ -63,14 +63,18 @@ export function Solutions() {
             </div>
           </div>
         </Card>
+      </div>
 
-        {/* Stack Integration Section */}
+      {/* Stack Integration Section - Full Width */}
+      <div className="w-full">
         <StackFeatureSection 
           headline="Nos systèmes s'intègrent aux outils que vous connaissez et aimez"
           subheadline="Alfa offre des intégrations avec plus de 500 outils standards utilisés par les entreprises. Nos services vous permettent d'améliorer vos opérations existantes tout en vous permettant de continuer d'utiliser les outils que vous connaissez déjà."
         />
+      </div>
 
-        {/* Key Differentiators */}
+      {/* Key Differentiators */}
+      <div className="container mx-auto px-4">
         <div className="mt-20">
           <FeaturesSectionMinimal 
             features={features}
