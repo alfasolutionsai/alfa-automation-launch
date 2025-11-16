@@ -28,9 +28,7 @@ export function Hero() {
               <MorphingText words={["Gagner du temps", "Économiser de l'argent", "Faire croître votre entreprise", "Améliorer votre service client", "Mieux s'organiser"]} className="text-4xl md:text-6xl lg:text-7xl" />
             </h1>
 
-            <p className="mb-10 text-lg text-muted-foreground md:text-xl">
-              Nous concevons des systèmes d'IA personnalisés pour vos besoins spécifiques. On vous aide à automatiser les tâches répétitives, capturer et suivre chaque lead et libérer votre équipe pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer et est important pour votre entreprise.
-            </p>
+            <p className="mb-10 text-lg text-muted-foreground md:text-xl">Nous concevons des systèmes d'IA personnalisés pour vos besoins. On vous aide à automatiser les tâches répétitives, capturer et suivre chaque lead et libérer votre équipe pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <Button size="lg" className="glow-primary text-lg px-8">
