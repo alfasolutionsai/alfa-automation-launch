@@ -46,6 +46,14 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 205 95% 42%;
+
+    /* Bioluminescent Grid Variables */
+    --grid-line-color: 205 95% 42% / 0.1;
+    --item-bg-color: 0 0% 5% / 0.5;
+    --item-border-color: 205 95% 42% / 0.2;
+    --item-hover-border-color: 205 95% 42% / 0.5;
+    --glow-color-1: 205 100% 50%;
+    --glow-color-2: 185 100% 50%;
   }
   
   .dark {
@@ -85,6 +93,14 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 205 91% 44%;
+
+    /* Bioluminescent Grid Variables (Dark Mode) */
+    --grid-line-color: 205 91% 44% / 0.1;
+    --item-bg-color: 0 0% 5% / 0.5;
+    --item-border-color: 205 91% 44% / 0.2;
+    --item-hover-border-color: 205 91% 44% / 0.5;
+    --glow-color-1: 205 100% 50%;
+    --glow-color-2: 185 100% 50%;
   }
 }
 
@@ -210,6 +226,53 @@ All colors MUST be HSL.
   .animate-accordion-up {
     animation: accordion-up 0.2s ease-out;
   }
+
+  /* Bioluminescent Grid Styles */
+  .bio-grid {
+    @apply grid grid-cols-1 gap-3 md:auto-rows-[minmax(120px,auto)] md:grid-cols-6;
+  }
+
+  .bio-item {
+    @apply relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border bg-card p-5 shadow-sm transition-all duration-300 ease-out;
+    border-color: hsl(var(--item-border-color));
+    background-color: hsl(var(--item-bg-color));
+    position: relative;
+  }
+
+  .bio-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      220px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      hsl(var(--glow-color-1)) 0%,
+      hsl(var(--glow-color-2)) 50%,
+      transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .bio-item:hover::before {
+    opacity: 1;
+  }
+
+  .bio-item:hover {
+    @apply -translate-y-1 shadow-md;
+    border-color: hsl(var(--item-hover-border-color));
+    box-shadow: 0 0 20px hsl(var(--glow-color-1) / 0.2);
+  }
+
+  .bio-item-content {
+    @apply relative z-10 flex h-full flex-col justify-between;
+  }
+
 
 @layer base {
   * {
