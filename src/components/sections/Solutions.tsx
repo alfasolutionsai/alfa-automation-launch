@@ -64,7 +64,7 @@ export function Solutions() {
       {/* Key Differentiators */}
       <div className="container mx-auto px-4">
         <div className="mt-20">
-          <FeaturesSectionMinimal features={features} headline="Tout ce qu'il faut pour opérer mieux" subheadline="" />
+          <FeaturesSectionMinimal features={features} headline="Tout ce qu'il faut pour mieux opérer" subheadline="" />
         </div>
       </div>
     </section>;
