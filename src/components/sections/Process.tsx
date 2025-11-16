@@ -1,65 +1,68 @@
-import { Card } from "@/components/ui/card";
-import { Calendar, Code, Rocket, BarChart } from "lucide-react";
-const steps = [{
-  icon: Calendar,
-  title: "Discovery Call",
-  description: "We analyze your workflows, identify automation opportunities, and map out exactly what we'll build",
-  duration: "Day 1"
-}, {
-  icon: Code,
-  title: "Custom Development",
-  description: "Our team builds your AI systems, integrates with your tools, and tests everything thoroughly",
-  duration: "Days 2-10"
-}, {
-  icon: Rocket,
-  title: "Launch & Training",
-  description: "We deploy your system, train your team, and ensure everything runs smoothly",
-  duration: "Days 11-14"
-}, {
-  icon: BarChart,
-  title: "Optimization & Support",
-  description: "Ongoing monitoring, improvements, and support to maximize your ROI",
-  duration: "Ongoing"
-}];
+import CardFlip from "@/components/ui/flip-card";
+
+const steps = [
+  {
+    title: "ÉTAPE 1",
+    subtitle: "Audit & Stratégie (GRATUIT)",
+    description: "Nous analysons votre entreprise et identifions les opportunités d'automatisation pour maximiser votre retour sur investissement.",
+    features: [
+      "Vous remplissez un formulaire rapide à propos de votre entreprise",
+      "Vous recevez gratuitement votre feuille de route IA expliquant les opportunités potentielles",
+      "Appel découverte de 30 minutes pour cerner vos besoins spécifiques"
+    ],
+    color: "#4c7894"
+  },
+  {
+    title: "ÉTAPE 2",
+    subtitle: "Implémentation",
+    description: "Construction, intégration et déploiement de vos systèmes IA personnalisés avec formation complète de votre équipe.",
+    features: [
+      "Construction, intégration et déploiement de vos systèmes IA personnalisés",
+      "On s'occupe de toute l'installation technique et la migration de données",
+      "On forme votre équipe sur l'utilisation de tous les systèmes"
+    ],
+    color: "#5a922c"
+  },
+  {
+    title: "ÉTAPE 3",
+    subtitle: "Maintenance & Optimisation",
+    description: "Nous nous occupons de tout pour que vous n'ayez pas à le faire. Tranquillité d'esprit garantie.",
+    features: [
+      "Suivi, mises à jour et améliorations continues",
+      "On ajoute de nouvelles automatisations à mesure que votre entreprise évolue",
+      "Support dédié quand vous en avez besoin"
+    ],
+    color: "#d79f1e"
+  }
+];
+
 export function Process() {
-  return <section className="py-20 bg-card">
+  return (
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Transformer une idée en résultats                                </h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            De la découverte au déploiement en trois étapes simples
+          </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Notre processus éprouvé vous met en place rapidement, sans perturber vos opérations et s'intègre à n'importe quels systèmes existants.
-
-
-
-
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-primary/20 md:left-1/2"></div>
-
-            {steps.map((step, index) => <div key={index} className={`relative mb-12 last:mb-0 ${index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:ml-auto'}`}>
-                <div className={`flex items-start gap-4 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-full bg-primary text-primary-foreground font-bold z-10 ring-4 ring-accent/20">
-                    <step.icon className="h-8 w-8" />
-                  </div>
-                  <Card className="flex-1 p-6 hover:shadow-lg transition-shadow">
-                    <div className="mb-2 inline-flex rounded-full bg-accent/20 px-3 py-1 text-xs font-medium text-accent-foreground">
-                      {step.duration}
-                    </div>
-                    <h3 className="text-xl font-bold text-card-foreground mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {step.description}
-                    </p>
-                  </Card>
-                </div>
-              </div>)}
-          </div>
+        <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
+          {steps.map((step, index) => (
+            <div key={index} className="flex justify-center">
+              <CardFlip
+                title={step.title}
+                subtitle={step.subtitle}
+                description={step.description}
+                features={step.features}
+                color={step.color}
+              />
+            </div>
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
