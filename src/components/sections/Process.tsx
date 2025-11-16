@@ -23,7 +23,9 @@ const timelineData = [{
             <span>Appel découverte de 30 minutes pour cerner vos besoins spécifiques</span>
           </div>
         </div>
-        <Button className="bg-primary hover:bg-primary/90 text-slate-50">Obtenez votre consultation gratuite</Button>
+        <a href="#contact">
+          <Button className="bg-primary hover:bg-primary/90 text-slate-50">Obtenez votre consultation gratuite</Button>
+        </a>
       </div>
 }, {
   title: "ÉTAPE 2",
