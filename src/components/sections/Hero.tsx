@@ -25,7 +25,7 @@ export function Hero() {
 
             <h1 className="mb-8 text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl">
               Utilisez l'IA pour{" "}
-              <MorphingText words={["Gagner du temps", "Économiser de l'argent", "Faire croître votre entreprise", "Améliorer votre service client", "Mieux s'organiser"]} className="text-4xl md:text-6xl lg:text-7xl" />
+              <MorphingText words={["Gagner du temps", "Économiser de l'argent", "Faire croître votre entreprise", "Améliorer votre service client", "Mieux s'organiser", "Capturer plus de leads"]} className="text-4xl md:text-6xl lg:text-7xl" />
             </h1>
 
             <p className="mb-10 text-lg text-muted-foreground md:text-xl">Chez Alfa on trouve des solutions à vos problème pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.</p>
