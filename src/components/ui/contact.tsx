@@ -29,7 +29,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     phone: '',
     industry: '',
     challenges: '',
-    availability: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -170,24 +169,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   id="challenges"
                   name="challenges"
                   placeholder="Décrivez les problèmes que vous rencontrez au quotidien..."
-                  rows={4}
+                  rows={8}
                   value={formData.challenges}
                   onChange={handleChange}
                   required
                   className="bg-background/50 resize-none"
-                />
-              </div>
-
-              {/* Availability */}
-              <div className="space-y-2">
-                <Label htmlFor="availability">Disponibilités préférées</Label>
-                <Input 
-                  id="availability" 
-                  name="availability" 
-                  placeholder="Ex: Lundi-Mercredi après-midi, Vendredi matin..." 
-                  value={formData.availability} 
-                  onChange={handleChange} 
-                  className="bg-background/50"
                 />
               </div>
 
