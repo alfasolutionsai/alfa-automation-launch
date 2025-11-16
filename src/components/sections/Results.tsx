@@ -1,29 +1,46 @@
 import { Card } from "@/components/ui/card";
-import { TrendingUp, Clock, Users, DollarSign } from "lucide-react";
+import { TrendingUp, DollarSign, Users, Lightbulb, CheckCircle } from "lucide-react";
 
-const metrics = [
+const benefits = [
   {
-    icon: Clock,
-    value: "15-20 hours",
-    label: "Saved per week per employee",
+    icon: TrendingUp,
+    title: "Capturez plus de revenus",
+    items: [
+      "Ne perdez plus jamais un client à cause d'appels manqués ou de réponses trop lentes",
+      "Convertissez plus de prospects",
+      "Soyez disponibles 24/7",
+      "Réduisez les no-shows et annulations"
+    ],
     color: "text-primary"
-  },
-  {
-    icon: Users,
-    value: "3x faster",
-    label: "Response time to leads",
-    color: "text-accent-foreground"
   },
   {
     icon: DollarSign,
-    value: "$50K+",
-    label: "Average annual cost savings",
+    title: "Économisez du temps et de l'argent",
+    items: [
+      "Eliminez des heures de saisie de données et de tâches répétitives",
+      "Libérez votre équipe pour qu'elle se concentre sur des tâches ayant une vraie valeur ajoutée pour les clients",
+      "Faites évoluer votre entreprise sans engager de personnel supplémentaire"
+    ],
+    color: "text-accent-foreground"
+  },
+  {
+    icon: Users,
+    title: "Améliorez l'expérience client",
+    items: [
+      "Des temps de réponse plus rapides et une communication constante",
+      "Un suivi personnalisé qui témoigne de votre attention",
+      "Des processus fluides et professionnels, du premier contact au service continu"
+    ],
     color: "text-primary"
   },
   {
-    icon: TrendingUp,
-    value: "30%",
-    label: "Increase in lead conversion",
+    icon: Lightbulb,
+    title: "Prenez des décisions plus intelligentes",
+    items: [
+      "Des informations en temps réel sur les performances de votre entreprise",
+      "Identifiez automatiquement les tendances et les opportunités",
+      "Des rapports personnalisés qui vous aident réellement à vous développer"
+    ],
     color: "text-accent-foreground"
   }
 ];
@@ -34,37 +51,32 @@ export function Results() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Real Results from Real Businesses
+            À quoi s'attendre quand on automatise de la bonne façon
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Here's what our clients achieve within the first 90 days
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
-          {metrics.map((metric, index) => (
-            <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-              <metric.icon className={`h-12 w-12 mx-auto mb-4 ${metric.color}`} />
-              <div className="text-3xl font-bold text-foreground mb-2">
-                {metric.value}
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {benefits.map((benefit, index) => (
+            <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <benefit.icon className={`h-8 w-8 ${benefit.color}`} />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mt-2">
+                  {benefit.title}
+                </h3>
               </div>
-              <div className="text-sm text-muted-foreground">
-                {metric.label}
-              </div>
+              <ul className="space-y-3">
+                {benefit.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </Card>
           ))}
         </div>
-
-        <Card className="p-8 max-w-4xl mx-auto bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
-          <blockquote className="text-center">
-            <p className="text-xl md:text-2xl font-medium text-card-foreground mb-4">
-              "Alfa's AI system completely transformed our lead handling. We went from missing 40% of calls to capturing every single lead. Revenue is up 35% and our team is finally focused on growth, not admin work."
-            </p>
-            <footer className="text-muted-foreground">
-              <strong className="text-foreground">Michael Chen</strong>, CEO at ServicePro Solutions
-            </footer>
-          </blockquote>
-        </Card>
       </div>
     </section>
   );
