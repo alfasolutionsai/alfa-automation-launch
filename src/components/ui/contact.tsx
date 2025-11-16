@@ -43,7 +43,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     onSubmit?.(formData);
     console.log("Form submitted:", formData);
   };
-  return <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-background to-card">
+  return <section id="contact" className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-background to-card">
       {/* Background with overlay */}
       <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{
       backgroundImage: `url(${backgroundImageSrc})`
