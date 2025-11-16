@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { SplineScene } from "@/components/ui/splite";
 import StackFeatureSection from "@/components/ui/stack-feature-section";
-import { BioluminescentGrid, BioluminescentGridItem } from "@/components/ui/bioluminescent-grid";
+import { FeaturesSectionMinimal } from "@/components/ui/bento-monochrome";
 import { Wrench, Cloud, Settings, Rocket, Lock } from "lucide-react";
 export function Solutions() {
   const features = [{
@@ -64,18 +64,7 @@ export function Solutions() {
       {/* Key Differentiators */}
       <div className="container mx-auto px-4">
         <div className="mt-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Tout ce qu'il faut pour mieux opérer</h2>
-          </div>
-          <BioluminescentGrid>
-            {features.map((feature, i) => (
-              <BioluminescentGridItem key={i}>
-                <feature.icon className="icon" />
-                <h3 className="item-title">{feature.title}</h3>
-                <p className="item-description">{feature.blurb}</p>
-              </BioluminescentGridItem>
-            ))}
-          </BioluminescentGrid>
+          <FeaturesSectionMinimal features={features} headline="Tout ce qu'il faut pour mieux opérer" subheadline="" />
         </div>
       </div>
     </section>;
