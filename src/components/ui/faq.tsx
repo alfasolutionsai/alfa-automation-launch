@@ -1,46 +1,75 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 export default function FAQs() {
+    const faqItems = [
+        {
+            id: 'item-1',
+            question: 'Est-ce que ça va être compliqué à utiliser?',
+            answer: 'Non. On construit des systèmes intuitifs et faciles pour votre équipe. On fournit aussi la formation complète et le support continu. Si vous savez utiliser un courriel et un calendrier, vous pouvez utiliser nos solutions.',
+        },
+        {
+            id: 'item-2',
+            question: 'Est-ce que ça va fonctionner avec mes logiciels actuels?',
+            answer: 'Oui. On s\'intègre à pratiquement tous les outils que vous utilisez déjà que ce soit prise de rendez-vous, CRM, e-mails, système de paiement, etc. Aucun besoin de remplacer ce qui fonctionne.',
+        },
+        {
+            id: 'item-3',
+            question: 'Combien de temps dure l\'implémentation?',
+            answer: 'La majorité de nos clients sont opérationnels en 2 à 4 semaines mais tout cela dépend des solutions choisies et de vos systèmes. On s\'occupe de tout l\'aspect technique pendant que vous continuez de gérer votre entreprise.',
+        },
+        {
+            id: 'item-4',
+            question: 'Et si mes besoins changent?',
+            answer: 'C\'est tout l\'intérêt de l\'IA sur mesure. À mesure que votre entreprise évolue, on ajoute de nouvelles automatisations et on adapte celles en place. Vous n\'êtes jamais coincé avec un logiciel rigide.',
+        },
+        {
+            id: 'item-5',
+            question: 'Est-ce que j\'ai besoin de connaissances techniques?',
+            answer: 'Pas du tout. On gère toute la complexité. Vous nous dites simplement les problèmes à régler, et on construit la solution.',
+        },
+        {
+            id: 'item-6',
+            question: 'Comment fonctionnent les prix?',
+            answer: 'On commence par un audit gratuit pour comprendre vos besoins, puis on vous propose une offre personnalisée. L\'implémentation comporte des frais uniques, suivis d\'un abonnement mensuel pour la maintenance, le support et l\'optimisation continue. On discutera des détails lors de votre appel stratégique.',
+        },
+    ];
+
     return (
-        <section className="scroll-py-16 py-16 md:scroll-py-32 md:py-32">
-            <div className="mx-auto max-w-5xl px-6">
-                <div className="grid gap-y-12 px-2 lg:[grid-template-columns:1fr_auto]">
-                    <div className="text-center lg:text-left">
-                        <h2 className="mb-4 text-3xl font-semibold md:text-4xl">
-                            Frequently <br className="hidden lg:block" /> Asked <br className="hidden lg:block" />
-                            Questions
-                        </h2>
-                        <p>Accusantium quisquam. Illo, omnis?</p>
-                    </div>
+        <section className="py-16 md:py-24">
+            <div className="mx-auto max-w-5xl px-4 md:px-6">
+                <div className="mx-auto max-w-xl text-center">
+                    <h2 className="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">Questions fréquentes</h2>
+                    <p className="text-muted-foreground mt-4 text-balance">Tout ce que vous devez savoir sur nos solutions d'automatisation par IA pour votre entreprise québécoise.</p>
+                </div>
 
-                    <div className="divide-y divide-dashed sm:mx-auto sm:max-w-lg lg:mx-0">
-                        <div className="pb-6">
-                            <h3 className="font-medium">What is the refund policy?</h3>
-                            <p className="text-muted-foreground mt-4">We offer a 30-day money back guarantee. If you are not satisfied with our product, you can request a refund within 30 days of your purchase.</p>
+                <div className="mx-auto mt-12 max-w-xl">
+                    <Accordion
+                        type="single"
+                        collapsible
+                        className="bg-card ring-muted w-full rounded-2xl border px-8 py-3 shadow-sm ring-4 dark:ring-0">
+                        {faqItems.map((item) => (
+                            <AccordionItem
+                                key={item.id}
+                                value={item.id}
+                                className="border-dashed">
+                                <AccordionTrigger className="cursor-pointer text-base hover:no-underline">{item.question}</AccordionTrigger>
+                                <AccordionContent>
+                                    <p className="text-base">{item.answer}</p>
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
 
-                            <ol className="list-outside list-decimal space-y-2 pl-4">
-                                <li className="text-muted-foreground mt-4">To request a refund, please contact our support team with your order number and reason for the refund.</li>
-                                <li className="text-muted-foreground mt-4">Refunds will be processed within 3-5 business days.</li>
-                                <li className="text-muted-foreground mt-4">Please note that refunds are only available for new customers and are limited to one per customer.</li>
-                            </ol>
-                        </div>
-                        <div className="py-6">
-                            <h3 className="font-medium">How do I cancel my subscription?</h3>
-                            <p className="text-muted-foreground mt-4">You can cancel your subscription at any time by logging into your account and clicking on the cancel button.</p>
-                        </div>
-                        <div className="py-6">
-                            <h3 className="font-medium">Can I upgrade my plan?</h3>
-                            <p className="text-muted-foreground my-4">Yes, you can upgrade your plan at any time by logging into your account and selecting the plan you want to upgrade to.</p>
-                            <ul className="list-outside list-disc space-y-2 pl-4">
-                                <li className="text-muted-foreground">You will be charged the difference in price between your current plan and the plan you are upgrading to.</li>
-                                <li className="text-muted-foreground">Your new plan will take effect immediately and you will be billed at the new rate on your next billing cycle.</li>
-                            </ul>
-                        </div>
-                        <div className="py-6">
-                            <h3 className="font-medium">Do you offer phone support?</h3>
-                            <p className="text-muted-foreground mt-4">We do not offer phone support at this time. However, you can contact us via email or live chat for any questions or concerns you may have.</p>
-                        </div>
-                    </div>
+                    <p className="text-muted-foreground mt-6 px-8">
+                        Vous avez d'autres questions?{' '}
+                        <a
+                            href="#contact"
+                            className="text-primary font-medium hover:underline">
+                            Contactez notre équipe
+                        </a>
+                    </p>
                 </div>
             </div>
         </section>
-    )
+    );
 }
