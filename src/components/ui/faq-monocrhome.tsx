@@ -1,13 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
-
 const INTRO_STYLE_ID = "faq1-animations";
-
 interface FAQItem {
   question: string;
   answer: string;
   meta?: string;
 }
-
 const palettes = {
   dark: {
     surface: "bg-neutral-950 text-neutral-100",
@@ -23,7 +20,7 @@ const palettes = {
     glow: "rgba(255, 255, 255, 0.08)",
     aurora: "radial-gradient(ellipse 50% 100% at 10% 0%, rgba(226, 232, 240, 0.15), transparent 65%), #000000",
     shadow: "shadow-[0_36px_140px_-60px_rgba(10,10,10,0.95)]",
-    overlay: "linear-gradient(130deg, rgba(255,255,255,0.04) 0%, transparent 65%)",
+    overlay: "linear-gradient(130deg, rgba(255,255,255,0.04) 0%, transparent 65%)"
   },
   light: {
     surface: "bg-slate-100 text-neutral-900",
@@ -39,19 +36,17 @@ const palettes = {
     glow: "rgba(15, 15, 15, 0.08)",
     aurora: "radial-gradient(ellipse 50% 100% at 10% 0%, rgba(15, 23, 42, 0.08), rgba(255, 255, 255, 0.95) 70%)",
     shadow: "shadow-[0_36px_120px_-70px_rgba(15,15,15,0.18)]",
-    overlay: "linear-gradient(130deg, rgba(15,23,42,0.08) 0%, transparent 70%)",
-  },
+    overlay: "linear-gradient(130deg, rgba(15,23,42,0.08) 0%, transparent 70%)"
+  }
 };
-
 interface FAQMonochromeProps {
   faqs: FAQItem[];
   title?: string;
   subtitle?: string;
   description?: string;
 }
-
-function FAQMonochrome({ 
-  faqs, 
+function FAQMonochrome({
+  faqs,
   title = "Signal FAQ",
   subtitle = "Questions",
   description = "Everything you need to know about partnering with our team, condensed into calm monochrome clarity."
@@ -65,12 +60,10 @@ function FAQMonochrome({
     }
     return "light";
   };
-
   const [theme, setTheme] = useState(getRootTheme);
   const [introReady, setIntroReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasEntered, setHasEntered] = useState(false);
-
   useEffect(() => {
     if (typeof document === "undefined") return;
     if (document.getElementById(INTRO_STYLE_ID)) return;
@@ -196,14 +189,11 @@ function FAQMonochrome({
         animation: faq1-fade-up 860ms cubic-bezier(0.22, 0.68, 0, 1) forwards;
       }
     `;
-
     document.head.appendChild(style);
-
     return () => {
       if (style.parentNode) style.remove();
     };
   }, []);
-
   useEffect(() => {
     if (typeof window === "undefined") {
       setIntroReady(true);
@@ -212,34 +202,25 @@ function FAQMonochrome({
     const frame = window.requestAnimationFrame(() => setIntroReady(true));
     return () => window.cancelAnimationFrame(frame);
   }, []);
-
   useEffect(() => {
     if (typeof document === "undefined") return;
-
     const applyThemeFromRoot = () => setTheme(getRootTheme());
-
     applyThemeFromRoot();
-
     const observer = new MutationObserver(applyThemeFromRoot);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ["class", "data-theme"],
+      attributeFilter: ["class", "data-theme"]
     });
-
     const handleStorage = (event: StorageEvent) => {
       if (event.key === "bento-theme") applyThemeFromRoot();
     };
-
     window.addEventListener("storage", handleStorage);
-
     return () => {
       observer.disconnect();
       window.removeEventListener("storage", handleStorage);
     };
   }, []);
-
   const palette = useMemo(() => palettes[theme], [theme]);
-
   const toggleTheme = () => {
     if (typeof document === "undefined") return;
     const root = document.documentElement;
@@ -252,68 +233,50 @@ function FAQMonochrome({
       /* ignore */
     }
   };
-  const toggleQuestion = (index: number) => setActiveIndex((prev) => (prev === index ? -1 : index));
-
+  const toggleQuestion = (index: number) => setActiveIndex(prev => prev === index ? -1 : index);
   useEffect(() => {
     if (typeof window === "undefined") {
       setHasEntered(true);
       return;
     }
-
     let timeout: number;
     const onLoad = () => {
       timeout = window.setTimeout(() => setHasEntered(true), 120);
     };
-
     if (document.readyState === "complete") {
       onLoad();
     } else {
-      window.addEventListener("load", onLoad, { once: true });
+      window.addEventListener("load", onLoad, {
+        once: true
+      });
     }
-
     return () => {
       window.removeEventListener("load", onLoad);
       window.clearTimeout(timeout);
     };
   }, []);
-
   const setCardGlow = (event: React.MouseEvent<HTMLLIElement>) => {
     const target = event.currentTarget;
     const rect = target.getBoundingClientRect();
     target.style.setProperty("--faq-x", `${event.clientX - rect.left}px`);
     target.style.setProperty("--faq-y", `${event.clientY - rect.top}px`);
   };
-
   const clearCardGlow = (event: React.MouseEvent<HTMLLIElement>) => {
     const target = event.currentTarget;
     target.style.removeProperty("--faq-x");
     target.style.removeProperty("--faq-y");
   };
+  return <div className={`relative min-h-screen w-full overflow-hidden transition-colors duration-700 ${palette.surface}`}>
+      <div className="absolute inset-0 z-0" style={{
+      background: palette.aurora
+    }} />
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-80" style={{
+      background: palette.overlay,
+      mixBlendMode: theme === "dark" ? "screen" : "multiply"
+    }} />
 
-  return (
-    <div className={`relative min-h-screen w-full overflow-hidden transition-colors duration-700 ${palette.surface}`}>
-      <div className="absolute inset-0 z-0" style={{ background: palette.aurora }} />
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-80"
-        style={{ background: palette.overlay, mixBlendMode: theme === "dark" ? "screen" : "multiply" }}
-      />
-
-      <section
-        className={`relative z-10 mx-auto flex max-w-4xl flex-col gap-12 px-6 py-24 lg:max-w-5xl lg:px-12 ${
-          hasEntered ? "faq1-fade--ready" : "faq1-fade"
-        }`}
-      >
-        <div
-          className={`faq1-intro ${introReady ? "faq1-intro--active" : ""} ${
-            theme === "light" ? "faq1-intro--light" : "faq1-intro--dark"
-          }`}
-        >
-          <span className="faq1-intro__beam" aria-hidden="true" />
-          <span className="faq1-intro__pulse" aria-hidden="true" />
-          <span className="faq1-intro__label">{title}</span>
-          <span className="faq1-intro__meter" aria-hidden="true" />
-          <span className="faq1-intro__tick" aria-hidden="true" />
-        </div>
+      <section className={`relative z-10 mx-auto flex max-w-4xl flex-col gap-12 px-6 py-24 lg:max-w-5xl lg:px-12 ${hasEntered ? "faq1-fade--ready" : "faq1-fade"}`}>
+        
 
         <header className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="space-y-4">
@@ -326,73 +289,25 @@ function FAQMonochrome({
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className={`relative inline-flex h-11 items-center gap-3 rounded-full border px-5 text-sm font-medium transition-colors duration-500 ${palette.toggleSurface} ${palette.toggle}`}
-            aria-pressed={theme === "dark" ? "true" : "false"}
-          >
-            <span className="relative flex h-6 w-6 items-center justify-center">
-              <span
-                className={`pointer-events-none absolute inset-0 rounded-full border opacity-40 ${
-                  theme === "dark" ? "border-white/30 animate-pulse" : "border-neutral-400/50"
-                }`}
-              />
-              <span
-                className={`h-3 w-3 rounded-full transition-all duration-500 ${
-                  theme === "dark" ? "bg-white" : "bg-neutral-900"
-                }`}
-              />
-            </span>
-            {theme === "dark" ? "Night" : "Day"} mode
-          </button>
+          
         </header>
 
         <ul className="space-y-4">
           {faqs.map((item, index) => {
-            const open = activeIndex === index;
-            const panelId = `faq-panel-${index}`;
-            const buttonId = `faq-trigger-${index}`;
+          const open = activeIndex === index;
+          const panelId = `faq-panel-${index}`;
+          const buttonId = `faq-trigger-${index}`;
+          return <li key={item.question} className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 focus-within:-translate-y-0.5 ${palette.border} ${palette.panel} ${palette.shadow}`} onMouseMove={setCardGlow} onMouseLeave={clearCardGlow}>
+                <div className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${open ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`} style={{
+              background: `radial-gradient(240px circle at var(--faq-x, 50%) var(--faq-y, 50%), ${palette.glow}, transparent 70%)`
+            }} />
 
-            return (
-              <li
-                key={item.question}
-                className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 focus-within:-translate-y-0.5 ${palette.border} ${palette.panel} ${palette.shadow}`}
-                onMouseMove={setCardGlow}
-                onMouseLeave={clearCardGlow}
-              >
-                <div
-                  className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${
-                    open ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                  }`}
-                  style={{
-                    background: `radial-gradient(240px circle at var(--faq-x, 50%) var(--faq-y, 50%), ${palette.glow}, transparent 70%)`,
-                  }}
-                />
-
-                <button
-                  type="button"
-                  id={buttonId}
-                  aria-controls={panelId}
-                  aria-expanded={open}
-                  onClick={() => toggleQuestion(index)}
-                  style={{ "--faq-outline": theme === "dark" ? "rgba(255,255,255,0.35)" : "rgba(17,17,17,0.25)" } as React.CSSProperties}
-                  className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--faq-outline)]"
-                >
-                  <span
-                    className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-105 ${palette.iconRing} ${palette.iconSurface}`}
-                  >
-                    <span
-                      className={`pointer-events-none absolute inset-0 rounded-full border opacity-30 ${
-                        palette.iconRing
-                      } ${open ? "animate-ping" : ""}`}
-                    />
-                    <svg
-                      className={`relative h-5 w-5 transition-transform duration-500 ${palette.icon} ${open ? "rotate-45" : ""}`}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                <button type="button" id={buttonId} aria-controls={panelId} aria-expanded={open} onClick={() => toggleQuestion(index)} style={{
+              "--faq-outline": theme === "dark" ? "rgba(255,255,255,0.35)" : "rgba(17,17,17,0.25)"
+            } as React.CSSProperties} className="relative flex w-full items-start gap-6 px-8 py-7 text-left transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--faq-outline)]">
+                  <span className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-105 ${palette.iconRing} ${palette.iconSurface}`}>
+                    <span className={`pointer-events-none absolute inset-0 rounded-full border opacity-30 ${palette.iconRing} ${open ? "animate-ping" : ""}`} />
+                    <svg className={`relative h-5 w-5 transition-transform duration-500 ${palette.icon} ${open ? "rotate-45" : ""}`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 5v14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                       <path d="M5 12h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
@@ -403,37 +318,23 @@ function FAQMonochrome({
                       <h2 className={`text-lg font-medium leading-tight sm:text-xl ${palette.heading}`}>
                         {item.question}
                       </h2>
-                      {item.meta && (
-                        <span
-                          className={`inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.35em] transition-opacity duration-300 sm:ml-auto ${palette.border} ${palette.muted}`}
-                        >
+                      {item.meta && <span className={`inline-flex w-fit items-center rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.35em] transition-opacity duration-300 sm:ml-auto ${palette.border} ${palette.muted}`}>
                           {item.meta}
-                        </span>
-                      )}
+                        </span>}
                     </div>
 
-                    <div
-                      id={panelId}
-                      role="region"
-                      aria-labelledby={buttonId}
-                      className={`overflow-hidden text-sm leading-relaxed transition-[max-height] duration-500 ease-out ${
-                        open ? "max-h-64" : "max-h-0"
-                      } ${palette.muted}`}
-                    >
+                    <div id={panelId} role="region" aria-labelledby={buttonId} className={`overflow-hidden text-sm leading-relaxed transition-[max-height] duration-500 ease-out ${open ? "max-h-64" : "max-h-0"} ${palette.muted}`}>
                       <p className="pr-2">
                         {item.answer}
                       </p>
                     </div>
                   </div>
                 </button>
-              </li>
-            );
-          })}
+              </li>;
+        })}
         </ul>
       </section>
-    </div>
-  );
+    </div>;
 }
-
 export default FAQMonochrome;
 export { FAQMonochrome };
