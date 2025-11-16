@@ -9,7 +9,6 @@ export interface CardFlipProps {
   subtitle?: string;
   description?: string;
   features?: string[];
-  onCtaClick?: () => void;
 }
 
 export default function CardFlip({
@@ -17,7 +16,6 @@ export default function CardFlip({
   subtitle = "Explore the fundamentals",
   description = "Dive deep into the world of modern UI/UX design.",
   features = ["UI/UX", "Modern Design", "Tailwind CSS", "Kokonut UI"],
-  onCtaClick,
 }: CardFlipProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -143,8 +141,7 @@ export default function CardFlip({
           </div>
 
           <div className="pt-6 mt-6 border-t border-border">
-            <button
-              onClick={onCtaClick}
+            <a href="#contact"
               className={cn(
                 "group/start relative w-full",
                 "flex items-center justify-between",
@@ -168,7 +165,7 @@ export default function CardFlip({
                 />
                 <ArrowRight className="relative z-10 w-4 h-4 text-primary transition-all duration-300 group-hover/start:translate-x-0.5 group-hover/start:scale-110" />
               </div>
-            </button>
+            </a>
           </div>
         </div>
       </div>

@@ -34,10 +34,6 @@ const services = [{
   features: ["Analyse personnalisée", "Développement sur mesure", "Intégration flexible", "Support dédié"]
 }];
 export function Services() {
-  const handleCtaClick = () => {
-    // TODO: Open contact form modal
-    console.log("Open contact form");
-  };
   return <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Voice AI Demo Widget */}
@@ -53,7 +49,7 @@ export function Services() {
 
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20 justify-items-center">
-          {services.map((service, index) => <CardFlip key={index} title={service.title} subtitle={service.subtitle} description={service.description} features={service.features} onCtaClick={handleCtaClick} />)}
+          {services.map((service, index) => <CardFlip key={index} title={service.title} subtitle={service.subtitle} description={service.description} features={service.features} />)}
         </div>
 
         {/* Dashboard Preview Section */}
