@@ -47,7 +47,7 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section className="relative max-w-6xl mx-auto my-32 pl-10 flex items-center justify-between h-[30rem] border border-border bg-card overflow-hidden rounded-3xl">
+    <section className="relative max-w-7xl mx-auto my-32 pl-10 flex items-center justify-between h-[40rem] border border-border bg-card overflow-hidden rounded-3xl">
       {/* Left side: Heading and Text */}
       <div className="w-1/2 z-10">
         <h2 className="text-4xl sm:text-6xl font-bold mb-4 text-foreground">
