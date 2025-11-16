@@ -6,11 +6,12 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { MorphingText } from "@/components/ui/morphing-text";
 
 export function Hero() {
-  return <section className="relative overflow-hidden bg-gradient-to-b from-background to-card py-20 md:py-32">
-      {/* Animated background paths */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        <BackgroundPaths />
-      </div>
+  return <section className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 min-h-[calc(100vh-40px)] overflow-hidden bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_50%,hsl(var(--border))_88%)] dark:bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_30%,hsl(var(--muted))_78%,hsl(var(--foreground))_99%_50%)] rounded-b-xl">
+      {/* Grid BG */}
+      <div className="absolute -z-10 inset-0 opacity-80 h-[600px] w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,hsl(var(--muted))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--muted))_1px,transparent_1px)] bg-[size:6rem_5rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+
+      {/* Radial Accent */}
+      <div className="absolute left-1/2 top-[calc(100%-90px)] lg:top-[calc(100%-150px)] h-[500px] w-[700px] md:h-[500px] md:w-[1100px] lg:h-[750px] lg:w-[140%] -translate-x-1/2 rounded-[100%] bg-background bg-[radial-gradient(closest-side,hsl(var(--background))_82%,hsl(var(--foreground)))] dark:bg-[radial-gradient(closest-side,hsl(var(--background))_82%,hsl(var(--foreground)))] animate-fade-up" />
 
       <div className="container relative mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -59,7 +60,7 @@ export function Hero() {
           </div>
 
           {/* Right content - 3D Scene */}
-          <div className="relative hidden lg:block">
+          <div className="relative hidden lg:block animate-fade-up">
             <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="hsl(var(--primary))" />
             <div className="relative h-[500px] rounded-lg overflow-hidden border border-border bg-card/50 backdrop-blur-sm">
               <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
