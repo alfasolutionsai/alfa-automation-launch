@@ -6,11 +6,11 @@ import { Wrench, Cloud, Settings, Rocket, Lock } from "lucide-react";
 export function Solutions() {
   const features = [
     {
-      title: "Vraiment fait sur mesure",
-      blurb: "Construit exactement pour vos opérations, pas de logiciel générique imposé. Tout fonctionne comme vos processus actuels. Zéro friction, zéro adaptation forcée.",
-      meta: "Sur mesure",
-      icon: Wrench,
-      animation: "bento2-float 6s ease-in-out infinite",
+      title: "Sécurité et confidentialité",
+      blurb: "Nos systèmes sécurisés protègent parfaitement vos informations et nos solutions garantissent la sécurité et la confidentialité de vos données et celles de vos clients. Tous nos systèmes les lois relatives à la protection des renseignements personnels ou n'importe quelle règles de conformités spécifiques à votre industrie ou votre entreprise. Avec Alfa vous pouvez avoir la conscience tranquille et vous concentrez sur ce qui compte vraiment.",
+      meta: "Sécurité",
+      icon: Lock,
+      animation: "bento2-glow 7s ease-in-out infinite",
     },
     {
       title: "Intégration facile et rapide",
@@ -34,11 +34,11 @@ export function Solutions() {
       animation: "bento2-drift 8s ease-in-out infinite",
     },
     {
-      title: "Sécurité et confidentialité",
-      blurb: "Nos systèmes sécurisés protègent parfaitement vos informations et nos solutions garantissent la sécurité et la confidentialité de vos données et celles de vos clients. Tous nos systèmes les lois relatives à la protection des renseignements personnels ou n'importe quelle règles de conformités spécifiques à votre industrie ou votre entreprise. Avec Alfa vous pouvez avoir la conscience tranquille et vous concentrez sur ce qui compte vraiment.",
-      meta: "Sécurité",
-      icon: Lock,
-      animation: "bento2-glow 7s ease-in-out infinite",
+      title: "Vraiment fait sur mesure",
+      blurb: "Construit exactement pour vos opérations, pas de logiciel générique imposé. Tout fonctionne comme vos processus actuels. Zéro friction, zéro adaptation forcée.",
+      meta: "Sur mesure",
+      icon: Wrench,
+      animation: "bento2-float 6s ease-in-out infinite",
     },
   ];
 

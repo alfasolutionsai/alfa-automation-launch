@@ -275,6 +275,28 @@ function BentoItem({ feature, span = "", theme = "light", index = 0, isVisible =
         </div>
       </div>
 
+      <div className="mt-4">
+        <a 
+          href="#contact" 
+          className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
+        >
+          En savoir plus
+          <svg 
+            className="ml-1 h-4 w-4" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M9 5l7 7-7 7" 
+            />
+          </svg>
+        </a>
+      </div>
+
       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         <div
           className="absolute inset-0 rounded-2xl border border-primary/20"
