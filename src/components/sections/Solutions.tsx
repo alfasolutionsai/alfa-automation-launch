@@ -1,40 +1,44 @@
 import { Card } from "@/components/ui/card";
 import { SplineScene } from "@/components/ui/splite";
 import StackFeatureSection from "@/components/ui/stack-feature-section";
-import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
-import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconLock,
-  IconRocket,
-  IconTool,
-} from "@tabler/icons-react";
+import { FeaturesSectionMinimal } from "@/components/ui/bento-monochrome";
+import { Wrench, Cloud, Settings, Rocket, Lock } from "lucide-react";
 export function Solutions() {
   const features = [
     {
       title: "Vraiment fait sur mesure",
-      description: "Construit exactement pour vos opérations, pas de logiciel générique imposé. Tout fonctionne comme vos processus actuels. Zéro friction, zéro adaptation forcée.",
-      icon: <IconTool className="w-6 h-6" />,
+      blurb: "Construit exactement pour vos opérations, pas de logiciel générique imposé. Tout fonctionne comme vos processus actuels. Zéro friction, zéro adaptation forcée.",
+      meta: "Sur mesure",
+      icon: Wrench,
+      animation: "bento2-float 6s ease-in-out infinite",
     },
     {
       title: "Intégration facile et rapide",
-      description: "Se connecte parfaitement à vos outils actuels sans mal de tête technique ni formation compliquée pour votre équipe. Aucune interruption, tout roule dès le jour 1.",
-      icon: <IconCloud className="w-6 h-6" />,
+      blurb: "Se connecte parfaitement à vos outils actuels sans mal de tête technique ni formation compliquée pour votre équipe. Aucune interruption, tout roule dès le jour 1.",
+      meta: "Intégration",
+      icon: Cloud,
+      animation: "bento2-pulse 4s ease-in-out infinite",
     },
     {
       title: "Tableaux de bord personnalisés",
-      description: "Des tableaux de bord et CRM faits pour vous montrer exactement ce dont vous avez besoin et suivre vos clients comme vous le souhaitez. Une vision claire, des données utiles et un contrôle total.",
-      icon: <IconAdjustmentsBolt className="w-6 h-6" />,
+      blurb: "Des tableaux de bord et CRM faits pour vous montrer exactement ce dont vous avez besoin et suivre vos clients comme vous le souhaitez. Une vision claire, des données utiles et un contrôle total.",
+      meta: "Tableaux",
+      icon: Settings,
+      animation: "bento2-tilt 5.5s ease-in-out infinite",
     },
     {
       title: "Pensé pour la croissance",
-      description: "Conçu pour vous aider à augmenter vos revenus, pas seulement à économiser du temps. Plus de volume, plus de clients et plus de profit sans agrandir votre équipe.",
-      icon: <IconRocket className="w-6 h-6" />,
+      blurb: "Conçu pour vous aider à augmenter vos revenus, pas seulement à économiser du temps. Plus de volume, plus de clients et plus de profit sans agrandir votre équipe.",
+      meta: "Croissance",
+      icon: Rocket,
+      animation: "bento2-drift 8s ease-in-out infinite",
     },
     {
       title: "Sécurité et confidentialité",
-      description: "Nos systèmes sécurisés protègent parfaitement vos informations et nos solutions garantissent la sécurité et la confidentialité de vos données et celles de vos clients. Tous nos systèmes les lois relatives à la protection des renseignements personnels ou n'importe quelle règles de conformités spécifiques à votre industrie ou votre entreprise. Avec Alfa vous pouvez avoir la conscience tranquille et vous concentrez sur ce qui compte vraiment.",
-      icon: <IconLock className="w-6 h-6" />,
+      blurb: "Nos systèmes sécurisés protègent parfaitement vos informations et nos solutions garantissent la sécurité et la confidentialité de vos données et celles de vos clients. Tous nos systèmes les lois relatives à la protection des renseignements personnels ou n'importe quelle règles de conformités spécifiques à votre industrie ou votre entreprise. Avec Alfa vous pouvez avoir la conscience tranquille et vous concentrez sur ce qui compte vraiment.",
+      meta: "Sécurité",
+      icon: Lock,
+      animation: "bento2-glow 7s ease-in-out infinite",
     },
   ];
 
@@ -68,7 +72,11 @@ export function Solutions() {
 
         {/* Key Differentiators */}
         <div className="mt-20">
-          <FeaturesSectionWithHoverEffects features={features} />
+          <FeaturesSectionMinimal 
+            features={features}
+            headline="Tout ce qu'il faut pour opérer mieux"
+            subheadline=""
+          />
         </div>
       </div>
     </section>;
