@@ -1,65 +1,142 @@
-import { Card } from "@/components/ui/card";
+import CardFlip from "@/components/ui/card-flip";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
-import { Phone, Brain, Workflow, Database, ArrowRight } from "lucide-react";
-const services = [{
-  icon: Phone,
-  title: "Voice AI Agents",
-  description: "Never miss a call. AI agents that sound human, book appointments, and qualify leads 24/7",
-  features: ["24/7 availability", "Natural conversations", "Instant follow-up"],
-  highlighted: true
-}, {
-  icon: Workflow,
-  title: "Workflow Automation",
-  description: "Eliminate repetitive tasks with intelligent automation that learns your business processes",
-  features: ["Email automation", "Data entry", "Document processing"],
-  highlighted: false
-}, {
-  icon: Brain,
-  title: "Smart Lead Qualification",
-  description: "AI that scores, routes, and nurtures leads automatically—so you focus on closers",
-  features: ["Lead scoring", "Auto-routing", "Smart nurture"],
-  highlighted: false
-}, {
-  icon: Database,
-  title: "Custom Integrations",
-  description: "Connect your CRM, calendar, email, and tools into one seamless automated system",
-  features: ["CRM sync", "API integrations", "Custom dashboards"],
-  highlighted: false
-}];
+import { Phone } from "lucide-react";
+
+const services = [
+  {
+    title: "Réceptionniste vocal IA",
+    subtitle: "Disponible 24/7 pour vos clients",
+    description: "Ne ratez plus jamais un appel. L'IA répond 24/7, réserve, répond aux questions, qualifie les leads et vous pouvez personnaliser la voix.",
+    features: [
+      "Réponses automatiques 24/7",
+      "Réservation intelligente",
+      "Qualification des leads",
+      "Voix personnalisable"
+    ],
+  },
+  {
+    title: "Réservation et planification",
+    subtitle: "Automatisation complète",
+    description: "Automatisation complète des rendez-vous, rappels, etc et s'intègre parfaitement à votre calendrier.",
+    features: [
+      "Gestion automatique des RDV",
+      "Rappels intelligents",
+      "Intégration calendrier",
+      "Réduction des no-shows"
+    ],
+  },
+  {
+    title: "Suivis client automatisés",
+    subtitle: "Aucun client oublié",
+    description: "Suivis intelligents basés sur les comportements clients et l'historique de service. Assure qu'aucun client ou prospect ne soit oublié.",
+    features: [
+      "Suivis comportementaux",
+      "Analyse de l'historique",
+      "Relances automatiques",
+      "Personnalisation avancée"
+    ],
+  },
+  {
+    title: "CRM intelligent",
+    subtitle: "Toutes vos données centralisées",
+    description: "Centralise les données des clients, automatise les entrées de données avec une analyse claire.",
+    features: [
+      "Centralisation des données",
+      "Saisie automatique",
+      "Tableaux de bord personnalisés",
+      "Analyses en temps réel"
+    ],
+  },
+  {
+    title: "Intégration nouveaux clients",
+    subtitle: "Processus fluide et rapide",
+    description: "Séquences de bienvenue, collecte de documents, premiers appels. Votre processus, mais automatisé.",
+    features: [
+      "Séquences de bienvenue",
+      "Collecte automatisée",
+      "Onboarding accéléré",
+      "Charge de travail réduite"
+    ],
+  },
+  {
+    title: "Solutions personnalisées",
+    subtitle: "Adapté à vos besoins uniques",
+    description: "Chez Alfa on sait que chaque entreprise est unique. C'est pour ça qu'on construit les outils pour faire face à vos défis.",
+    features: [
+      "Analyse personnalisée",
+      "Développement sur mesure",
+      "Intégration flexible",
+      "Support dédié"
+    ],
+  },
+];
+
 export function Services() {
-  return <section id="services" className="py-20 bg-background">
+  const handleCtaClick = () => {
+    // TODO: Open contact form modal
+    console.log("Open contact form");
+  };
+
+  return (
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Nos services</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-center">Systèmes IA personnalisés conçus pour résoudre les défis particuliers de votre entreprise.                                            </p>
+        {/* Voice AI Demo Widget */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            Des solutions IA qui règlent vos vrais problèmes
+          </h2>
+          <Button 
+            size="lg" 
+            className="gap-2"
+            onClick={() => console.log("Test AI agent")}
+          >
+            <Phone className="h-5 w-5" />
+            Testez un de nos agents
+          </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {services.map((service, index) => <Card key={index} className={`p-8 hover:shadow-2xl transition-all duration-300 ${service.highlighted ? 'border-2 border-accent ring-2 ring-accent/20' : 'hover:scale-[1.02]'}`}>
-              {service.highlighted && <div className="mb-4 inline-flex rounded-full bg-accent px-3 py-1 text-xs font-medium text-accent-foreground">
-                  Most Popular
-                </div>}
-              <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
-                <service.icon className="h-7 w-7 text-primary" />
+        {/* Service Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20 justify-items-center">
+          {services.map((service, index) => (
+            <CardFlip
+              key={index}
+              title={service.title}
+              subtitle={service.subtitle}
+              description={service.description}
+              features={service.features}
+              onCtaClick={handleCtaClick}
+            />
+          ))}
+        </div>
+
+        {/* Dashboard Preview Section */}
+        <div className="mt-32">
+          <ContainerScroll
+            titleComponent={
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+                  Suivez vos clients et vos données
+                </h2>
+                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Supervisez vos automatisations et bien plus encore avec des tableaux de bord intuitifs.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-card-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                {service.description}
-              </p>
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, idx) => <li key={idx} className="flex items-center gap-2 text-sm">
-                    <div className="h-1.5 w-1.5 rounded-full bg-accent"></div>
-                    <span className="text-muted-foreground">{feature}</span>
-                  </li>)}
-              </ul>
-              <Button variant="ghost" className="w-full justify-between text-primary hover:text-accent hover:bg-accent/10">
-                Learn More
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Card>)}
+            }
+          >
+            <div className="w-full h-full bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-2xl flex items-center justify-center">
+              <div className="text-center space-y-4 p-8">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Tableau de bord personnalisé
+                </h3>
+                <p className="text-muted-foreground max-w-md">
+                  Visualisez toutes vos données en temps réel avec des tableaux de bord conçus pour votre entreprise.
+                </p>
+              </div>
+            </div>
+          </ContainerScroll>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
