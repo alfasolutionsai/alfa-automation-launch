@@ -122,18 +122,6 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
           })}
         </div>
       </div>
-
-      {/* Animation keyframes */}
-      <style>{`
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </section>
   );
 }
