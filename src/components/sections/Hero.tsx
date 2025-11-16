@@ -4,7 +4,6 @@ import { BackgroundPaths } from "@/components/ui/background-paths";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
 import { MorphingText } from "@/components/ui/morphing-text";
-
 export function Hero() {
   return <section className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 min-h-[calc(100vh-40px)] overflow-hidden bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_50%,hsl(var(--border))_88%)] dark:bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_30%,hsl(var(--muted))_78%,hsl(var(--foreground))_99%_50%)] rounded-b-xl">
       {/* Grid BG */}
@@ -26,16 +25,7 @@ export function Hero() {
 
             <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl">
               Utilisez l'IA pour{" "}
-              <MorphingText 
-                words={[
-                  "Gagner du temps",
-                  "Économiser de l'argent",
-                  "Faire croître votre entreprise",
-                  "Améliorer votre service client",
-                  "Mieux s'organiser"
-                ]}
-                className="text-4xl md:text-6xl lg:text-7xl"
-              />
+              <MorphingText words={["Gagner du temps", "Économiser de l'argent", "Faire croître votre entreprise", "Améliorer votre service client", "Mieux s'organiser"]} className="text-4xl md:text-6xl lg:text-7xl" />
             </h1>
 
             <p className="mb-10 text-lg text-muted-foreground md:text-xl">
@@ -62,9 +52,7 @@ export function Hero() {
           {/* Right content - 3D Scene */}
           <div className="relative hidden lg:block animate-fade-up">
             <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="hsl(var(--primary))" />
-            <div className="relative h-[500px] rounded-lg overflow-hidden border border-border bg-card/50 backdrop-blur-sm">
-              <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
-            </div>
+            
           </div>
         </div>
       </div>
