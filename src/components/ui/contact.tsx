@@ -4,7 +4,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Calendar } from "lucide-react";
-
 interface ContactSectionProps {
   title?: string;
   subtitle?: string;
@@ -13,14 +12,13 @@ interface ContactSectionProps {
   backgroundImageSrc?: string;
   onSubmit?: (data: any) => void;
 }
-
 export const ContactSection: React.FC<ContactSectionProps> = ({
   title = "Prêts à enfin faire grandir votre entreprise et arrêter de perdre du temps et de l'argent?",
   subtitle = "Réservez une consultation gratuite de 30 minutes. Nous analyserons vos processus et vous montrerons précisément les avantages que l'IA peut vous apporter.",
   supportingCopy = "Aucune obligation ou pression, juste une feuille de route claire de ce qui pourrait vous aider.",
   riskReversal = "100% gratuit. Aucune carte de crédit requise. Voyez les résultats avant d'investir.",
   backgroundImageSrc = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
-  onSubmit,
+  onSubmit
 }) => {
   const [formData, setFormData] = React.useState({
     name: '',
@@ -28,44 +26,41 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     email: '',
     phone: '',
     industry: '',
-    challenges: '',
+    challenges: ''
   });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit?.(formData);
     console.log("Form submitted:", formData);
   };
-
-  return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-background to-card">
+  return <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-background to-card">
       {/* Background with overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-5"
-        style={{ backgroundImage: `url(${backgroundImageSrc})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{
+      backgroundImage: `url(${backgroundImageSrc})`
+    }} />
       
       {/* Animated Bubbles */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-primary/10 rounded-full animate-bubble opacity-0"
-            style={{
-              width: `${Math.random() * 30 + 15}px`,
-              height: `${Math.random() * 30 + 15}px`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${Math.random() * 15 + 12}s`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
+        {Array.from({
+        length: 12
+      }).map((_, i) => <div key={i} className="absolute bg-primary/10 rounded-full animate-bubble opacity-0" style={{
+        width: `${Math.random() * 30 + 15}px`,
+        height: `${Math.random() * 30 + 15}px`,
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 8}s`,
+        animationDuration: `${Math.random() * 15 + 12}s`,
+        top: `${Math.random() * 100}%`
+      }} />)}
       </div>
 
       {/* Main Content */}
@@ -95,27 +90,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Nom complet *</Label>
-                  <Input 
-                    id="name" 
-                    name="name" 
-                    placeholder="Jean Dupont" 
-                    value={formData.name} 
-                    onChange={handleChange} 
-                    required 
-                    className="bg-background/50"
-                  />
+                  <Input id="name" name="name" placeholder="Jean Dupont" value={formData.name} onChange={handleChange} required className="bg-background/50" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="company">Entreprise *</Label>
-                  <Input 
-                    id="company" 
-                    name="company" 
-                    placeholder="Votre Entreprise Inc." 
-                    value={formData.company} 
-                    onChange={handleChange} 
-                    required 
-                    className="bg-background/50"
-                  />
+                  <Input id="company" name="company" placeholder="Votre Entreprise Inc." value={formData.company} onChange={handleChange} required className="bg-background/50" />
                 </div>
               </div>
 
@@ -123,63 +102,29 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="email">Email *</Label>
-                  <Input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    placeholder="jean@entreprise.com" 
-                    value={formData.email} 
-                    onChange={handleChange} 
-                    required 
-                    className="bg-background/50"
-                  />
+                  <Input id="email" name="email" type="email" placeholder="jean@entreprise.com" value={formData.email} onChange={handleChange} required className="bg-background/50" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Téléphone</Label>
-                  <Input 
-                    id="phone" 
-                    name="phone" 
-                    type="tel" 
-                    placeholder="(555) 123-4567" 
-                    value={formData.phone} 
-                    onChange={handleChange} 
-                    className="bg-background/50"
-                  />
+                  <Input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" value={formData.phone} onChange={handleChange} className="bg-background/50" />
                 </div>
               </div>
 
               {/* Industry */}
               <div className="space-y-2">
                 <Label htmlFor="industry">Industrie / Type d'entreprise *</Label>
-                <Input 
-                  id="industry" 
-                  name="industry" 
-                  placeholder="Ex: Commerce de détail, Services professionnels, Santé..." 
-                  value={formData.industry} 
-                  onChange={handleChange} 
-                  required 
-                  className="bg-background/50"
-                />
+                <Input id="industry" name="industry" placeholder="Ex: Commerce de détail, Services professionnels, Santé..." value={formData.industry} onChange={handleChange} required className="bg-background/50" />
               </div>
 
               {/* Challenges */}
               <div className="space-y-2">
                 <Label htmlFor="challenges">Quels sont vos principaux défis opérationnels actuellement? *</Label>
-                <Textarea
-                  id="challenges"
-                  name="challenges"
-                  placeholder="Décrivez les problèmes que vous rencontrez au quotidien..."
-                  rows={8}
-                  value={formData.challenges}
-                  onChange={handleChange}
-                  required
-                  className="bg-background/50 resize-none"
-                />
+                <Textarea id="challenges" name="challenges" placeholder="Décrivez les problèmes que vous rencontrez au quotidien..." rows={8} value={formData.challenges} onChange={handleChange} required className="bg-background/50 resize-none" />
               </div>
 
               {/* Submit Button */}
               <div className="space-y-4">
-                <Button type="submit" size="lg" className="w-full text-lg">
+                <Button type="submit" size="lg" className="w-full text-lg text-blue-700">
                   Réserver ma consultation gratuite
                 </Button>
                 
@@ -195,7 +140,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
       {/* CSS for bubble animation */}
       <style dangerouslySetInnerHTML={{
-        __html: `
+      __html: `
           @keyframes bubble {
             0% {
               transform: translateY(0) translateX(0) scale(0.5);
@@ -214,7 +159,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             animation-fill-mode: forwards;
           }
         `
-      }} />
-    </section>
-  );
+    }} />
+    </section>;
 };
