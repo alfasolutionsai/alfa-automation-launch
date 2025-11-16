@@ -1,11 +1,8 @@
 import { Timeline } from "@/components/ui/timeline";
 import { Button } from "@/components/ui/neon-button";
-
-const timelineData = [
-  {
-    title: "ÉTAPE 1",
-    content: (
-      <div>
+const timelineData = [{
+  title: "ÉTAPE 1",
+  content: <div>
         <h3 className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">
           Audit & Stratégie (GRATUIT)
         </h3>
@@ -26,16 +23,11 @@ const timelineData = [
             <span>Appel découverte de 30 minutes pour cerner vos besoins spécifiques</span>
           </div>
         </div>
-        <Button className="bg-primary hover:bg-primary/90">
-          Obtenez votre audit gratuit
-        </Button>
+        <Button className="bg-primary hover:bg-primary/90">Obtenez votre consultation gratuite</Button>
       </div>
-    ),
-  },
-  {
-    title: "ÉTAPE 2",
-    content: (
-      <div>
+}, {
+  title: "ÉTAPE 2",
+  content: <div>
         <h3 className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">
           Implémentation
         </h3>
@@ -57,12 +49,9 @@ const timelineData = [
           </div>
         </div>
       </div>
-    ),
-  },
-  {
-    title: "ÉTAPE 3",
-    content: (
-      <div>
+}, {
+  title: "ÉTAPE 3",
+  content: <div>
         <h3 className="text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">
           Maintenance & Optimisation
         </h3>
@@ -84,13 +73,9 @@ const timelineData = [
           </div>
         </div>
       </div>
-    ),
-  },
-];
-
+}];
 export function Process() {
-  return (
-    <section className="py-20 bg-background">
+  return <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
@@ -103,6 +88,5 @@ export function Process() {
 
         <Timeline data={timelineData} />
       </div>
-    </section>
-  );
+    </section>;
 }
