@@ -1,37 +1,55 @@
 import { Card } from "@/components/ui/card";
-import { Zap, Target, LineChart, Shield } from "lucide-react";
 import { SplineScene } from "@/components/ui/splite";
-import { Spotlight } from "@/components/ui/spotlight";
-const solutions = [{
-  icon: Zap,
-  title: "Custom-Built for Your Business",
-  description: "Not generic software—AI systems designed specifically for your workflows and challenges"
-}, {
-  icon: Target,
-  title: "Implementation in 14 Days",
-  description: "From discovery call to live system, we move fast without sacrificing quality"
-}, {
-  icon: LineChart,
-  title: "Proven ROI Tracking",
-  description: "See exactly how much time and money you're saving with detailed analytics"
-}, {
-  icon: Shield,
-  title: "Canadian Data Privacy",
-  description: "Your data stays in Canada, fully compliant with all privacy regulations"
-}];
+import StackFeatureSection from "@/components/ui/stack-feature-section";
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
+import {
+  IconAdjustmentsBolt,
+  IconCloud,
+  IconLock,
+  IconRocket,
+  IconTool,
+} from "@tabler/icons-react";
 export function Solutions() {
+  const features = [
+    {
+      title: "Vraiment fait sur mesure",
+      description: "Construit exactement pour vos opérations, pas de logiciel générique imposé. Tout fonctionne comme vos processus actuels. Zéro friction, zéro adaptation forcée.",
+      icon: <IconTool className="w-6 h-6" />,
+    },
+    {
+      title: "Intégration facile et rapide",
+      description: "Se connecte parfaitement à vos outils actuels sans mal de tête technique ni formation compliquée pour votre équipe. Aucune interruption, tout roule dès le jour 1.",
+      icon: <IconCloud className="w-6 h-6" />,
+    },
+    {
+      title: "Tableaux de bord personnalisés",
+      description: "Des tableaux de bord et CRM faits pour vous montrer exactement ce dont vous avez besoin et suivre vos clients comme vous le souhaitez. Une vision claire, des données utiles et un contrôle total.",
+      icon: <IconAdjustmentsBolt className="w-6 h-6" />,
+    },
+    {
+      title: "Pensé pour la croissance",
+      description: "Conçu pour vous aider à augmenter vos revenus, pas seulement à économiser du temps. Plus de volume, plus de clients et plus de profit sans agrandir votre équipe.",
+      icon: <IconRocket className="w-6 h-6" />,
+    },
+    {
+      title: "Sécurité et confidentialité",
+      description: "Nos systèmes sécurisés protègent parfaitement vos informations et nos solutions garantissent la sécurité et la confidentialité de vos données et celles de vos clients. Tous nos systèmes les lois relatives à la protection des renseignements personnels ou n'importe quelle règles de conformités spécifiques à votre industrie ou votre entreprise. Avec Alfa vous pouvez avoir la conscience tranquille et vous concentrez sur ce qui compte vraiment.",
+      icon: <IconLock className="w-6 h-6" />,
+    },
+  ];
+
   return <section id="solutions" className="py-20 bg-gradient-to-b from-background to-card">
       <div className="container mx-auto px-4">
         {/* Featured 3D Section */}
         <Card className="w-full h-[500px] mb-16 bg-card relative overflow-hidden border-border">
-          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="hsl(var(--primary))" />
-          
           <div className="flex flex-col md:flex-row h-full">
             {/* Left content */}
             <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Une IA faite spécialement pour vous</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Une IA sur mesure qui travaille comme VOUS travaillez
+              </h2>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                Nos solutions sont personnalisées pour les besoins particuliers de votre entreprises pour produire des vrais résultats et suivre les données importantes pour vous.                                                                                                                           
+                Alfa crée des systèmes d'IA adaptés à vos processus d'affaires. Pas des outils génériques que vous devez tordre pour faire fonctionner. On construit des automatisations intelligentes conçues autour de votre manière réelle de travailler.
               </p>
             </div>
 
@@ -42,19 +60,15 @@ export function Solutions() {
           </div>
         </Card>
 
-        {/* Solution Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {solutions.map((solution, index) => <Card key={index} className="p-6 text-center hover:scale-105 hover:shadow-xl transition-all duration-300 hover:border-primary">
-              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-accent/20">
-                <solution.icon className="h-8 w-8 text-accent-foreground" />
-              </div>
-              <h3 className="text-lg font-bold text-card-foreground mb-2">
-                {solution.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {solution.description}
-              </p>
-            </Card>)}
+        {/* Stack Integration Section */}
+        <StackFeatureSection 
+          headline="Nos systèmes s'intègrent aux outils que vous connaissez et aimez"
+          subheadline="Alfa offre des intégrations avec plus de 500 outils standards utilisés par les entreprises. Nos services vous permettent d'améliorer vos opérations existantes tout en vous permettant de continuer d'utiliser les outils que vous connaissez déjà."
+        />
+
+        {/* Key Differentiators */}
+        <div className="mt-20">
+          <FeaturesSectionWithHoverEffects features={features} />
         </div>
       </div>
     </section>;
