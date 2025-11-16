@@ -35,9 +35,7 @@ export function Hero() {
                 Obtenez un audit gratuit
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 border-2">
-                Réservez un appel découverte gratuit
-              </Button>
+              
             </div>
 
             <div className="flex justify-center lg:justify-start">
