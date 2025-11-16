@@ -7,9 +7,9 @@ import { GridGlowBackground } from "@/components/ui/grid-glow-background";
 export function Hero() {
   return (
     <GridGlowBackground
-      backgroundColor="hsl(var(--background))"
-      gridColor="hsla(var(--border) / 0.1)"
-      glowColors={["hsl(var(--primary))", "hsl(var(--primary) / 0.8)", "hsl(var(--primary))"]}
+      backgroundColor="#0a0a0a"
+      gridColor="rgba(255, 255, 255, 0.05)"
+      glowColors={["#4A00E0", "#8E2DE2", "#4A00E0"]}
       glowCount={8}
     >
       <div className="container mx-auto px-4 w-full">
