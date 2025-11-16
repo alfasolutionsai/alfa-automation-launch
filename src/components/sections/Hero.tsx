@@ -1,18 +1,18 @@
 import { Button } from "@/components/ui/neon-button";
 import { ArrowRight } from "lucide-react";
+import { BackgroundPaths } from "@/components/ui/background-paths";
+import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
 import { MorphingText } from "@/components/ui/morphing-text";
-import { GridGlowBackground } from "@/components/ui/grid-glow-background";
-
 export function Hero() {
-  return (
-    <GridGlowBackground
-      backgroundColor="#0a0a0a"
-      gridColor="rgba(255, 255, 255, 0.05)"
-      glowColors={["#4A00E0", "#8E2DE2", "#4A00E0"]}
-      glowCount={8}
-    >
-      <div className="container mx-auto px-4 w-full">
+  return <section className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 min-h-[calc(100vh-40px)] overflow-hidden bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_50%,hsl(var(--border))_88%)] dark:bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_30%,hsl(var(--muted))_78%,hsl(var(--foreground))_99%_50%)] rounded-b-xl">
+      {/* Grid BG */}
+      <div className="absolute -z-10 inset-0 opacity-80 h-[600px] w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,hsl(var(--muted))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--muted))_1px,transparent_1px)] bg-[size:6rem_5rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+
+      {/* Radial Accent */}
+      <div className="absolute left-1/2 top-[calc(100%-90px)] lg:top-[calc(100%-150px)] h-[500px] w-[700px] md:h-[500px] md:w-[1100px] lg:h-[750px] lg:w-[140%] -translate-x-1/2 rounded-[100%] bg-background bg-[radial-gradient(closest-side,hsl(var(--background))_82%,hsl(var(--foreground)))] dark:bg-[radial-gradient(closest-side,hsl(var(--background))_82%,hsl(var(--foreground)))] animate-fade-up" />
+
+      <div className="container relative mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left content */}
           <div className="text-center lg:text-left">
@@ -41,9 +41,7 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="mb-8 text-lg text-muted-foreground md:text-xl">
-              Chez Alfa on trouve des solutions à vos problème pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.
-            </p>
+            <p className="mb-10 text-lg text-muted-foreground md:text-xl">Chez Alfa on trouve des solutions à vos problème pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <a href="#contact">
@@ -52,6 +50,7 @@ export function Hero() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
+              
             </div>
 
             <div className="flex justify-center lg:justify-start">
@@ -62,9 +61,9 @@ export function Hero() {
           {/* Right content - 3D Scene */}
           <div className="relative hidden lg:block animate-fade-up">
             <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="hsl(var(--primary))" />
+            
           </div>
         </div>
       </div>
-    </GridGlowBackground>
-  );
+    </section>;
 }
