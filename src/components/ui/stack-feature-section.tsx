@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/neon-button";
 import {
   FaReact, FaAws, FaDocker, FaNodeJs, FaGithub,
   FaTwitter, FaLinkedin, FaInstagram, FaGoogle, FaApple

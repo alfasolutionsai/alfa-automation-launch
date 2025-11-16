@@ -1,6 +1,6 @@
 import CardFlip from "@/components/ui/card-flip";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/neon-button";
 import { Phone } from "lucide-react";
 const services = [{
   title: "Réceptionniste vocal IA",

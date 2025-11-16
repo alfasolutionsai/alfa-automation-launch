@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/neon-button";
 import { ArrowRight } from "lucide-react";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { SplineScene } from "@/components/ui/splite";
