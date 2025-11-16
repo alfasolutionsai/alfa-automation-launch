@@ -10,9 +10,18 @@ export function SplineScene({
   scene,
   className
 }: SplineSceneProps) {
-  return <Suspense fallback={<div className="w-full h-full flex items-center justify-center">
+  return (
+    <Suspense 
+      fallback={
+        <div className="w-full h-full flex items-center justify-center">
           <span className="loader"></span>
-        </div>}>
-      
-    </Suspense>;
+        </div>
+      }
+    >
+      <Spline
+        scene={scene}
+        className={className}
+      />
+    </Suspense>
+  );
 }
