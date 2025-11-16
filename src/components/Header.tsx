@@ -1,9 +1,5 @@
-import { FloatingHeader } from "@/components/ui/floating-header";
+import { Header as NewHeader } from "./ui/header-1";
 
 export function Header() {
-  return (
-    <div className="w-full px-4 pt-4">
-      <FloatingHeader />
-    </div>
-  );
+  return <NewHeader />;
 }
