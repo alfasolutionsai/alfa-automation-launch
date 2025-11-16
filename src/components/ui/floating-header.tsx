@@ -1,7 +1,7 @@
 import React from 'react';
 import { MenuIcon } from 'lucide-react';
 import { Sheet, SheetContent, SheetFooter } from '@/components/ui/sheet';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/neon-button';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 export function FloatingHeader() {

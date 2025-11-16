@@ -1,5 +1,5 @@
 import { Timeline } from "@/components/ui/timeline";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/neon-button";
 
 const timelineData = [
   {
