@@ -20,7 +20,7 @@ export function Header() {
 			href: '#services',
 		},
 		{
-			label: 'Processus',
+			label: 'Comment ça marche?',
 			href: '#process',
 		},
 		{
