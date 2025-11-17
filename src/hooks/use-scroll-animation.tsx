@@ -66,7 +66,7 @@ export const useScrollAnimation = (type: AnimationType = "fade-up", config: Anim
     transition: {
       duration,
       delay,
-      ease: [0.25, 0.1, 0.25, 1]
+      ease: [0.25, 0.1, 0.25, 1] as const
     }
   };
 };
@@ -106,7 +106,7 @@ export const useStaggerAnimation = (childCount: number, config: AnimationConfig 
     item: {
       initial: { opacity: 0, y: 40 },
       whileInView: { opacity: 1, y: 0 },
-      transition: { duration, ease: [0.25, 0.1, 0.25, 1] as any }
+      transition: { duration, ease: [0.25, 0.1, 0.25, 1] as const }
     }
   };
 };

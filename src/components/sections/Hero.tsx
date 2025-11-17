@@ -54,29 +54,46 @@ export function Hero() {
               </span>
             </motion.h1>
 
-            <p className="mb-10 text-lg text-muted-foreground md:text-xl">Chez Alfa on trouve des solutions à vos problème pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.</p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-10 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0"
+            >
+              Des systèmes d'IA conçus spécifiquement pour votre entreprise. On automatise les tâches répétitives et on vous aide à améliorer vos processus d'affaires.
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
               <a href="#contact">
-                <Button size="lg" className="glow-primary text-lg px-8">
-                  Obtenez une consultation gratuite
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="gap-2 group">
+                  Commencer maintenant
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
-              
-            </div>
-
-            <div className="flex justify-center lg:justify-start">
-              <p className="text-sm text-muted-foreground italic">Des solutions pour les vrais défis des entreprises d'ici</p>
-            </div>
+              <a href="#solutions">
+                <Button size="lg" variant="outline">
+                  Voir nos solutions
+                </Button>
+              </a>
+            </motion.div>
           </div>
 
           {/* Right content - 3D Scene */}
-          <div className="relative hidden lg:block animate-fade-up">
-            <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="hsl(var(--primary))" />
-            
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="relative h-[400px] md:h-[500px] lg:h-[600px] hidden lg:block"
+          >
+            <Spotlight className="left-0 top-0 md:left-0 md:top-0" fill="hsl(var(--primary))" />
+          </motion.div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

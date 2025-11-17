@@ -5,55 +5,111 @@ import { Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import { useStaggerAnimation } from "@/hooks/use-scroll-animation";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-const services = [{
-  title: "Réceptionniste vocal IA",
-  subtitle: "Disponible 24/7 pour vos clients",
-  description: "Ne ratez plus jamais un appel. L'IA répond 24/7, réserve, répond aux questions, qualifie les leads et vous pouvez personnaliser la voix.",
-  features: ["Réponses automatiques 24/7", "Réservation intelligente", "Qualification des leads", "Voix personnalisable"]
-}, {
-  title: "Réservation et planification",
-  subtitle: "Automatisation complète",
-  description: "Automatisation complète des rendez-vous, rappels, etc et s'intègre parfaitement à votre calendrier.",
-  features: ["Gestion automatique des RDV", "Rappels intelligents", "Intégration calendrier", "Réduction des no-shows"]
-}, {
-  title: "Suivis client automatisés",
-  subtitle: "Aucun client oublié",
-  description: "Suivis intelligents basés sur les comportements clients et l'historique de service. Assure qu'aucun client ou prospect ne soit oublié.",
-  features: ["Suivis comportementaux", "Analyse de l'historique", "Relances automatiques", "Personnalisation avancée"]
-}, {
-  title: "CRM intelligent",
-  subtitle: "Toutes vos données centralisées",
-  description: "Centralise les données des clients, automatise les entrées de données avec une analyse claire.",
-  features: ["Centralisation des données", "Saisie automatique", "Tableaux de bord personnalisés", "Analyses en temps réel"]
-}, {
-  title: "Intégration nouveaux clients",
-  subtitle: "Processus fluide et rapide",
-  description: "Séquences de bienvenue, collecte de documents, premiers appels. Votre processus, mais automatisé.",
-  features: ["Séquences de bienvenue", "Collecte automatisée", "Onboarding accéléré", "Charge de travail réduite"]
-}, {
-  title: "Solutions personnalisées",
-  subtitle: "Adapté à vos besoins uniques",
-  description: "Chez Alfa on sait que chaque entreprise est unique. C'est pour ça qu'on construit les outils pour faire face à vos défis.",
-  features: ["Analyse personnalisée", "Développement sur mesure", "Intégration flexible", "Support dédié"]
-}];
+
+const services = [
+  {
+    title: "Réceptionniste vocal IA",
+    subtitle: "Disponible 24/7 pour vos clients",
+    description: "Ne ratez plus jamais un appel. L'IA répond 24/7, réserve, répond aux questions, qualifie les leads et vous pouvez personnaliser la voix.",
+    features: [
+      "Réponses automatiques 24/7",
+      "Réservation intelligente",
+      "Qualification des leads",
+      "Voix personnalisable"
+    ]
+  },
+  {
+    title: "Réservation et planification",
+    subtitle: "Automatisation complète",
+    description: "Automatisation complète des rendez-vous, rappels, etc et s'intègre parfaitement à votre calendrier.",
+    features: [
+      "Gestion automatique des RDV",
+      "Rappels intelligents",
+      "Intégration calendrier",
+      "Réduction des no-shows"
+    ]
+  },
+  {
+    title: "Suivis client automatisés",
+    subtitle: "Aucun client oublié",
+    description: "Suivis intelligents basés sur les comportements clients et l'historique de service. Assure qu'aucun client ou prospect ne soit oublié.",
+    features: [
+      "Suivis comportementaux",
+      "Analyse de l'historique",
+      "Relances automatiques",
+      "Personnalisation avancée"
+    ]
+  },
+  {
+    title: "CRM intelligent",
+    subtitle: "Toutes vos données centralisées",
+    description: "Centralise les données des clients, automatise les entrées de données avec une analyse claire.",
+    features: [
+      "Centralisation des données",
+      "Saisie automatique",
+      "Tableaux de bord personnalisés",
+      "Analyses en temps réel"
+    ]
+  },
+  {
+    title: "Intégration nouveaux clients",
+    subtitle: "Processus fluide et rapide",
+    description: "Séquences de bienvenue, collecte de documents, premiers appels. Votre processus, mais automatisé.",
+    features: [
+      "Séquences de bienvenue",
+      "Collecte automatisée",
+      "Onboarding accéléré",
+      "Charge de travail réduite"
+    ]
+  },
+  {
+    title: "Solutions personnalisées",
+    subtitle: "Adapté à vos besoins uniques",
+    description: "Chez Alfa on sait que chaque entreprise est unique. C'est pour ça qu'on construit les outils pour faire face à vos défis.",
+    features: [
+      "Analyse personnalisée",
+      "Développement sur mesure",
+      "Intégration flexible",
+      "Support dédié"
+    ]
+  }
+];
+
 export function Services() {
-  return <section id="services" className="py-20 bg-background">
+  const staggerAnimation = useStaggerAnimation(services.length, { delay: 0.2 });
+
+  return (
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Voice AI Demo Widget */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Des solutions IA qui règlent vos vrais problèmes
-          </h2>
-          <Button size="lg" className="gap-2" onClick={() => console.log("Test AI agent")}>
-            <Phone className="h-5 w-5" />
-            Testez un de nos agents
-          </Button>
-        </div>
+        <ScrollReveal animation="fade-up" config={{ delay: 0.1 }}>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+              Des solutions IA qui règlent vos vrais problèmes
+            </h2>
+            <Button size="lg" className="gap-2" onClick={() => console.log("Test AI agent")}>
+              <Phone className="h-5 w-5" />
+              Testez un de nos agents
+            </Button>
+          </div>
+        </ScrollReveal>
 
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20 justify-items-center">
-          {services.map((service, index) => <CardFlip key={index} title={service.title} subtitle={service.subtitle} description={service.description} features={service.features} />)}
-        </div>
+        <motion.div 
+          {...staggerAnimation.container}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20 justify-items-center"
+        >
+          {services.map((service, index) => (
+            <motion.div key={index} {...staggerAnimation.item}>
+              <CardFlip
+                title={service.title}
+                subtitle={service.subtitle}
+                description={service.description}
+                features={service.features}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* Dashboard Preview Section */}
         <div className="mt-32">
