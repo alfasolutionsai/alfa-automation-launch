@@ -46,14 +46,6 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 205 95% 42%;
-
-    /* Bioluminescent Grid Variables */
-    --grid-line-color: 205 95% 42% / 0.1;
-    --item-bg-color: 0 0% 5% / 0.5;
-    --item-border-color: 205 95% 42% / 0.2;
-    --item-hover-border-color: 205 95% 42% / 0.5;
-    --glow-color-1: 205 100% 50%;
-    --glow-color-2: 186 100% 50%;
   }
   
   .dark {
@@ -93,11 +85,6 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 205 91% 44%;
-
-    /* Bioluminescent Grid Variables - Dark Mode */
-    --item-bg-color: 0 0% 5% / 0.5;
-    --item-border-color: 205 91% 44% / 0.2;
-    --item-hover-border-color: 205 91% 44% / 0.5;
   }
 }
 
@@ -195,114 +182,6 @@ All colors MUST be HSL.
 
   .animate-fade-up {
     animation: fade-up 0.8s ease-out forwards;
-  }
-
-  /* Bioluminescent Grid Styles */
-  .bio-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-    width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    .bio-grid {
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: minmax(200px, auto);
-    }
-  }
-
-  .bio-item {
-    position: relative;
-    background: hsl(var(--item-bg-color));
-    border: 1px solid hsl(var(--item-border-color));
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-  }
-
-  .bio-item:hover {
-    border-color: hsl(var(--item-hover-border-color));
-  }
-
-  .bio-item::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius);
-    padding: 1px;
-    background: radial-gradient(
-      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      hsl(var(--glow-color-1) / 0.4),
-      transparent 40%
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .bio-item:hover::before {
-    opacity: 1;
-  }
-
-  .bio-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      hsl(var(--glow-color-2) / 0.15),
-      transparent 40%
-    );
-    border-radius: var(--radius);
-    opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-  }
-
-  .bio-item:hover::after {
-    opacity: 1;
-  }
-
-  .bio-item-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  .stars {
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, hsl(var(--foreground) / 0.8), rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 40px 70px, hsl(var(--foreground) / 0.9), rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 50px 160px, hsl(var(--foreground) / 0.7), rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 90px 40px, hsl(var(--foreground) / 0.9), rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 130px 80px, hsl(var(--foreground) / 0.8), rgba(0,0,0,0)),
-      radial-gradient(2px 2px at 160px 120px, hsl(var(--foreground) / 0.7), rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 180px 90px, hsl(var(--primary) / 0.6), rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 30px 140px, hsl(var(--primary) / 0.5), rgba(0,0,0,0));
-    background-repeat: repeat;
-    background-size: 200px 200px;
-    animation: twinkle 5s ease-in-out infinite;
-    opacity: 0.3;
-  }
-
-  .dark .stars {
-    opacity: 0.5;
-  }
-
-  @keyframes twinkle {
-    0% { opacity: 0.3; }
-    50% { opacity: 0.6; }
-    100% { opacity: 0.3; }
-  }
-
-  .dark @keyframes twinkle {
-    0% { opacity: 0.5; }
-    50% { opacity: 0.8; }
-    100% { opacity: 0.5; }
   }
   }
 
