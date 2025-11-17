@@ -3,8 +3,6 @@ import { SplineScene } from "@/components/ui/splite";
 import StackFeatureSection from "@/components/ui/stack-feature-section";
 import { FeaturesSectionMinimal } from "@/components/ui/bento-monochrome";
 import { Wrench, Cloud, Settings, Rocket, Lock } from "lucide-react";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
-
 export function Solutions() {
   const features = [{
     title: "Sécurité et confidentialité",
@@ -37,18 +35,14 @@ export function Solutions() {
     icon: Wrench,
     animation: "bento2-float 6s ease-in-out infinite"
   }];
-  return (
-    <section id="solutions" className="py-20 bg-gradient-to-b from-background to-card">
+  return <section id="solutions" className="py-20 bg-gradient-to-b from-background to-card">
       <div className="container mx-auto px-4">
         {/* Featured 3D Section */}
-        <ScrollReveal animation="scale-in" config={{ delay: 0.1 }}>
-          <Card className="w-full h-[500px] mb-16 bg-card relative overflow-hidden border-border">
+        <Card className="w-full h-[500px] mb-16 bg-card relative overflow-hidden border-border">
           <div className="flex flex-col md:flex-row h-full">
             {/* Left content */}
             <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                IA sur mesure qui travaille comme VOUS travaillez
-              </h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">IA sur mesure qui travaille comme VOUS travaillez</h2>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
                 Alfa crée des systèmes d'IA adaptés à vos processus d'affaires. Pas des outils génériques que vous devez tordre pour faire fonctionner. On construit des automatisations intelligentes conçues autour de votre manière réelle de travailler.
               </p>
@@ -56,34 +50,22 @@ export function Solutions() {
 
             {/* Right content - 3D Scene */}
             <div className="flex-1 relative hidden md:block">
-              <SplineScene 
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
-                className="w-full h-full" 
-              />
+              <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
             </div>
           </div>
         </Card>
-        </ScrollReveal>
       </div>
 
       {/* Stack Integration Section - Full Width */}
       <div className="w-full">
-        <StackFeatureSection 
-          headline="Nos systèmes s'intègrent aux outils que vous connaissez et aimez" 
-          subheadline="Alfa offre des intégrations avec plus de 500 outils standards utilisés par les entreprises. Nos services vous permettent d'améliorer vos opérations existantes tout en vous permettant de continuer d'utiliser les outils que vous connaissez déjà." 
-        />
+        <StackFeatureSection headline="Nos systèmes s'intègrent aux outils que vous connaissez et aimez" subheadline="Alfa offre des intégrations avec plus de 500 outils standards utilisés par les entreprises. Nos services vous permettent d'améliorer vos opérations existantes tout en vous permettant de continuer d'utiliser les outils que vous connaissez déjà." />
       </div>
 
       {/* Key Differentiators */}
       <div className="container mx-auto px-4">
         <div className="mt-20">
-          <FeaturesSectionMinimal 
-            features={features} 
-            headline="Tout ce qu'il faut pour mieux opérer" 
-            subheadline="" 
-          />
+          <FeaturesSectionMinimal features={features} headline="Tout ce qu'il faut pour mieux opérer" subheadline="" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }

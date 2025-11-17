@@ -1,6 +1,5 @@
 import { ContactSection } from "@/components/ui/contact";
 import { useToast } from "@/hooks/use-toast";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function FinalCTA() {
   const { toast } = useToast();
@@ -12,9 +11,5 @@ export function FinalCTA() {
     });
   };
 
-  return (
-    <ScrollReveal animation="fade-up" config={{ delay: 0.1 }}>
-      <ContactSection onSubmit={handleSubmit} />
-    </ScrollReveal>
-  );
+  return <ContactSection onSubmit={handleSubmit} />;
 }

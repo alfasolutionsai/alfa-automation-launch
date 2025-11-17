@@ -1,8 +1,5 @@
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { DollarSign, Clock, AlertCircle, TrendingUp } from "lucide-react";
-import { motion } from "framer-motion";
-import { useStaggerAnimation } from "@/hooks/use-scroll-animation";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const problems = [
   {
@@ -28,29 +25,18 @@ const problems = [
 ];
 
 export function Problems() {
-  const staggerAnimation = useStaggerAnimation(problems.length, { delay: 0.2 });
-
   return (
     <section id="problems" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <ScrollReveal animation="fade-up" config={{ delay: 0.1 }}>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Vous perdez du temps et de l'argent avec des choses simples
-            </h2>
-          </div>
-        </ScrollReveal>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            Vous perdez du temps et de l'argent avec des choses simples
+          </h2>
+        </div>
 
-        <motion.div 
-          {...staggerAnimation.container}
-          className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto"
-        >
+        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {problems.map((problem, index) => (
-            <motion.div 
-              key={index} 
-              {...staggerAnimation.item}
-              className="min-h-[20rem]"
-            >
+            <div key={index} className="min-h-[20rem]">
               <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3">
                 <GlowingEffect
                   spread={40}
@@ -74,18 +60,16 @@ export function Problems() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
-        <ScrollReveal animation="fade-up" config={{ delay: 0.3 }}>
-          <div className="mt-16 text-center">
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Les logiciels standards ne sont pas adaptés à votre réalité et embaucher plus de personnel coûte une fortune.{" "}
-              <span className="text-foreground font-semibold">Il existe une meilleure solution.</span>
-            </p>
-          </div>
-        </ScrollReveal>
+        <div className="mt-16 text-center">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            Les logiciels standards ne sont pas adaptés à votre réalité et embaucher plus de personnel coûte une fortune.{" "}
+            <span className="text-foreground font-semibold">Il existe une meilleure solution.</span>
+          </p>
+        </div>
       </div>
     </section>
   );

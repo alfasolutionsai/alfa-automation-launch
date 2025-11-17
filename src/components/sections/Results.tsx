@@ -1,8 +1,5 @@
 import { Card } from "@/components/ui/card";
 import { TrendingUp, DollarSign, Users, Lightbulb, CheckCircle } from "lucide-react";
-import { motion } from "framer-motion";
-import { useStaggerAnimation } from "@/hooks/use-scroll-animation";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const benefits = [
   {
@@ -49,46 +46,37 @@ const benefits = [
 ];
 
 export function Results() {
-  const staggerAnimation = useStaggerAnimation(benefits.length, { delay: 0.2 });
-
   return (
     <section id="results" className="py-20 bg-gradient-to-b from-card to-background">
       <div className="container mx-auto px-4">
-        <ScrollReveal animation="fade-up" config={{ delay: 0.1 }}>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              À quoi s'attendre quand on automatise de la bonne façon
-            </h2>
-          </div>
-        </ScrollReveal>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            À quoi s'attendre quand on automatise de la bonne façon
+          </h2>
+        </div>
 
-        <motion.div 
-          {...staggerAnimation.container}
-          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-        >
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => (
-            <motion.div key={index} {...staggerAnimation.item}>
-              <Card className="p-8 hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur h-full">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="p-3 rounded-lg bg-primary/10">
-                    <benefit.icon className={`h-8 w-8 ${benefit.color}`} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground mt-2">
-                    {benefit.title}
-                  </h3>
+            <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <benefit.icon className={`h-8 w-8 ${benefit.color}`} />
                 </div>
-                <ul className="space-y-3">
-                  {benefit.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </motion.div>
+                <h3 className="text-2xl font-bold text-foreground mt-2">
+                  {benefit.title}
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                {benefit.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

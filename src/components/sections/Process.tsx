@@ -1,6 +1,5 @@
 import { Timeline } from "@/components/ui/timeline";
 import { Button } from "@/components/ui/neon-button";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 const timelineData = [{
   title: "ÉTAPE 1",
   content: <div>
