@@ -7,8 +7,9 @@ import { MorphingText } from "@/components/ui/morphing-text";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 export function Hero() {
   return <section className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 min-h-[calc(100vh-40px)] overflow-hidden bg-background dark:bg-background rounded-b-xl">
-      {/* Shooting Stars Background */}
+      {/* Star Field Background */}
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,rgba(0,0,0,0)_80%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(100,100,255,0.1)_0%,rgba(0,0,0,0)_80%)]" />
+      <div className="stars absolute inset-0 -z-20" />
       
       <ShootingStars
         starColor="hsl(var(--primary))"
