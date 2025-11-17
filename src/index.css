@@ -46,6 +46,14 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 205 95% 42%;
+
+    /* Bioluminescent Grid Variables */
+    --grid-line-color: 205 95% 42% / 0.1;
+    --item-bg-color: 0 0% 5% / 0.5;
+    --item-border-color: 205 95% 42% / 0.2;
+    --item-hover-border-color: 205 95% 42% / 0.5;
+    --glow-color-1: 205 100% 50%;
+    --glow-color-2: 186 100% 50%;
   }
   
   .dark {
@@ -85,6 +93,11 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 205 91% 44%;
+
+    /* Bioluminescent Grid Variables - Dark Mode */
+    --item-bg-color: 0 0% 5% / 0.5;
+    --item-border-color: 205 91% 44% / 0.2;
+    --item-hover-border-color: 205 91% 44% / 0.5;
   }
 }
 
@@ -201,12 +214,16 @@ All colors MUST be HSL.
 
   .bio-item {
     position: relative;
-    background: hsl(var(--card) / 0.5);
-    border: 1px solid hsl(var(--border) / 0.2);
+    background: hsl(var(--item-bg-color));
+    border: 1px solid hsl(var(--item-border-color));
     border-radius: var(--radius);
     padding: 1.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
+  }
+
+  .bio-item:hover {
+    border-color: hsl(var(--item-hover-border-color));
   }
 
   .bio-item::before {
@@ -217,7 +234,7 @@ All colors MUST be HSL.
     padding: 1px;
     background: radial-gradient(
       600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      hsl(var(--primary) / 0.4),
+      hsl(var(--glow-color-1) / 0.4),
       transparent 40%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -225,7 +242,7 @@ All colors MUST be HSL.
     mask-composite: exclude;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .bio-item:hover::before {
@@ -238,12 +255,12 @@ All colors MUST be HSL.
     inset: 0;
     background: radial-gradient(
       400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      hsl(var(--primary) / 0.1),
+      hsl(var(--glow-color-2) / 0.15),
       transparent 40%
     );
     border-radius: var(--radius);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
   }
 

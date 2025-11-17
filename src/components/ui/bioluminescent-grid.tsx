@@ -1,15 +1,25 @@
 import React, { useEffect, useRef, forwardRef } from 'react';
 
+interface BioluminescentGridItemProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+interface BioluminescentGridProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
 // --- Reusable Grid Item Component ---
-const BioluminescentGridItem = forwardRef<HTMLDivElement, { className?: string; children: React.ReactNode }>(({ className, children }, ref) => {
-  const itemRef = useRef<HTMLDivElement>(null);
+const BioluminescentGridItem = forwardRef<HTMLDivElement, BioluminescentGridItemProps>(({ className, children }, ref) => {
+  const itemRef = useRef(null);
 
   // Effect to track mouse position and update CSS custom properties
   useEffect(() => {
     const item = itemRef.current;
     if (!item) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e) => {
       const rect = item.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -36,7 +46,7 @@ BioluminescentGridItem.displayName = "BioluminescentGridItem";
 
 
 // --- Main Grid Container Component ---
-export const BioluminescentGrid = forwardRef<HTMLDivElement, { className?: string; children: React.ReactNode }>(({ className, children }, ref) => {
+export const BioluminescentGrid = forwardRef<HTMLDivElement, BioluminescentGridProps>(({ className, children }, ref) => {
   return (
     <div ref={ref} className={`bio-grid ${className || ''}`.trim()}>
       {children}
