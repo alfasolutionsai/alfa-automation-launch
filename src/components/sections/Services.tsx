@@ -2,6 +2,9 @@ import CardFlip from "@/components/ui/card-flip";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/neon-button";
 import { Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { useStaggerAnimation } from "@/hooks/use-scroll-animation";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 const services = [{
   title: "Réceptionniste vocal IA",
   subtitle: "Disponible 24/7 pour vos clients",
@@ -54,12 +57,18 @@ export function Services() {
 
         {/* Dashboard Preview Section */}
         <div className="mt-32">
-          <ContainerScroll titleComponent={<div className="space-y-4">
+          <ContainerScroll
+            titleComponent={
+              <div className="space-y-4">
                 <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                   Suivez vos clients et vos données
                 </h2>
-                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Supervisez vos automatisations et bien plus encore avec des tableaux de bord personnalisés et intuitifs.</p>
-              </div>}>
+                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Supervisez vos automatisations et bien plus encore avec des tableaux de bord personnalisés et intuitifs.
+                </p>
+              </div>
+            }
+          >
             <div className="w-full h-full bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-2xl flex items-center justify-center">
               <div className="text-center space-y-4 p-8">
                 <h3 className="text-2xl font-bold text-foreground">
@@ -73,5 +82,6 @@ export function Services() {
           </ContainerScroll>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
