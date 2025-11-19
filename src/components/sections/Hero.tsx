@@ -1,4 +1,4 @@
-import { ParticleButton } from "@/components/ui/particle-button";
+import { LiquidButton } from "@/components/ui/liquid-button";
 import { ArrowRight } from "lucide-react";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { SplineScene } from "@/components/ui/splite";
@@ -44,12 +44,10 @@ export function Hero() {
             <p className="mb-10 text-lg text-muted-foreground md:text-xl">Chez Alfa on trouve des solutions à vos problème pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <a href="#contact">
-                <ParticleButton className="w-full sm:w-auto">
-                  Obtenez une consultation gratuite
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </ParticleButton>
-              </a>
+              <LiquidButton href="#contact" className="w-full sm:w-auto">
+                Obtenez une consultation gratuite
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </LiquidButton>
               
             </div>
 
