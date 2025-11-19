@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { TrendingUp, DollarSign, Users, Lightbulb, CheckCircle } from "lucide-react";
+import { PixelCanvas } from "@/components/ui/pixel-canvas";
 
 const benefits = [
   {
@@ -57,8 +58,14 @@ export function Results() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => (
-            <Card key={index} className="p-8 hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur">
-              <div className="flex items-start gap-4 mb-6">
+            <Card key={index} className="relative overflow-hidden p-8 hover:shadow-lg transition-all duration-300 border-border/50 bg-card/50 backdrop-blur">
+              <PixelCanvas
+                gap={8}
+                speed={25}
+                colors={["hsl(var(--primary) / 0.1)", "hsl(var(--primary) / 0.2)", "hsl(var(--primary) / 0.15)"]}
+                variant="default"
+              />
+              <div className="relative z-10 flex items-start gap-4 mb-6">
                 <div className="p-3 rounded-lg bg-primary/10">
                   <benefit.icon className={`h-8 w-8 ${benefit.color}`} />
                 </div>
@@ -66,7 +73,7 @@ export function Results() {
                   {benefit.title}
                 </h3>
               </div>
-              <ul className="space-y-3">
+              <ul className="relative z-10 space-y-3">
                 {benefit.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
