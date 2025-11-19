@@ -299,36 +299,37 @@ export const LiquidButton: React.FC<LiquidButtonProps> = ({
   const [isHovered, setIsHovered] = React.useState(false);
 
   const buttonContent = (
-    <div className={cn("relative inline-block w-auto h-[3.5em] group", className)}>
-      <div className="absolute w-[112.81%] h-[128.57%] top-[8.57%] left-1/2 -translate-x-1/2 filter blur-[19px] opacity-70">
-        <span className="absolute inset-0 rounded-lg bg-[#d9d9d9] filter blur-[6.5px]"></span>
+    <div 
+      className={cn("relative inline-block min-w-[300px] h-[60px] group", className)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Glow effect */}
+      <div className="absolute inset-0 scale-110 filter blur-xl opacity-50">
         <div className="relative w-full h-full overflow-hidden rounded-lg">
           <Liquid isHovered={isHovered} colors={BRAND_COLORS} />
         </div>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[92.23%] h-[112.85%] rounded-lg bg-[#010128] filter blur-[7.3px]"></div>
-      <div className="relative w-full h-full overflow-hidden rounded-lg border-2 border-primary">
-        <span className="absolute inset-0 rounded-lg bg-[#d9d9d9]"></span>
-        <span className="absolute inset-0 rounded-lg bg-black"></span>
+      
+      {/* Shadow */}
+      <div className="absolute inset-0 top-[10%] scale-95 rounded-lg bg-primary/20 filter blur-md" />
+      
+      {/* Main button */}
+      <div className="relative w-full h-full overflow-hidden rounded-lg border-2 border-primary/50 bg-gradient-to-br from-primary via-primary to-sky-600">
         <Liquid isHovered={isHovered} colors={BRAND_COLORS} />
-        {[1, 2, 3, 4, 5].map((i) => (
-          <span
-            key={i}
-            className={`absolute inset-0 rounded-lg border-solid border-[3px] border-gradient-to-b from-transparent to-white mix-blend-overlay filter ${i <= 2 ? 'blur-[3px]' : i === 3 ? 'blur-[5px]' : 'blur-[4px]'}`}></span>
-        ))}
-        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[70.8%] h-[42.85%] rounded-lg filter blur-[15px] bg-primary/50"></span>
-      </div>
-      <button
-        className="absolute inset-0 rounded-lg bg-transparent cursor-pointer"
-        aria-label="Get consultation"
-        type="button"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <span className="flex items-center justify-center px-8 gap-2 rounded-lg group-hover:text-sky-300 text-white text-lg font-semibold tracking-wide whitespace-nowrap">
+        
+        {/* Overlay effects */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/20 mix-blend-overlay" />
+        <div className="absolute inset-0 border-2 border-white/20 rounded-lg mix-blend-overlay filter blur-sm" />
+        
+        {/* Shine effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-1/2 rounded-full filter blur-2xl bg-white/20" />
+        
+        {/* Button content */}
+        <div className="relative z-10 w-full h-full flex items-center justify-center px-8 text-white text-lg font-semibold tracking-wide whitespace-nowrap transition-all duration-300 group-hover:text-sky-100">
           {children}
-        </span>
-      </button>
+        </div>
+      </div>
     </div>
   );
 
