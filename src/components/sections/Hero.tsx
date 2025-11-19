@@ -56,7 +56,7 @@ export function Hero() {
                   saving: "Redirection...",
                   saved: "C'est parti!"
                 }}
-                className="w-full sm:w-auto h-14 px-10 text-lg"
+                className="w-full sm:w-auto"
                 onSave={handleContactClick}
               />
             </div>

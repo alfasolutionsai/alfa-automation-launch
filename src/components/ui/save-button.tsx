@@ -64,12 +64,12 @@ export function SaveButton({
 
   const buttonVariants = {
     idle: {
-      backgroundColor: isDark ? "hsl(205, 91%, 44%)" : "hsl(205, 95%, 42%)",
+      backgroundColor: "rgb(59, 130, 246)",
       color: "white",
       scale: 1,
     },
     saving: {
-      backgroundColor: isDark ? "hsl(205, 91%, 50%)" : "hsl(205, 95%, 48%)",
+      backgroundColor: "rgb(37, 99, 235)",
       color: "white",
       scale: 1,
     },
@@ -97,38 +97,24 @@ export function SaveButton({
         animate={status}
         variants={buttonVariants}
         className={cn(
-          "group relative grid overflow-hidden rounded-full px-6 py-2 transition-all duration-200",
+          "group relative overflow-hidden rounded-full px-7 py-1.5 transition-all duration-200 border",
           status === "idle"
-            ? "shadow-[0_1000px_0_0_hsl(0_0%_85%)_inset] dark:shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset]"
-            : "",
+            ? "border-transparent hover:border-foreground/50"
+            : "border-transparent",
           "hover:shadow-lg",
           className
         )}
-        style={{ minWidth: "150px" }}
+        style={{ minWidth: "200px", height: "40px" }}
         whileHover={status === "idle" ? { scale: 1.05 } : {}}
         whileTap={status === "idle" ? { scale: 0.95 } : {}}
       >
         {status === "idle" && (
-          <span>
-            <span
-              className={cn(
-                "spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full",
-                "[mask:linear-gradient(black,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,black_360deg)]",
-                "before:rotate-[-90deg] before:animate-rotate dark:before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]",
-                "before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%] dark:[mask:linear-gradient(white,_transparent_50%)]",
-              )}
-            />
-          </span>
+          <>
+            <span className="absolute h-px opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out inset-x-0 inset-y-0 bg-gradient-to-r w-3/4 mx-auto from-transparent dark:via-blue-500 via-blue-600 to-transparent" />
+            <span className="absolute group-hover:opacity-30 transition-all duration-500 ease-in-out inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent dark:via-blue-500 via-blue-600 to-transparent" />
+          </>
         )}
-        <span
-          className={cn(
-            "backdrop absolute inset-px rounded-[22px] transition-colors duration-200",
-            status === "idle"
-              ? "bg-primary/90 group-hover:bg-primary dark:bg-primary dark:group-hover:bg-primary/90"
-              : "",
-          )}
-        />
-        <span className="z-10 flex items-center justify-center gap-2 text-sm font-medium w-full">
+        <span className="relative z-10 flex items-center justify-center gap-2 text-sm font-medium w-full">
           <AnimatePresence mode="wait">
             {status === "saving" && (
               <motion.span
