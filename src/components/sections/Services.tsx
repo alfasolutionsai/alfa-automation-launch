@@ -166,12 +166,32 @@ export function Services() {
         </div>
 
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-32 justify-items-center">
           {services.map((service, index) => <CardFlip key={index} title={service.title} subtitle={service.subtitle} description={service.description} features={service.features} />)}
         </div>
 
+        {/* PulseBeams CTA */}
+        <div className="mt-20">
+          <PulseBeams
+            beams={beams}
+            gradientColors={gradientColors}
+            className="bg-background rounded-3xl h-[600px]"
+          >
+            <button className="bg-slate-800 w-[320px] z-40 h-[120px] no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block">
+              <span className="absolute inset-0 overflow-hidden rounded-full">
+                <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              </span>
+              <div className="relative flex justify-center w-[320px] text-center space-x-2 h-[120px] items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10">
+                <span className="md:text-4xl text-base inline-block bg-clip-text text-transparent bg-gradient-to-r from-neutral-300 via-neutral-600 to-neutral-300">
+                  Testez un agent
+                </span>
+              </div>
+            </button>
+          </PulseBeams>
+        </div>
+
         {/* Dashboard Preview Section */}
-        <div className="mt-32">
+        <div className="mt-20">
           <ContainerScroll titleComponent={<div className="space-y-4">
                 <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                   Suivez vos clients et vos données
@@ -189,26 +209,6 @@ export function Services() {
               </div>
             </div>
           </ContainerScroll>
-        </div>
-
-        {/* PulseBeams CTA at bottom */}
-        <div className="mt-32">
-          <PulseBeams
-            beams={beams}
-            gradientColors={gradientColors}
-            className="bg-background rounded-3xl h-[600px]"
-          >
-            <button className="bg-slate-800 w-[320px] z-40 h-[120px] no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block">
-              <span className="absolute inset-0 overflow-hidden rounded-full">
-                <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </span>
-              <div className="relative flex justify-center w-[320px] text-center space-x-2 h-[120px] items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10">
-                <span className="md:text-4xl text-base inline-block bg-clip-text text-transparent bg-gradient-to-r from-neutral-300 via-neutral-600 to-neutral-300">
-                  Testez un agent
-                </span>
-              </div>
-            </button>
-          </PulseBeams>
         </div>
       </div>
     </section>;
