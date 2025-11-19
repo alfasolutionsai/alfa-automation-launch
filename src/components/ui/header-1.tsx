@@ -48,9 +48,10 @@ export function Header() {
 			})}
 		>
 			<nav className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4">
-				<a href="/" className="hover:bg-accent rounded-md p-2 flex items-center">
-					<img src={alfaLogo} alt="Alfa Solutions" className="h-8 w-auto" />
-				</a>
+			<a href="/" className="hover:bg-accent rounded-md p-2 flex items-center gap-2">
+				<img src={alfaLogo} alt="Alfa Solutions" className="h-8 w-auto" />
+				<span className="text-foreground font-semibold text-lg">Alfa Solutions</span>
+			</a>
 				<div className="hidden items-center gap-2 md:flex">
 					{links.map((link) => (
 						<a key={link.label} className={buttonVariants({ variant: 'ghost' })} href={link.href}>
