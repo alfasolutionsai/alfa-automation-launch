@@ -1,5 +1,4 @@
-import { ButtonColorful } from "@/components/ui/button-colorful";
-import { ArrowRight } from "lucide-react";
+import { SaveButton } from "@/components/ui/save-button";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -44,13 +43,14 @@ export function Hero() {
             <p className="mb-10 text-lg text-muted-foreground md:text-xl">Chez Alfa on trouve des solutions à vos problème pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <a href="#contact">
-                <ButtonColorful 
-                  label="Obtenez une consultation gratuite" 
-                  className="w-full sm:w-auto h-12 px-8 text-base"
-                />
-              </a>
-              
+              <SaveButton 
+                text={{
+                  idle: "Obtenez une consultation gratuite",
+                  saving: "Envoi en cours...",
+                  saved: "Demande envoyée!"
+                }}
+                className="w-full sm:w-auto h-12 px-8 text-base"
+              />
             </div>
 
             <div className="flex justify-center lg:justify-start">
