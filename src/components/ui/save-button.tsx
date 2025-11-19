@@ -48,7 +48,7 @@ export function SaveButton({
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#00ffff", "#ff00ff"],
+          colors: ["#0891D9", "#38B6FF", "#06B6D4", "#0ea5e9", "#7dd3fc"],
           shapes: ["star", "circle"],
         })
         setTimeout(() => {
@@ -64,12 +64,12 @@ export function SaveButton({
 
   const buttonVariants = {
     idle: {
-      backgroundColor: isDark ? "rgb(64, 64, 64)" : "rgb(243, 244, 246)",
-      color: isDark ? "white" : "black",
+      backgroundColor: isDark ? "rgb(14, 165, 233)" : "rgb(8, 145, 217)",
+      color: "white",
       scale: 1,
     },
     saving: {
-      backgroundColor: "rgb(59, 130, 246)",
+      backgroundColor: "rgb(6, 182, 212)",
       color: "white",
       scale: 1,
     },

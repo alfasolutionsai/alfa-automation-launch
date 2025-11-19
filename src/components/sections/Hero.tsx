@@ -4,6 +4,13 @@ import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
 import { MorphingText } from "@/components/ui/morphing-text";
 export function Hero() {
+  const handleContactClick = async () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return <section className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 min-h-[calc(100vh-40px)] overflow-hidden bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_50%,hsl(var(--border))_88%)] dark:bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_30%,hsl(var(--muted))_78%,hsl(var(--foreground))_99%_50%)] rounded-b-xl">
       {/* Grid BG */}
       <div className="absolute -z-10 inset-0 opacity-80 h-[600px] w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,hsl(var(--muted))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--muted))_1px,transparent_1px)] bg-[size:6rem_5rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
@@ -46,10 +53,11 @@ export function Hero() {
               <SaveButton 
                 text={{
                   idle: "Obtenez une consultation gratuite",
-                  saving: "Envoi en cours...",
-                  saved: "Demande envoyée!"
+                  saving: "Redirection...",
+                  saved: "C'est parti!"
                 }}
-                className="w-full sm:w-auto h-12 px-8 text-base"
+                className="w-full sm:w-auto h-14 px-10 text-lg"
+                onSave={handleContactClick}
               />
             </div>
 
