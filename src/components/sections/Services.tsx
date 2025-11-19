@@ -191,7 +191,7 @@ export function Services() {
         </div>
 
         {/* Dashboard Preview Section */}
-        <div className="mt-4">
+        <div>
           <ContainerScroll titleComponent={<div className="space-y-4">
                 <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                   Suivez vos clients et vos données
