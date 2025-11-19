@@ -64,12 +64,12 @@ export function SaveButton({
 
   const buttonVariants = {
     idle: {
-      backgroundColor: isDark ? "rgb(14, 165, 233)" : "rgb(8, 145, 217)",
+      backgroundColor: isDark ? "hsl(205, 91%, 44%)" : "hsl(205, 95%, 42%)",
       color: "white",
       scale: 1,
     },
     saving: {
-      backgroundColor: "rgb(6, 182, 212)",
+      backgroundColor: isDark ? "hsl(205, 91%, 50%)" : "hsl(205, 95%, 48%)",
       color: "white",
       scale: 1,
     },
@@ -124,11 +124,11 @@ export function SaveButton({
           className={cn(
             "backdrop absolute inset-px rounded-[22px] transition-colors duration-200",
             status === "idle"
-              ? "bg-sky-500/90 group-hover:bg-sky-600/90 dark:bg-sky-600/90 dark:group-hover:bg-sky-700/90"
+              ? "bg-primary/90 group-hover:bg-primary dark:bg-primary dark:group-hover:bg-primary/90"
               : "",
           )}
         />
-        <span className="z-10 flex items-center justify-center gap-2 text-sm font-medium">
+        <span className="z-10 flex items-center justify-center gap-2 text-sm font-medium w-full">
           <AnimatePresence mode="wait">
             {status === "saving" && (
               <motion.span
@@ -161,6 +161,7 @@ export function SaveButton({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
+            className="text-center"
           >
             {status === "idle" ? text.idle : status === "saving" ? text.saving : text.saved}
           </motion.span>
