@@ -9,27 +9,34 @@ import {
   SiGmail, SiHubspot, SiNotion, SiAirtable, SiPostgresql,
   SiTwilio, SiZoom, SiCalendly
 } from "react-icons/si";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import n8nLogo from "@/assets/n8n-logo.png";
 
 const iconConfigs = [
-  { Icon: FaGoogle, color: "#DB4437" },
-  { Icon: SiGmail, color: "#EA4335" },
-  { Icon: FaSlack, color: "#4A154B" },
-  { Icon: FaMicrosoft, color: "#00A4EF" },
-  { Icon: FaSalesforce, color: "#00A1E0" },
-  { Icon: SiHubspot, color: "#FF7A59" },
-  { Icon: FaStripe, color: "#635BFF" },
-  { Icon: FaShopify, color: "#96BF48" },
-  { Icon: SiPostgresql, color: "#4169E1" },
-  { Icon: FaDropbox, color: "#0061FF" },
-  { Icon: FaGoogleDrive, color: "#4285F4" },
-  { Icon: SiAirtable, color: "#18BFFF" },
-  { Icon: FaTrello, color: "#0052CC" },
-  { Icon: SiNotion, color: "#000000" },
-  { Icon: SiTwilio, color: "#F22F46" },
-  { Icon: SiZoom, color: "#2D8CFF" },
-  { Icon: FaMailchimp, color: "#FFE01B" },
-  { Icon: FaGithub, color: "#181717" },
-  { Icon: SiCalendly, color: "#006BFF" },
+  { Icon: FaGoogle, color: "#DB4437", name: "Google Workspace" },
+  { Icon: SiGmail, color: "#EA4335", name: "Gmail" },
+  { Icon: FaSlack, color: "#4A154B", name: "Slack" },
+  { Icon: FaMicrosoft, color: "#00A4EF", name: "Microsoft 365" },
+  { Icon: FaSalesforce, color: "#00A1E0", name: "Salesforce" },
+  { Icon: SiHubspot, color: "#FF7A59", name: "HubSpot" },
+  { Icon: FaStripe, color: "#635BFF", name: "Stripe" },
+  { Icon: FaShopify, color: "#96BF48", name: "Shopify" },
+  { Icon: SiPostgresql, color: "#4169E1", name: "PostgreSQL" },
+  { Icon: FaDropbox, color: "#0061FF", name: "Dropbox" },
+  { Icon: FaGoogleDrive, color: "#4285F4", name: "Google Drive" },
+  { Icon: SiAirtable, color: "#18BFFF", name: "Airtable" },
+  { Icon: FaTrello, color: "#0052CC", name: "Trello" },
+  { Icon: SiNotion, color: "#000000", name: "Notion" },
+  { Icon: SiTwilio, color: "#F22F46", name: "Twilio" },
+  { Icon: SiZoom, color: "#2D8CFF", name: "Zoom" },
+  { Icon: FaMailchimp, color: "#FFE01B", name: "Mailchimp" },
+  { Icon: FaGithub, color: "#181717", name: "GitHub" },
+  { Icon: SiCalendly, color: "#006BFF", name: "Calendly" },
 ];
 
 interface StackFeatureSectionProps {
@@ -65,11 +72,19 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
 
       {/* Right side: Orbit animation cropped to 1/4 */}
       <div className="relative w-1/2 h-full flex items-center justify-start overflow-hidden">
-        <div className="relative w-[50rem] h-[50rem] translate-x-[50%] flex items-center justify-center">
-          {/* Center Circle */}
-          <div className="w-24 h-24 rounded-full bg-muted shadow-lg flex items-center justify-center">
-            <FaGoogle className="w-12 h-12 text-[#DB4437]" />
-          </div>
+        <TooltipProvider>
+          <div className="relative w-[50rem] h-[50rem] translate-x-[50%] flex items-center justify-center">
+            {/* Center Circle */}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="w-24 h-24 rounded-full bg-muted shadow-lg flex items-center justify-center cursor-pointer">
+                  <img src={n8nLogo} alt="n8n" className="w-12 h-12 object-contain" />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>n8n</p>
+              </TooltipContent>
+            </Tooltip>
 
           {/* Generate Orbits */}
           {[...Array(orbitCount)].map((_, orbitIdx) => {
@@ -94,23 +109,30 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
                     const y = 50 + 50 * Math.sin(angle);
 
                     return (
-                      <div
-                        key={iconIdx}
-                        className="absolute bg-background rounded-full p-1 shadow-md"
-                        style={{
-                          left: `${x}%`,
-                          top: `${y}%`,
-                          transform: "translate(-50%, -50%)",
-                        }}
-                      >
-                        <cfg.Icon className="w-8 h-8" style={{ color: cfg.color }} />
-                      </div>
+                      <Tooltip key={iconIdx}>
+                        <TooltipTrigger asChild>
+                          <div
+                            className="absolute bg-background rounded-full p-1 shadow-md cursor-pointer hover:scale-110 transition-transform"
+                            style={{
+                              left: `${x}%`,
+                              top: `${y}%`,
+                              transform: "translate(-50%, -50%)",
+                            }}
+                          >
+                            <cfg.Icon className="w-8 h-8" style={{ color: cfg.color }} />
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{cfg.name}</p>
+                        </TooltipContent>
+                      </Tooltip>
                     );
                   })}
               </div>
             );
           })}
-        </div>
+          </div>
+        </TooltipProvider>
       </div>
     </section>
   );
