@@ -63,7 +63,7 @@ export default function FAQs() {
                     <p className="text-muted-foreground mt-6 px-8">
                         Vous avez d'autres questions?{' '}
                         <a
-                            href="#contact"
+                            href="tel:+15818725167"
                             className="text-primary font-medium hover:underline">
                             Contactez notre équipe
                         </a>
