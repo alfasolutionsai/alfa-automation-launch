@@ -124,7 +124,7 @@ export function SaveButton({
           className={cn(
             "backdrop absolute inset-px rounded-[22px] transition-colors duration-200",
             status === "idle"
-              ? "bg-neutral-100 group-hover:bg-neutral-200 dark:bg-neutral-950 dark:group-hover:bg-neutral-900"
+              ? "bg-sky-500/90 group-hover:bg-sky-600/90 dark:bg-sky-600/90 dark:group-hover:bg-sky-700/90"
               : "",
           )}
         />
