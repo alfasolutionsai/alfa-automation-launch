@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/neon-button";
+import { ParticleButton } from "@/components/ui/particle-button";
 import { ArrowRight } from "lucide-react";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { SplineScene } from "@/components/ui/splite";
@@ -45,10 +45,10 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <a href="#contact">
-                <Button size="lg" className="glow-primary text-lg px-8">
+                <ParticleButton className="w-full sm:w-auto">
                   Obtenez une consultation gratuite
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                </ParticleButton>
               </a>
               
             </div>
