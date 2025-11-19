@@ -1,6 +1,7 @@
 import CardFlip from "@/components/ui/card-flip";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { PulseBeams } from "@/components/ui/pulse-beams";
+import dashboardPreview from "@/assets/dashboard-preview.png";
 const services = [{
   title: "Réceptionniste vocal IA",
   subtitle: "Disponible 24/7 pour vos clients",
@@ -198,16 +199,11 @@ export function Services() {
                 </h2>
                 <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Supervisez vos automatisations et bien plus encore avec des tableaux de bord personnalisés et intuitifs.</p>
               </div>}>
-            <div className="w-full h-full bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-2xl flex items-center justify-center">
-              <div className="text-center space-y-4 p-8">
-                <h3 className="text-2xl font-bold text-foreground">
-                  Tableau de bord personnalisé
-                </h3>
-                <p className="text-muted-foreground max-w-md">
-                  Visualisez toutes vos données en temps réel avec des tableaux de bord conçus pour votre entreprise.
-                </p>
-              </div>
-            </div>
+            <img 
+              src={dashboardPreview} 
+              alt="Tableau de bord personnalisé avec métriques et graphiques en temps réel"
+              className="w-full h-full object-cover rounded-2xl"
+            />
           </ContainerScroll>
         </div>
       </div>
