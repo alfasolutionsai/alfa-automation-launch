@@ -2,36 +2,34 @@
 
 import { Button } from "@/components/ui/neon-button";
 import {
-  FaReact, FaAws, FaDocker, FaNodeJs, FaGithub,
-  FaTwitter, FaLinkedin, FaInstagram, FaGoogle, FaApple
+  FaGoogle, FaSlack, FaMicrosoft, FaSalesforce, FaStripe,
+  FaShopify, FaDropbox, FaGoogleDrive, FaTrello, FaMailchimp, FaGithub
 } from "react-icons/fa";
 import {
-  SiNextdotjs, SiVercel, SiRedux, SiTypescript, SiFacebook
+  SiGmail, SiHubspot, SiNotion, SiAirtable, SiPostgresql,
+  SiTwilio, SiZoom, SiCalendly
 } from "react-icons/si";
 
-const fallbackUrls = [
-  "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/9/96/Among_Us_icon.png"
-];
-
 const iconConfigs = [
-  { Icon: FaReact, color: "#61DAFB" },
-  { Icon: FaAws, color: "#FF9900" },
-  { Icon: FaDocker, color: "#2496ED" },
-  { Icon: FaNodeJs, color: "#339933" },
-  { Icon: SiNextdotjs, color: "#000000" },
-  { Icon: SiVercel, color: "#000000" },
-  { Icon: SiRedux, color: "#764ABC" },
-  { Icon: SiTypescript, color: "#3178C6" },
-  { Icon: FaGithub, color: "#181717" },
-  { Icon: FaTwitter, color: "#1DA1F2" },
-  { Icon: FaLinkedin, color: "#0077B5" },
-  { Icon: FaInstagram, color: "#E1306C" },
   { Icon: FaGoogle, color: "#DB4437" },
-  { Icon: FaApple, color: "#000000" },
-  { Icon: SiFacebook, color: "#1877F2" },
-  { Icon: null, img: fallbackUrls[0] },
-  { Icon: null, img: fallbackUrls[1] },
+  { Icon: SiGmail, color: "#EA4335" },
+  { Icon: FaSlack, color: "#4A154B" },
+  { Icon: FaMicrosoft, color: "#00A4EF" },
+  { Icon: FaSalesforce, color: "#00A1E0" },
+  { Icon: SiHubspot, color: "#FF7A59" },
+  { Icon: FaStripe, color: "#635BFF" },
+  { Icon: FaShopify, color: "#96BF48" },
+  { Icon: SiPostgresql, color: "#4169E1" },
+  { Icon: FaDropbox, color: "#0061FF" },
+  { Icon: FaGoogleDrive, color: "#4285F4" },
+  { Icon: SiAirtable, color: "#18BFFF" },
+  { Icon: FaTrello, color: "#0052CC" },
+  { Icon: SiNotion, color: "#000000" },
+  { Icon: SiTwilio, color: "#F22F46" },
+  { Icon: SiZoom, color: "#2D8CFF" },
+  { Icon: FaMailchimp, color: "#FFE01B" },
+  { Icon: FaGithub, color: "#181717" },
+  { Icon: SiCalendly, color: "#006BFF" },
 ];
 
 interface StackFeatureSectionProps {
@@ -70,7 +68,7 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
         <div className="relative w-[50rem] h-[50rem] translate-x-[50%] flex items-center justify-center">
           {/* Center Circle */}
           <div className="w-24 h-24 rounded-full bg-muted shadow-lg flex items-center justify-center">
-            <FaReact className="w-12 h-12 text-blue-400" />
+            <FaGoogle className="w-12 h-12 text-[#DB4437]" />
           </div>
 
           {/* Generate Orbits */}
@@ -105,15 +103,7 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
                           transform: "translate(-50%, -50%)",
                         }}
                       >
-                        {cfg.Icon ? (
-                          <cfg.Icon className="w-8 h-8" style={{ color: cfg.color }} />
-                        ) : (
-                          <img
-                            src={cfg.img}
-                            alt="icon"
-                            className="w-8 h-8 object-contain"
-                          />
-                        )}
+                        <cfg.Icon className="w-8 h-8" style={{ color: cfg.color }} />
                       </div>
                     );
                   })}
