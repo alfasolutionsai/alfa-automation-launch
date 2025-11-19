@@ -1,6 +1,8 @@
+import { useState } from "react";
 import CardFlip from "@/components/ui/card-flip";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { PulseBeams } from "@/components/ui/pulse-beams";
+import dashboardPreview from "@/assets/dashboard-preview.png";
 const services = [{
   title: "Réceptionniste vocal IA",
   subtitle: "Disponible 24/7 pour vos clients",
@@ -156,6 +158,42 @@ const gradientColors = {
   end: "#AE48FF"
 };
 
+const DashboardImage = () => {
+  const [imageState, setImageState] = useState<'loading' | 'loaded' | 'error'>('loading');
+
+  return (
+    <div className="relative w-full h-full">
+      {imageState === 'loading' && (
+        <div className="absolute inset-0 bg-muted/50 rounded-2xl animate-pulse flex items-center justify-center">
+          <div className="text-muted-foreground">Chargement...</div>
+        </div>
+      )}
+      {imageState === 'error' && (
+        <div className="absolute inset-0 bg-muted/30 rounded-2xl flex items-center justify-center">
+          <div className="text-center space-y-2">
+            <p className="text-muted-foreground">Impossible de charger l'image</p>
+            <button 
+              onClick={() => setImageState('loading')} 
+              className="text-primary hover:underline text-sm"
+            >
+              Réessayer
+            </button>
+          </div>
+        </div>
+      )}
+      <img 
+        src={dashboardPreview} 
+        alt="Tableau de bord personnalisé avec métriques et graphiques en temps réel"
+        className={`w-full h-full object-cover rounded-2xl transition-opacity duration-300 ${
+          imageState === 'loaded' ? 'opacity-100' : 'opacity-0'
+        }`}
+        onLoad={() => setImageState('loaded')}
+        onError={() => setImageState('error')}
+      />
+    </div>
+  );
+};
+
 export function Services() {
   return <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -198,11 +236,7 @@ export function Services() {
                 </h2>
                 <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Supervisez vos automatisations et bien plus encore avec des tableaux de bord personnalisés et intuitifs.</p>
               </div>}>
-            <img 
-              src="https://drive.google.com/uc?export=view&id=17mb0FMRSUNUdnbWm5ynKUrxLCsGFOMRi" 
-              alt="Tableau de bord personnalisé avec métriques et graphiques en temps réel"
-              className="w-full h-full object-cover rounded-2xl"
-            />
+            <DashboardImage />
           </ContainerScroll>
         </div>
       </div>
