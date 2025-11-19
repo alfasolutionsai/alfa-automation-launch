@@ -34,166 +34,194 @@ const services = [{
   description: "Chez Alfa on sait que chaque entreprise est unique. C'est pour ça qu'on construit les outils pour faire face à vos défis.",
   features: ["Analyse personnalisée", "Développement sur mesure", "Intégration flexible", "Support dédié"]
 }];
-const beams = [
-  {
-    path: "M269 220.5H16.5C10.9772 220.5 6.5 224.977 6.5 230.5V398.5",
-    gradientConfig: {
-      initial: { x1: "0%", x2: "0%", y1: "80%", y2: "100%" },
-      animate: {
-        x1: ["0%", "0%", "200%"],
-        x2: ["0%", "0%", "180%"],
-        y1: ["80%", "0%", "0%"],
-        y2: ["100%", "20%", "20%"],
-      },
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "loop" as const,
-        ease: "linear",
-        repeatDelay: 2,
-        delay: Math.random() * 2,
-      },
+const beams = [{
+  path: "M269 220.5H16.5C10.9772 220.5 6.5 224.977 6.5 230.5V398.5",
+  gradientConfig: {
+    initial: {
+      x1: "0%",
+      x2: "0%",
+      y1: "80%",
+      y2: "100%"
     },
-    connectionPoints: [
-      { cx: 6.5, cy: 398.5, r: 6 },
-      { cx: 269, cy: 220.5, r: 6 }
-    ]
+    animate: {
+      x1: ["0%", "0%", "200%"],
+      x2: ["0%", "0%", "180%"],
+      y1: ["80%", "0%", "0%"],
+      y2: ["100%", "20%", "20%"]
+    },
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: "loop" as const,
+      ease: "linear",
+      repeatDelay: 2,
+      delay: Math.random() * 2
+    }
   },
-  {
-    path: "M568 200H841C846.523 200 851 195.523 851 190V40",
-    gradientConfig: {
-      initial: { x1: "0%", x2: "0%", y1: "80%", y2: "100%" },
-      animate: {
-        x1: ["20%", "100%", "100%"],
-        x2: ["0%", "90%", "90%"],
-        y1: ["80%", "80%", "-20%"],
-        y2: ["100%", "100%", "0%"],
-      },
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "loop" as const,
-        ease: "linear",
-        repeatDelay: 2,
-        delay: Math.random() * 2,
-      },
+  connectionPoints: [{
+    cx: 6.5,
+    cy: 398.5,
+    r: 6
+  }, {
+    cx: 269,
+    cy: 220.5,
+    r: 6
+  }]
+}, {
+  path: "M568 200H841C846.523 200 851 195.523 851 190V40",
+  gradientConfig: {
+    initial: {
+      x1: "0%",
+      x2: "0%",
+      y1: "80%",
+      y2: "100%"
     },
-    connectionPoints: [
-      { cx: 851, cy: 34, r: 6.5 },
-      { cx: 568, cy: 200, r: 6 }
-    ]
+    animate: {
+      x1: ["20%", "100%", "100%"],
+      x2: ["0%", "90%", "90%"],
+      y1: ["80%", "80%", "-20%"],
+      y2: ["100%", "100%", "0%"]
+    },
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: "loop" as const,
+      ease: "linear",
+      repeatDelay: 2,
+      delay: Math.random() * 2
+    }
   },
-  {
-    path: "M425.5 274V333C425.5 338.523 421.023 343 415.5 343H152C146.477 343 142 347.477 142 353V426.5",
-    gradientConfig: {
-      initial: { x1: "0%", x2: "0%", y1: "80%", y2: "100%" },
-      animate: {
-        x1: ["20%", "100%", "100%"],
-        x2: ["0%", "90%", "90%"],
-        y1: ["80%", "80%", "-20%"],
-        y2: ["100%", "100%", "0%"],
-      },
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "loop" as const,
-        ease: "linear",
-        repeatDelay: 2,
-        delay: Math.random() * 2,
-      },
+  connectionPoints: [{
+    cx: 851,
+    cy: 34,
+    r: 6.5
+  }, {
+    cx: 568,
+    cy: 200,
+    r: 6
+  }]
+}, {
+  path: "M425.5 274V333C425.5 338.523 421.023 343 415.5 343H152C146.477 343 142 347.477 142 353V426.5",
+  gradientConfig: {
+    initial: {
+      x1: "0%",
+      x2: "0%",
+      y1: "80%",
+      y2: "100%"
     },
-    connectionPoints: [
-      { cx: 142, cy: 427, r: 6.5 },
-      { cx: 425.5, cy: 274, r: 6 }
-    ]
+    animate: {
+      x1: ["20%", "100%", "100%"],
+      x2: ["0%", "90%", "90%"],
+      y1: ["80%", "80%", "-20%"],
+      y2: ["100%", "100%", "0%"]
+    },
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: "loop" as const,
+      ease: "linear",
+      repeatDelay: 2,
+      delay: Math.random() * 2
+    }
   },
-  {
-    path: "M493 274V333.226C493 338.749 497.477 343.226 503 343.226H760C765.523 343.226 770 347.703 770 353.226V427",
-    gradientConfig: {
-      initial: { x1: "40%", x2: "50%", y1: "160%", y2: "180%" },
-      animate: { x1: "0%", x2: "10%", y1: "-40%", y2: "-20%" },
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "loop" as const,
-        ease: "linear",
-        repeatDelay: 2,
-        delay: Math.random() * 2,
-      },
+  connectionPoints: [{
+    cx: 142,
+    cy: 427,
+    r: 6.5
+  }, {
+    cx: 425.5,
+    cy: 274,
+    r: 6
+  }]
+}, {
+  path: "M493 274V333.226C493 338.749 497.477 343.226 503 343.226H760C765.523 343.226 770 347.703 770 353.226V427",
+  gradientConfig: {
+    initial: {
+      x1: "40%",
+      x2: "50%",
+      y1: "160%",
+      y2: "180%"
     },
-    connectionPoints: [
-      { cx: 770, cy: 427, r: 6.5 },
-      { cx: 493, cy: 274, r: 6 }
-    ]
+    animate: {
+      x1: "0%",
+      x2: "10%",
+      y1: "-40%",
+      y2: "-20%"
+    },
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: "loop" as const,
+      ease: "linear",
+      repeatDelay: 2,
+      delay: Math.random() * 2
+    }
   },
-  {
-    path: "M380 168V17C380 11.4772 384.477 7 390 7H414",
-    gradientConfig: {
-      initial: { x1: "-40%", x2: "-10%", y1: "0%", y2: "20%" },
-      animate: {
-        x1: ["40%", "0%", "0%"],
-        x2: ["10%", "0%", "0%"],
-        y1: ["0%", "0%", "180%"],
-        y2: ["20%", "20%", "200%"],
-      },
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "loop" as const,
-        ease: "linear",
-        repeatDelay: 2,
-        delay: Math.random() * 2,
-      },
+  connectionPoints: [{
+    cx: 770,
+    cy: 427,
+    r: 6.5
+  }, {
+    cx: 493,
+    cy: 274,
+    r: 6
+  }]
+}, {
+  path: "M380 168V17C380 11.4772 384.477 7 390 7H414",
+  gradientConfig: {
+    initial: {
+      x1: "-40%",
+      x2: "-10%",
+      y1: "0%",
+      y2: "20%"
     },
-    connectionPoints: [
-      { cx: 420.5, cy: 6.5, r: 6 },
-      { cx: 380, cy: 168, r: 6 }
-    ]
-  }
-];
-
+    animate: {
+      x1: ["40%", "0%", "0%"],
+      x2: ["10%", "0%", "0%"],
+      y1: ["0%", "0%", "180%"],
+      y2: ["20%", "20%", "200%"]
+    },
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: "loop" as const,
+      ease: "linear",
+      repeatDelay: 2,
+      delay: Math.random() * 2
+    }
+  },
+  connectionPoints: [{
+    cx: 420.5,
+    cy: 6.5,
+    r: 6
+  }, {
+    cx: 380,
+    cy: 168,
+    r: 6
+  }]
+}];
 const gradientColors = {
   start: "#18CCFC",
   middle: "#6344F5",
   end: "#AE48FF"
 };
-
 const DashboardImage = () => {
   const [imageState, setImageState] = useState<'loading' | 'loaded' | 'error'>('loading');
-
-  return (
-    <div className="relative w-full h-full">
-      {imageState === 'loading' && (
-        <div className="absolute inset-0 bg-muted/50 rounded-2xl animate-pulse flex items-center justify-center">
+  return <div className="relative w-full h-full">
+      {imageState === 'loading' && <div className="absolute inset-0 bg-muted/50 rounded-2xl animate-pulse flex items-center justify-center">
           <div className="text-muted-foreground">Chargement...</div>
-        </div>
-      )}
-      {imageState === 'error' && (
-        <div className="absolute inset-0 bg-muted/30 rounded-2xl flex items-center justify-center">
+        </div>}
+      {imageState === 'error' && <div className="absolute inset-0 bg-muted/30 rounded-2xl flex items-center justify-center">
           <div className="text-center space-y-2">
             <p className="text-muted-foreground">Impossible de charger l'image</p>
-            <button 
-              onClick={() => setImageState('loading')} 
-              className="text-primary hover:underline text-sm"
-            >
+            <button onClick={() => setImageState('loading')} className="text-primary hover:underline text-sm">
               Réessayer
             </button>
           </div>
-        </div>
-      )}
-      <img 
-        src={dashboardPreview} 
-        alt="Tableau de bord personnalisé avec métriques et graphiques en temps réel"
-        className={`w-full h-full object-cover rounded-2xl transition-opacity duration-300 ${
-          imageState === 'loaded' ? 'opacity-100' : 'opacity-0'
-        }`}
-        onLoad={() => setImageState('loaded')}
-        onError={() => setImageState('error')}
-      />
-    </div>
-  );
+        </div>}
+      <img src={dashboardPreview} alt="Tableau de bord personnalisé avec métriques et graphiques en temps réel" className={`w-full h-full object-cover rounded-2xl transition-opacity duration-300 ${imageState === 'loaded' ? 'opacity-100' : 'opacity-0'}`} onLoad={() => setImageState('loaded')} onError={() => setImageState('error')} />
+    </div>;
 };
-
 export function Services() {
   return <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -210,11 +238,7 @@ export function Services() {
 
         {/* PulseBeams CTA */}
         <div className="mt-20">
-          <PulseBeams
-            beams={beams}
-            gradientColors={gradientColors}
-            className="bg-background rounded-3xl h-[600px]"
-          >
+          <PulseBeams beams={beams} gradientColors={gradientColors} className="bg-background rounded-3xl h-[600px]">
             <button className="bg-slate-800 w-[320px] z-40 h-[120px] no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block">
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -234,7 +258,7 @@ export function Services() {
                 <h2 className="text-3xl md:text-5xl font-bold text-foreground">
                   Suivez vos clients et vos données
                 </h2>
-                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Supervisez vos automatisations et bien plus encore avec des tableaux de bord personnalisés et intuitifs.</p>
+                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Supervisez vos automatisations et bien plus encore avec des tableaux de bord ou CRM personnalisés et intuitifs.</p>
               </div>}>
             <DashboardImage />
           </ContainerScroll>
