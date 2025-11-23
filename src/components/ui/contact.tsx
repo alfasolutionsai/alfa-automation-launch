@@ -42,6 +42,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     e.preventDefault();
     onSubmit?.(formData);
     console.log("Form submitted:", formData);
+    // Redirect to Calendly
+    window.location.href = "https://calendly.com/alfasolutionsai/30min";
   };
   return <section id="contact" className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-background to-card">
       {/* Background with overlay */}
