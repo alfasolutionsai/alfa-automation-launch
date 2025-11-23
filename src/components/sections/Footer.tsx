@@ -1,5 +1,4 @@
 import alfaLogo from "@/assets/alfa-logo.svg";
-
 export function Footer() {
   return <footer className="border-t border-border bg-card py-12">
       <div className="container mx-auto px-4">
@@ -9,7 +8,7 @@ export function Footer() {
               <img src={alfaLogo} alt="Alfa Solutions" className="h-8 w-auto" />
               <span className="text-foreground font-semibold text-lg">Alfa Solutions</span>
             </a>
-            <p className="text-sm text-muted-foreground">Solutions IA personnalisées pour entreprises </p>
+            <p className="text-sm text-muted-foreground">Solutions IA pour entreprises </p>
           </div>
 
           <div>
@@ -43,7 +42,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2024 Alfa Solutions. Tous droits réservés. Fait au Québec </p>
+          <p>© 2025 Alfa Solutions AI. Tous droits réservés. Fait au Québec </p>
         </div>
       </div>
     </footer>;
