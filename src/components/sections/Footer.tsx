@@ -1,14 +1,14 @@
+import alfaLogo from "@/assets/alfa-logo.svg";
+
 export function Footer() {
   return <footer className="border-t border-border bg-card py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-                <span className="text-lg font-bold text-primary-foreground">A</span>
-              </div>
-              <span className="text-lg font-bold text-foreground">Alfa Solutions</span>
-            </div>
+            <a href="/" className="hover:bg-accent rounded-md p-2 flex items-center gap-2">
+              <img src={alfaLogo} alt="Alfa Solutions" className="h-8 w-auto" />
+              <span className="text-foreground font-semibold text-lg">Alfa Solutions</span>
+            </a>
             <p className="text-sm text-muted-foreground">Solutions IA personnalisées pour entreprises </p>
           </div>
 
