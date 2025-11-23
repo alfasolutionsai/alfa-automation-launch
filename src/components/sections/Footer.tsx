@@ -14,29 +14,29 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-foreground mb-3">Solutions</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#services" className="hover:text-primary transition-colors">Voice AI Agents</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Workflow Automation</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Lead Qualification</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Custom Integrations</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Agents IA Vocaux</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Automatisation des Workflows</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Qualification de Leads</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Intégrations Personnalisées</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-foreground mb-3">Company</h3>
+            <h3 className="font-semibold text-foreground mb-3">Entreprise</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#results" className="hover:text-primary transition-colors">Case Studies</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">À Propos</a></li>
+              <li><a href="#results" className="hover:text-primary transition-colors">Études de Cas</a></li>
               <li><a href="#faq" className="hover:text-primary transition-colors">FAQ</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-foreground mb-3">Legal</h3>
+            <h3 className="font-semibold text-foreground mb-3">Légal</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Data Security</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Politique de Confidentialité</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Conditions d'Utilisation</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Sécurité des Données</a></li>
             </ul>
           </div>
         </div>
