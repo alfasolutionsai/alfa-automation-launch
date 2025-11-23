@@ -15,7 +15,7 @@ export function Footer() {
             <h3 className="font-semibold text-foreground mb-3">Solutions</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#services" className="hover:text-primary transition-colors">Agents IA vocaux</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">Automatisation des workflows</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Automatisations de processus</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Qualification de leads</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Intégrations personnalisées</a></li>
             </ul>
