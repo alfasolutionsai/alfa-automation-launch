@@ -8,7 +8,7 @@ export function Footer() {
               <img src={alfaLogo} alt="Alfa Solutions" className="h-8 w-auto" />
               <span className="text-foreground font-semibold text-lg">Alfa Solutions</span>
             </a>
-            <p className="text-sm text-muted-foreground">Solutions IA pour entreprises </p>
+            <p className="text-sm text-muted-foreground">Solutions IA personnalisées pour entreprises</p>
           </div>
 
           <div>
