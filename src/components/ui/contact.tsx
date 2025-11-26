@@ -16,7 +16,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   title = "Prêts à enfin faire grandir votre entreprise et arrêter de perdre du temps et de l'argent?",
   subtitle = "Réservez une consultation gratuite de 30 minutes. Nous analyserons vos processus et vous montrerons précisément les avantages que l'IA peut vous apporter.",
   supportingCopy = "Aucune obligation ou pression, juste une feuille de route claire de ce qui pourrait vous aider.",
-  riskReversal = "100% gratuit. Aucune carte de crédit requise. Voyez les résultats avant d'investir.",
+  riskReversal = "100% gratuit. Aucune carte de crédit requise. ",
   backgroundImageSrc = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
   onSubmit
 }) => {
