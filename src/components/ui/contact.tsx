@@ -38,11 +38,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       [name]: value
     }));
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit?.(formData);
-    console.log("Form submitted:", formData);
-    // Redirect to Calendly
+    await onSubmit?.(formData);
+    // Redirect to Calendly after successful submission
     window.location.href = "https://calendly.com/alfasolutionsai/30min";
   };
   return <section id="contact" className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-background to-card">
