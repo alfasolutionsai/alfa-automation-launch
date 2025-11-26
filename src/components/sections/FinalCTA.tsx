@@ -6,8 +6,8 @@ export function FinalCTA() {
 
   const handleSubmit = (data: any) => {
     toast({
-      title: "Demande reçue!",
-      description: "Nous vous contacterons dans les 24 heures pour planifier votre consultation."
+      title: "Formulaire envoyé!",
+      description: "Vous pouvez maintenant réserver votre consultation gratuite. Vous recevrez votre audit gratuit par courriel d'ici 48 heures."
     });
   };
 
