@@ -1,5 +1,7 @@
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { DollarSign, Clock, AlertCircle, TrendingUp } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
 
 const problems = [
   {
@@ -25,43 +27,77 @@ const problems = [
 ];
 
 export function Problems() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  
+  const problemColors = [
+    { border: 'hover:border-red-500/50', glow: 'from-red-500/20', icon: 'text-red-500' },
+    { border: 'hover:border-yellow-500/50', glow: 'from-yellow-500/20', icon: 'text-yellow-500' },
+    { border: 'hover:border-orange-500/50', glow: 'from-orange-500/20', icon: 'text-orange-500' },
+    { border: 'hover:border-purple-500/50', glow: 'from-purple-500/20', icon: 'text-purple-500' }
+  ];
+  
   return (
-    <section id="problems" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="problems" className="py-20 bg-gradient-to-b from-background via-red-500/5 to-background relative overflow-hidden">
+      {/* Subtle background accent */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-red-500/10 to-transparent rounded-full blur-3xl opacity-30" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          ref={headerRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={headerVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             Vous perdez du temps et de l'argent avec des choses simples
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {problems.map((problem, index) => (
-            <div key={index} className="min-h-[20rem]">
-              <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3">
-                <GlowingEffect
-                  spread={40}
-                  glow={true}
-                  disabled={false}
-                  proximity={64}
-                  inactiveZone={0.01}
-                  borderWidth={3}
-                />
-                <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-xl border-[0.75px] bg-card p-6 shadow-sm">
-                  <div className="w-fit rounded-lg border-[0.75px] border-border bg-primary/10 p-3">
-                    <problem.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-xl md:text-2xl font-semibold text-card-foreground">
-                      {problem.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                      {problem.description}
-                    </p>
+          {problems.map((problem, index) => {
+            const colors = problemColors[index];
+            return (
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="min-h-[20rem]"
+              >
+                <div className={`relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3 transition-all duration-300 ${colors.border}`}>
+                  <GlowingEffect
+                    spread={40}
+                    glow={true}
+                    disabled={false}
+                    proximity={64}
+                    inactiveZone={0.01}
+                    borderWidth={3}
+                  />
+                  <div className="relative flex h-full flex-col gap-6 overflow-hidden rounded-xl border-[0.75px] bg-card p-6 shadow-sm">
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
+                      className={`w-fit rounded-lg border-[0.75px] border-border bg-gradient-to-br ${colors.glow} to-transparent p-3`}
+                    >
+                      <problem.icon className={`h-6 w-6 ${colors.icon}`} />
+                    </motion.div>
+                    <div className="space-y-3">
+                      <h3 className="text-xl md:text-2xl font-semibold text-card-foreground">
+                        {problem.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                        {problem.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         <div className="mt-16 text-center">
