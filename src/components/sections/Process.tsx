@@ -1,7 +1,5 @@
 import { Timeline } from "@/components/ui/timeline";
 import { Button } from "@/components/ui/neon-button";
-import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const timelineData = [{
   title: "ÉTAPE 1",
   content: <div>
@@ -79,27 +77,16 @@ const timelineData = [{
       </div>
 }];
 export function Process() {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
-  
-  return <section id="process" className="py-20 bg-gradient-to-b from-background via-accent-cyan/5 to-background relative overflow-hidden">
-      {/* Gradient accents */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-accent-blue/10 to-transparent rounded-full blur-3xl" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
-          ref={headerRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={headerVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+  return <section id="process" className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             De la découverte au déploiement en trois étapes simples
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Notre processus éprouvé vous met en place rapidement, sans perturber vos opérations et s'intègre à n'importe quels systèmes existants.
           </p>
-        </motion.div>
+        </div>
 
         <Timeline data={timelineData} />
       </div>
