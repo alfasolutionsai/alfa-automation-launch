@@ -3,6 +3,8 @@ import CardFlip from "@/components/ui/card-flip";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { PulseBeams } from "@/components/ui/pulse-beams";
 import dashboardPreview from "@/assets/dashboard-preview.png";
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const services = [{
   title: "Réceptionniste vocal IA",
   subtitle: "Disponible 24/7 pour vos clients",
@@ -223,17 +225,39 @@ const DashboardImage = () => {
     </div>;
 };
 export function Services() {
-  return <section id="services" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  
+  return <section id="services" className="py-20 bg-gradient-to-b from-background via-primary/5 to-background relative overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute top-20 right-[10%] w-[500px] h-[500px] bg-gradient-to-br from-accent-blue/20 via-accent-cyan/15 to-transparent rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute bottom-20 left-[10%] w-[400px] h-[400px] bg-gradient-to-br from-accent-light-blue/15 to-transparent rounded-full blur-3xl animate-pulse" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          ref={headerRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={headerVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Des solutions IA qui règlent vos vrais problèmes
           </h2>
-        </div>
+        </motion.div>
 
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-32 justify-items-center">
-          {services.map((service, index) => <CardFlip key={index} title={service.title} subtitle={service.subtitle} description={service.description} features={service.features} />)}
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+            >
+              <CardFlip title={service.title} subtitle={service.subtitle} description={service.description} features={service.features} />
+            </motion.div>
+          ))}
         </div>
 
         {/* PulseBeams CTA */}

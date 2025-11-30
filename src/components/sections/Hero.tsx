@@ -11,7 +11,12 @@ export function Hero() {
     }
   };
 
-  return <section className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 min-h-[calc(100vh-40px)] overflow-hidden bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_50%,hsl(var(--border))_88%)] dark:bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_30%,hsl(var(--muted))_78%,hsl(var(--foreground))_99%_50%)] rounded-b-xl">
+  return <section className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 min-h-[calc(100vh-40px)] overflow-hidden bg-gradient-to-b from-background via-background to-primary/5 dark:to-primary/10 rounded-b-xl">
+      {/* Animated gradient orbs */}
+      <div className="absolute top-20 right-[10%] w-72 h-72 bg-gradient-to-br from-accent-blue/30 to-accent-cyan/30 rounded-full blur-3xl animate-pulse opacity-60" />
+      <div className="absolute bottom-40 left-[5%] w-96 h-96 bg-gradient-to-br from-accent-cyan/20 to-accent-light-blue/20 rounded-full blur-3xl animate-float opacity-50" />
+      <div className="absolute top-40 left-[15%] w-64 h-64 bg-gradient-to-br from-accent-light-blue/25 to-accent-deep-blue/25 rounded-full blur-3xl animate-float-slow opacity-40" />
+      
       {/* Grid BG */}
       <div className="absolute -z-10 inset-0 opacity-80 h-[600px] w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,hsl(var(--muted))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--muted))_1px,transparent_1px)] bg-[size:6rem_5rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
 
@@ -31,7 +36,7 @@ export function Hero() {
 
             <h1 className="mb-8 text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl">
               Utilisez l'IA pour{" "}
-              <span className="inline-block min-w-[280px] md:min-w-[500px] lg:min-w-[650px]">
+              <span className="inline-block min-w-[280px] md:min-w-[500px] lg:min-w-[650px] bg-gradient-to-r from-accent-blue via-accent-cyan to-accent-light-blue bg-clip-text text-transparent animate-gradient">
                 <MorphingText 
                   words={[
                     "Faire croître votre entreprise", 
@@ -66,10 +71,18 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right content - 3D Scene */}
+          {/* Right content - Enhanced visuals */}
           <div className="relative hidden lg:block animate-fade-up">
-            <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="hsl(var(--primary))" />
+            <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="hsl(var(--accent-cyan))" />
             
+            {/* Floating rings */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className="relative w-96 h-96">
+                <div className="absolute inset-0 rounded-full border-2 border-accent-blue/30 animate-ping" style={{ animationDuration: '3s' }} />
+                <div className="absolute inset-8 rounded-full border-2 border-accent-cyan/40 animate-ping" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+                <div className="absolute inset-16 rounded-full border-2 border-accent-light-blue/50 animate-ping" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
