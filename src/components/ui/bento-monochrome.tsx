@@ -245,7 +245,7 @@ function BentoItem({ feature, span = "", theme = "light", index = 0, isVisible =
 
   return (
     <article
-      className={`group relative flex min-h-[180px] md:h-full flex-col justify-between rounded-2xl border border-border bg-card p-5 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-md motion-safe:opacity-0 ${
+      className={`group relative flex min-h-[240px] md:h-full flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-md motion-safe:opacity-0 ${
         isVisible ? "motion-safe:animate-[bento2-card_0.8s_ease-out_forwards]" : ""
       } ${span}`}
       style={{ animationDelay }}
