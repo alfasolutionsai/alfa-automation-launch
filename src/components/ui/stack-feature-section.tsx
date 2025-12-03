@@ -52,17 +52,17 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section className="relative w-full my-32 px-10 flex items-center justify-between h-[40rem] border-y border-border bg-card overflow-hidden">
+    <section className="relative w-full my-16 md:my-32 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between min-h-[20rem] md:h-[40rem] border-y border-border bg-card overflow-hidden py-12 md:py-0">
       {/* Left side: Heading and Text */}
-      <div className="w-1/2 z-10">
-        <h2 className="text-4xl sm:text-6xl font-bold mb-4 text-foreground">
+      <div className="w-full md:w-1/2 z-10 text-center md:text-left">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 text-foreground">
           {headline}
         </h2>
-        <p className="text-muted-foreground mb-6 max-w-lg">
+        <p className="text-muted-foreground mb-6 max-w-lg mx-auto md:mx-0">
           {subheadline}
         </p>
         {ctaText && ctaHref && (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center md:justify-start gap-3">
             <Button variant="default" asChild>
               <a href={ctaHref}>{ctaText}</a>
             </Button>
@@ -70,8 +70,8 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
         )}
       </div>
 
-      {/* Right side: Orbit animation cropped to 1/4 */}
-      <div className="relative w-1/2 h-full flex items-center justify-start overflow-hidden">
+      {/* Right side: Orbit animation - hidden on mobile */}
+      <div className="hidden md:flex relative w-1/2 h-full items-center justify-start overflow-hidden">
         <TooltipProvider>
           <div className="relative w-[50rem] h-[50rem] translate-x-[50%] flex items-center justify-center">
             {/* Center Circle */}

@@ -2,7 +2,7 @@ import alfaLogo from "@/assets/alfa-logo.svg";
 export function Footer() {
   return <footer className="border-t border-border bg-card py-12">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-8">
           <div>
             <a href="/" className="hover:bg-accent rounded-md p-2 flex items-center gap-2">
               <img src={alfaLogo} alt="Alfa Solutions" className="h-8 w-auto" />

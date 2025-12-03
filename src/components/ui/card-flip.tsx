@@ -19,11 +19,16 @@ export default function CardFlip({
 }: CardFlipProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const handleClick = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
     <div
-      className="relative w-full max-w-[280px] h-[320px] group [perspective:2000px]"
+      className="relative w-full max-w-[320px] sm:max-w-[280px] h-[360px] sm:h-[320px] group [perspective:2000px] cursor-pointer"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
+      onClick={handleClick}
     >
       <div
         className={cn(

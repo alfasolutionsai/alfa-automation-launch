@@ -237,8 +237,8 @@ export function Services() {
         </div>
 
         {/* PulseBeams CTA */}
-        <div className="mt-20">
-          <PulseBeams beams={beams} gradientColors={gradientColors} className="bg-background rounded-3xl h-[600px]">
+        <div className="mt-20 overflow-hidden">
+          <PulseBeams beams={beams} gradientColors={gradientColors} className="bg-background rounded-3xl h-[400px] md:h-[600px]">
             <a href="tel:+15818725167" className="bg-slate-800 w-[320px] z-40 h-[120px] no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block">
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
