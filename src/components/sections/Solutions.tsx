@@ -78,7 +78,7 @@ export function Solutions() {
       {/* Stack Integration Section - Full Width */}
       <div className="w-full">
         <StackFeatureSection
-          headline="Nos systèmes s'intègrent aux outils que vous connaissez et aimez"
+          headline="Plus de 500 intégrations"
           subheadline="Alfa offre des intégrations avec plus de 500 outils standards utilisés par les entreprises. Nos services vous permettent d'améliorer vos opérations existantes tout en vous permettant de continuer d'utiliser les outils que vous connaissez déjà."
         />
       </div>
