@@ -29,9 +29,9 @@ export function Hero() {
               <span className="text-muted-foreground">Nous sommes fiers d'être une entreprise québécoise</span>
             </div>
 
-            <h1 className="mb-8 text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl">
+            <h1 className="mb-8 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-6xl lg:text-7xl">
               Utilisez l'IA pour{" "}
-              <span className="inline-block min-w-[280px] md:min-w-[500px] lg:min-w-[650px]">
+              <span className="block mt-2">
                 <MorphingText 
                   words={[
                     "Faire croître votre entreprise", 
@@ -41,7 +41,7 @@ export function Hero() {
                     "Gagner du temps", 
                     "Mieux s'organiser"
                   ]} 
-                  className="text-4xl md:text-6xl lg:text-7xl" 
+                  className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl" 
                   interval={3500} 
                 />
               </span>

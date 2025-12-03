@@ -50,10 +50,10 @@ export function Solutions() {
     <section id="solutions" className="py-20 bg-gradient-to-b from-background to-card">
       <div className="container mx-auto px-4">
         {/* Featured 3D Section */}
-        <Card className="w-full h-[500px] mb-16 bg-card relative overflow-hidden border-border">
+        <Card className="w-full h-auto md:h-[500px] mb-16 bg-card relative overflow-hidden border-border">
           <div className="flex flex-col md:flex-row h-full">
             {/* Left content */}
-            <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
+            <div className="flex-1 p-6 md:p-12 relative z-10 flex flex-col justify-center py-12 md:py-0">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                 IA sur mesure qui travaille comme vous travaillez
               </h2>
