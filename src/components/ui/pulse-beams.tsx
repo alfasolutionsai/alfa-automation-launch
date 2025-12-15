@@ -158,8 +158,9 @@ const GradientColors = ({ colors = {
   return (
     <>
       <stop offset="0%" stopColor={colors.start} stopOpacity="0" />
-      <stop offset="20%" stopColor={colors.start} stopOpacity="1" />
-      <stop offset="50%" stopColor={colors.middle} stopOpacity="1" />
+      <stop offset="8%" stopColor={colors.start} stopOpacity="1" />
+      <stop offset="35%" stopColor={colors.middle} stopOpacity="1" />
+      <stop offset="70%" stopColor={colors.middle} stopOpacity="1" />
       <stop offset="100%" stopColor={colors.end} stopOpacity="0" />
     </>
   );

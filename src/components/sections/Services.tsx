@@ -35,7 +35,7 @@ const services = [{
   features: ["Analyse personnalisée", "Développement sur mesure", "Intégration flexible", "Support dédié"]
 }];
 const beams = [{
-  path: "M269 220.5H16.5C10.9772 220.5 6.5 224.977 6.5 230.5V398.5",
+  path: "M400 300H80C74.4772 300 70 304.477 70 310V580",
   gradientConfig: {
     initial: {
       x1: "0%",
@@ -50,25 +50,25 @@ const beams = [{
       y2: ["100%", "20%", "20%"]
     },
     transition: {
-      duration: 2,
+      duration: 3.5,
       repeat: Infinity,
       repeatType: "loop" as const,
       ease: "linear",
-      repeatDelay: 2,
+      repeatDelay: 3,
       delay: Math.random() * 2
     }
   },
   connectionPoints: [{
-    cx: 6.5,
-    cy: 398.5,
+    cx: 70,
+    cy: 580,
     r: 6
   }, {
-    cx: 269,
-    cy: 220.5,
+    cx: 400,
+    cy: 300,
     r: 6
   }]
 }, {
-  path: "M568 200H841C846.523 200 851 195.523 851 190V40",
+  path: "M800 300H1120C1125.52 300 1130 295.523 1130 290V20",
   gradientConfig: {
     initial: {
       x1: "0%",
@@ -83,25 +83,25 @@ const beams = [{
       y2: ["100%", "100%", "0%"]
     },
     transition: {
-      duration: 2,
+      duration: 3.5,
       repeat: Infinity,
       repeatType: "loop" as const,
       ease: "linear",
-      repeatDelay: 2,
+      repeatDelay: 3,
       delay: Math.random() * 2
     }
   },
   connectionPoints: [{
-    cx: 851,
-    cy: 34,
+    cx: 1130,
+    cy: 20,
     r: 6.5
   }, {
-    cx: 568,
-    cy: 200,
+    cx: 800,
+    cy: 300,
     r: 6
   }]
 }, {
-  path: "M425.5 274V333C425.5 338.523 421.023 343 415.5 343H152C146.477 343 142 347.477 142 353V426.5",
+  path: "M550 350V420C550 425.523 545.523 430 540 430H120C114.477 430 110 434.477 110 440V590",
   gradientConfig: {
     initial: {
       x1: "0%",
@@ -116,25 +116,25 @@ const beams = [{
       y2: ["100%", "100%", "0%"]
     },
     transition: {
-      duration: 2,
+      duration: 3.5,
       repeat: Infinity,
       repeatType: "loop" as const,
       ease: "linear",
-      repeatDelay: 2,
+      repeatDelay: 3,
       delay: Math.random() * 2
     }
   },
   connectionPoints: [{
-    cx: 142,
-    cy: 427,
+    cx: 110,
+    cy: 590,
     r: 6.5
   }, {
-    cx: 425.5,
-    cy: 274,
+    cx: 550,
+    cy: 350,
     r: 6
   }]
 }, {
-  path: "M493 274V333.226C493 338.749 497.477 343.226 503 343.226H760C765.523 343.226 770 347.703 770 353.226V427",
+  path: "M650 350V420C650 425.523 654.477 430 660 430H1080C1085.52 430 1090 434.477 1090 440V590",
   gradientConfig: {
     initial: {
       x1: "40%",
@@ -149,25 +149,25 @@ const beams = [{
       y2: "-20%"
     },
     transition: {
-      duration: 2,
+      duration: 3.5,
       repeat: Infinity,
       repeatType: "loop" as const,
       ease: "linear",
-      repeatDelay: 2,
+      repeatDelay: 3,
       delay: Math.random() * 2
     }
   },
   connectionPoints: [{
-    cx: 770,
-    cy: 427,
+    cx: 1090,
+    cy: 590,
     r: 6.5
   }, {
-    cx: 493,
-    cy: 274,
+    cx: 650,
+    cy: 350,
     r: 6
   }]
 }, {
-  path: "M380 168V17C380 11.4772 384.477 7 390 7H414",
+  path: "M600 250V30C600 24.4772 604.477 20 610 20H680",
   gradientConfig: {
     initial: {
       x1: "-40%",
@@ -182,21 +182,21 @@ const beams = [{
       y2: ["20%", "20%", "200%"]
     },
     transition: {
-      duration: 2,
+      duration: 3.5,
       repeat: Infinity,
       repeatType: "loop" as const,
       ease: "linear",
-      repeatDelay: 2,
+      repeatDelay: 3,
       delay: Math.random() * 2
     }
   },
   connectionPoints: [{
-    cx: 420.5,
-    cy: 6.5,
+    cx: 680,
+    cy: 20,
     r: 6
   }, {
-    cx: 380,
-    cy: 168,
+    cx: 600,
+    cy: 250,
     r: 6
   }]
 }];
@@ -238,7 +238,7 @@ export function Services() {
 
         {/* PulseBeams CTA */}
         <div className="mt-20 overflow-hidden">
-          <PulseBeams beams={beams} gradientColors={gradientColors} className="bg-background rounded-3xl h-[400px] md:h-[600px]">
+          <PulseBeams beams={beams} gradientColors={gradientColors} width={1200} height={600} className="bg-background rounded-3xl h-[400px] md:h-[600px]">
             <a href="tel:+15818725167" className="bg-slate-800 w-[320px] z-40 h-[120px] no-underline group cursor-pointer relative rounded-full p-px text-xs font-semibold leading-6 text-white inline-block">
               <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
