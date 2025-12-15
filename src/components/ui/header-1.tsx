@@ -50,9 +50,14 @@ export function Header() {
 						<CtaButton headline="Commencer" subheadline="Obtenez un audit gratuit" />
 					</a>
 				</div>
-				<Button size="icon" variant="outline" onClick={() => setOpen(!open)} className="md:hidden" aria-expanded={open} aria-controls="mobile-menu" aria-label="Toggle menu">
-					
-				</Button>
+				<div className="flex items-center gap-2 md:hidden">
+					<a href="#contact">
+						<CtaButton headline="Commencer" subheadline="Obtenez un audit gratuit" className="text-xs [&_span:first-child]:text-xs [&_span:last-child]:text-[9px]" />
+					</a>
+					<Button size="icon" variant="outline" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label="Toggle menu">
+						
+					</Button>
+				</div>
 			</nav>
 			<MobileMenu open={open} className="flex flex-col justify-between gap-2">
 				<div className="grid gap-y-2">
