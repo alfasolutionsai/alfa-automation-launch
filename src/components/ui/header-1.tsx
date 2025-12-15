@@ -50,7 +50,7 @@ export function Header() {
 					</a>
 				</div>
 				<Button size="icon" variant="outline" onClick={() => setOpen(!open)} className="md:hidden" aria-expanded={open} aria-controls="mobile-menu" aria-label="Toggle menu">
-					<MenuToggleIcon open={open} className="size-5" duration={300} />
+					
 				</Button>
 			</nav>
 			<MobileMenu open={open} className="flex flex-col justify-between gap-2">
