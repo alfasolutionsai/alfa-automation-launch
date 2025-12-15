@@ -245,31 +245,31 @@ function BentoItem({ feature, span = "", theme = "light", index = 0, isVisible =
 
   return (
     <article
-      className={`group relative flex min-h-[240px] md:h-full flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-md motion-safe:opacity-0 ${
+      className={`group relative flex min-h-[240px] md:h-full flex-col justify-between rounded-2xl border border-border bg-card px-5 py-6 md:px-6 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-md motion-safe:opacity-0 ${
         isVisible ? "motion-safe:animate-[bento2-card_0.8s_ease-out_forwards]" : ""
       } ${span}`}
       style={{ animationDelay }}
     >
-      <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background">
+      <div className="flex items-start gap-3 md:gap-4 w-full overflow-hidden">
+        <div className="flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-full border border-border bg-background">
           <Icon
-            className="h-7 w-7 text-foreground"
+            className="h-5 w-5 md:h-7 md:w-7 text-foreground"
             strokeWidth={1.5}
             style={{ animation }}
           />
         </div>
-        <div className="flex-1">
-          <header className="flex items-start gap-3">
-            <h3 className="text-base font-semibold uppercase tracking-wide text-foreground">
+        <div className="flex-1 min-w-0">
+          <header className="flex flex-wrap items-start gap-2">
+            <h3 className="text-sm md:text-base font-semibold uppercase tracking-wide text-foreground break-words">
               {title}
             </h3>
             {meta && (
-              <span className="ml-auto rounded-full border border-border px-2 py-0.5 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+              <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                 {meta}
               </span>
             )}
           </header>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-2 text-xs md:text-sm leading-relaxed text-muted-foreground break-words">
             {blurb}
           </p>
         </div>
