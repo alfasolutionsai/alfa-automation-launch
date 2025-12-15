@@ -64,7 +64,7 @@ export const PulseBeams = ({
     >
       {background}
       <div className="relative z-10">{children}</div>
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center w-full h-full overflow-hidden">
         <SVGs
           beams={beams}
           width={width}
@@ -92,12 +92,13 @@ const SVGs = ({ beams, width, height, baseColor, accentColor, gradientColors }: 
 }) => {
   return (
     <svg
-      width={width}
-      height={height}
+      width="100%"
+      height="100%"
       viewBox={`0 0 ${width} ${height}`}
+      preserveAspectRatio="xMidYMid meet"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="flex flex-shrink-0"
+      className="flex flex-shrink-0 max-w-full max-h-full"
     >
       {beams.map((beam, index) => (
         <React.Fragment key={index}>
