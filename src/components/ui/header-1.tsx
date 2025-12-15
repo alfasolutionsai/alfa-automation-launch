@@ -48,9 +48,9 @@ export function Header() {
 			})}
 		>
 			<nav className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4">
-			<a href="/" className="hover:bg-accent rounded-md p-2 flex items-center gap-2">
-				<img src={alfaLogo} alt="Alfa Solutions" className="h-8 w-auto" />
-				<span className="text-foreground font-semibold text-lg">Alfa Solutions</span>
+			<a href="/" className="hover:bg-accent rounded-md p-2 flex items-center gap-1.5 md:gap-2">
+				<img src={alfaLogo} alt="Alfa Solutions" className="h-7 md:h-8 w-auto" />
+				<span className="text-foreground font-semibold text-base md:text-lg">Alfa Solutions</span>
 			</a>
 				<div className="hidden items-center gap-2 md:flex">
 					{links.map((link) => (
