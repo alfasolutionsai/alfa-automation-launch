@@ -5,6 +5,7 @@ import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
 import { createPortal } from 'react-dom';
 import alfaLogo from '@/assets/alfa-logo.svg';
+import { CtaButton } from '@/components/ui/cta-button';
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const scrolled = useScroll(10);
@@ -46,7 +47,7 @@ export function Header() {
 							{link.label}
 						</a>)}
 					<a href="#contact">
-						<Button variant="solid">Commencer</Button>
+						<CtaButton headline="Commencer" subheadline="Obtenez un audit gratuit" />
 					</a>
 				</div>
 				<Button size="icon" variant="outline" onClick={() => setOpen(!open)} className="md:hidden" aria-expanded={open} aria-controls="mobile-menu" aria-label="Toggle menu">
@@ -64,7 +65,7 @@ export function Header() {
 				</div>
 				<div className="flex flex-col gap-2">
 					<a href="#contact" onClick={() => setOpen(false)}>
-						<Button className="w-full" variant="solid">Commencer</Button>
+						<CtaButton headline="Commencer" subheadline="Obtenez un audit gratuit" className="w-full" />
 					</a>
 				</div>
 			</MobileMenu>
