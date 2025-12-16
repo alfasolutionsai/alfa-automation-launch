@@ -70,8 +70,9 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
         )}
       </div>
 
+
       {/* Right side: Orbit animation - half circle on both mobile and desktop */}
-      <div className="flex relative w-full md:w-1/2 h-[16rem] md:h-full items-center justify-center md:justify-end overflow-hidden">
+      <div className="flex relative w-full md:w-1/2 h-[14rem] md:h-full items-center justify-center md:justify-end overflow-hidden">
         <TooltipProvider>
           <div className="relative w-[28rem] h-[28rem] md:w-[50rem] md:h-[50rem] translate-y-[50%] md:translate-y-0 md:translate-x-[50%] flex items-center justify-center">
             {/* Center Circle */}
@@ -86,22 +87,23 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
               </TooltipContent>
             </Tooltip>
 
-          {/* Generate Orbits */}
-          {[...Array(orbitCount)].map((_, orbitIdx) => {
-            const desktopSize = 12 + orbitGap * (orbitIdx + 1);
-            const mobileSize = 8 + 4 * (orbitIdx + 1);
-            const angleStep = (2 * Math.PI) / iconsPerOrbit;
+            {/* Generate Orbits */}
+            {[...Array(orbitCount)].map((_, orbitIdx) => {
+              const mobileSize = 16 + orbitIdx * 6; // rem (mobile)
+              const desktopSize = 28 + orbitIdx * 10; // rem (desktop)
+              const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
+              const angleStep = (2 * Math.PI) / iconsPerOrbit;
 
-            return (
-              <div
-                key={orbitIdx}
-                className="absolute rounded-full border-2 border-dotted border-border"
-                style={{
-                  width: `clamp(${mobileSize}rem, calc(${mobileSize}rem + (${desktopSize} - ${mobileSize}) * ((100vw - 20rem) / (80rem - 20rem))), ${desktopSize}rem)`,
-                  height: `clamp(${mobileSize}rem, calc(${mobileSize}rem + (${desktopSize} - ${mobileSize}) * ((100vw - 20rem) / (80rem - 20rem))), ${desktopSize}rem)`,
-                  animation: `spin ${12 + orbitIdx * 6}s linear infinite`,
-                }}
-              >
+              return (
+                <div
+                  key={orbitIdx}
+                  className="absolute rounded-full border-2 border-dotted border-border"
+                  style={{
+                    width: `clamp(${mobileSize}rem, calc(${mobileSize}rem + (${desktopSize} - ${mobileSize}) * ((100vw - 20rem) / (80rem - 20rem))), ${desktopSize}rem)`,
+                    height: `clamp(${mobileSize}rem, calc(${mobileSize}rem + (${desktopSize} - ${mobileSize}) * ((100vw - 20rem) / (80rem - 20rem))), ${desktopSize}rem)`,
+                    animation: `spin ${12 + orbitIdx * 6}s linear infinite`,
+                  }}
+                >
                 {iconConfigs
                   .slice(orbitIdx * iconsPerOrbit, orbitIdx * iconsPerOrbit + iconsPerOrbit)
                   .map((cfg, iconIdx) => {
