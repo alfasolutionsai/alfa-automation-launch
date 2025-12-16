@@ -73,7 +73,7 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
       {/* Right side: Orbit animation - half circle on both mobile and desktop */}
       <div className="flex relative w-full md:w-1/2 h-[16rem] md:h-full items-center justify-center md:justify-end overflow-hidden">
         <TooltipProvider>
-          <div className="relative w-[32rem] h-[32rem] md:w-[50rem] md:h-[50rem] translate-y-[50%] md:translate-y-0 md:translate-x-[50%] flex items-center justify-center">
+          <div className="relative w-[32rem] h-[32rem] md:w-[50rem] md:h-[50rem] -translate-y-[50%] md:translate-y-0 md:translate-x-[50%] flex items-center justify-center">
             {/* Center Circle */}
             <Tooltip>
               <TooltipTrigger asChild>
