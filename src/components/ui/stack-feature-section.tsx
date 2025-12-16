@@ -70,10 +70,10 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
         )}
       </div>
 
-      {/* Right side: Orbit animation - now visible on mobile */}
-      <div className="flex relative w-full md:w-1/2 h-[18rem] md:h-full items-center justify-center md:justify-start overflow-hidden">
+      {/* Right side: Orbit animation - now visible on mobile as half circle */}
+      <div className="flex relative w-full md:w-1/2 h-[24rem] md:h-full items-center justify-end overflow-hidden">
         <TooltipProvider>
-          <div className="relative w-[18rem] h-[18rem] md:w-[50rem] md:h-[50rem] md:translate-x-[50%] flex items-center justify-center">
+          <div className="relative w-[28rem] h-[28rem] md:w-[50rem] md:h-[50rem] translate-x-[50%] md:translate-x-[50%] flex items-center justify-center">
             {/* Center Circle */}
             <Tooltip>
               <TooltipTrigger asChild>
@@ -89,7 +89,7 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
           {/* Generate Orbits */}
           {[...Array(orbitCount)].map((_, orbitIdx) => {
             const desktopSize = 12 + orbitGap * (orbitIdx + 1);
-            const mobileSize = 4 + 2.5 * (orbitIdx + 1);
+            const mobileSize = 8 + 4 * (orbitIdx + 1);
             const angleStep = (2 * Math.PI) / iconsPerOrbit;
 
             return (
