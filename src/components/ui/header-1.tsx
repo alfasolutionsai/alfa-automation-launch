@@ -59,14 +59,14 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="ml-2">
+          <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="ml-2">
             <CtaButton headline="Commencer" subheadline="Obtenez un audit gratuit" />
           </a>
         </div>
 
         {/* Mobile/Tablet: CTA + Hamburger */}
         <div className="flex lg:hidden items-center gap-2">
-          <a href="#contact">
+          <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>
             <CtaButton 
               headline="Commencer" 
               subheadline="Audit gratuit" 
