@@ -13,16 +13,16 @@ const CtaButton = React.forwardRef<HTMLButtonElement, CtaButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-between gap-2 md:gap-3 rounded-lg bg-primary px-3 py-1.5 md:px-4 md:py-2 text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:scale-[1.02]",
+          "inline-flex items-center justify-between gap-1.5 md:gap-2 lg:gap-3 rounded-lg bg-primary px-2.5 py-1 md:px-3 md:py-1.5 lg:px-4 lg:py-2 text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:scale-[1.02]",
           className
         )}
         {...props}
       >
         <div className="flex flex-col items-start">
-          <span className="text-xs md:text-sm font-medium leading-tight">{headline}</span>
-          <span className="text-[10px] md:text-[11px] text-primary-foreground/80 leading-tight">{subheadline}</span>
+          <span className="text-[11px] md:text-xs lg:text-sm font-medium leading-tight">{headline}</span>
+          <span className="text-[9px] md:text-[10px] lg:text-[11px] text-primary-foreground/80 leading-tight">{subheadline}</span>
         </div>
-        <ChevronRight className="h-3.5 w-3.5 md:h-4 md:w-4 shrink-0" />
+        <ChevronRight className="h-3 w-3 md:h-3.5 md:w-3.5 lg:h-4 lg:w-4 shrink-0" />
       </button>
     );
   }
