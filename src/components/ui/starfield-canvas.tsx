@@ -65,7 +65,9 @@ export const StarfieldCanvas: React.FC<StarfieldCanvasProps> = ({ className }) =
         ctx!.moveTo(px, py);
         ctx!.lineTo(sx, sy);
         ctx!.lineWidth = r * 2;
-        ctx!.strokeStyle = `rgba(255, 255, 255, ${1 - this.z / canvas.width})`;
+        // Blue tint from brand palette (#38B6FF = rgb(56, 182, 255))
+        const opacity = 1 - this.z / canvas.width;
+        ctx!.strokeStyle = `rgba(56, 182, 255, ${opacity})`;
         ctx!.stroke();
       }
     }
