@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Calendar } from "lucide-react";
+import StarfieldCanvas from '@/components/ui/starfield-canvas';
 interface ContactSectionProps {
   title?: string;
   subtitle?: string;
@@ -44,48 +45,35 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     // Redirect to Calendly after successful submission
     window.location.href = "https://calendly.com/alfasolutionsai/30min";
   };
-  return <section id="contact" className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-background to-card">
-      {/* Background with overlay */}
-      <div className="absolute inset-0 bg-cover bg-center opacity-5" style={{
-      backgroundImage: `url(${backgroundImageSrc})`
-    }} />
+  return <section id="contact" className="relative min-h-screen w-full overflow-hidden bg-black">
+      {/* Starfield Background */}
+      <StarfieldCanvas className="absolute inset-0 z-0" />
       
-      {/* Animated Bubbles */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {Array.from({
-        length: 12
-      }).map((_, i) => <div key={i} className="absolute bg-primary/10 rounded-full animate-bubble opacity-0" style={{
-        width: `${Math.random() * 30 + 15}px`,
-        height: `${Math.random() * 30 + 15}px`,
-        left: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 8}s`,
-        animationDuration: `${Math.random() * 15 + 12}s`,
-        top: `${Math.random() * 100}%`
-      }} />)}
-      </div>
+      {/* Gradient overlay for depth */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-black/30 to-black/60" />
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary mb-6 border border-primary/30">
               <Calendar className="h-4 w-4" />
               Consultation Gratuite
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               {title}
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
+            <p className="text-xl text-white/80 max-w-3xl mx-auto mb-4">
               {subtitle}
             </p>
-            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base text-white/60 max-w-2xl mx-auto">
               {supportingCopy}
             </p>
           </div>
 
           {/* Form Card */}
-          <div className="bg-card/80 backdrop-blur-xl p-8 md:p-12 rounded-3xl shadow-2xl border border-border/50 max-w-4xl mx-auto">
+          <div className="bg-black/60 backdrop-blur-xl p-8 md:p-12 rounded-3xl shadow-2xl border border-primary/20 max-w-4xl mx-auto">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name and Company */}
               <div className="grid md:grid-cols-2 gap-6">
@@ -130,7 +118,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </Button>
                 
                 {/* Risk Reversal */}
-                <p className="text-center text-sm text-muted-foreground">
+                <p className="text-center text-sm text-white/60">
                   {riskReversal}
                 </p>
               </div>
@@ -138,28 +126,5 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </div>
         </div>
       </div>
-
-      {/* CSS for bubble animation */}
-      <style dangerouslySetInnerHTML={{
-      __html: `
-          @keyframes bubble {
-            0% {
-              transform: translateY(0) translateX(0) scale(0.5);
-              opacity: 0;
-            }
-            50% {
-              opacity: 0.6;
-            }
-            100% {
-              transform: translateY(-100vh) translateX(calc((var(--rand-x-offset, 0.5) - 0.5) * 20vw)) scale(1.2);
-              opacity: 0;
-            }
-          }
-          .animate-bubble {
-            animation: bubble var(--animation-duration, 15s) ease-in-out infinite;
-            animation-fill-mode: forwards;
-          }
-        `
-    }} />
     </section>;
 };
