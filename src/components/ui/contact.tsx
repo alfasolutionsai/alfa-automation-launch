@@ -73,52 +73,52 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </div>
 
           {/* Form Card */}
-          <div className="bg-black/60 backdrop-blur-xl p-8 md:p-12 rounded-3xl shadow-2xl border border-primary/20 max-w-4xl mx-auto">
+          <div className="bg-black/80 backdrop-blur-xl p-8 md:p-12 rounded-3xl shadow-2xl border border-primary/30 max-w-4xl mx-auto">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name and Company */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nom complet *</Label>
-                  <Input id="name" name="name" placeholder="Jean Dupont" value={formData.name} onChange={handleChange} required className="bg-background/50" />
+                  <Label htmlFor="name" className="text-white font-medium">Nom complet *</Label>
+                  <Input id="name" name="name" placeholder="Jean Dupont" value={formData.name} onChange={handleChange} required className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="company">Entreprise *</Label>
-                  <Input id="company" name="company" placeholder="Votre Entreprise Inc." value={formData.company} onChange={handleChange} required className="bg-background/50" />
+                  <Label htmlFor="company" className="text-white font-medium">Entreprise *</Label>
+                  <Input id="company" name="company" placeholder="Votre Entreprise Inc." value={formData.company} onChange={handleChange} required className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
                 </div>
               </div>
 
               {/* Email and Phone */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input id="email" name="email" type="email" placeholder="jean@entreprise.com" value={formData.email} onChange={handleChange} required className="bg-background/50" />
+                  <Label htmlFor="email" className="text-white font-medium">Email *</Label>
+                  <Input id="email" name="email" type="email" placeholder="jean@entreprise.com" value={formData.email} onChange={handleChange} required className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Téléphone</Label>
-                  <Input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" value={formData.phone} onChange={handleChange} className="bg-background/50" />
+                  <Label htmlFor="phone" className="text-white font-medium">Téléphone</Label>
+                  <Input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" value={formData.phone} onChange={handleChange} className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
                 </div>
               </div>
 
               {/* Industry */}
               <div className="space-y-2">
-                <Label htmlFor="industry">Industrie / Type d'entreprise *</Label>
-                <Input id="industry" name="industry" placeholder="Ex: Commerce de détail, Services professionnels, Santé..." value={formData.industry} onChange={handleChange} required className="bg-background/50" />
+                <Label htmlFor="industry" className="text-white font-medium">Industrie / Type d'entreprise *</Label>
+                <Input id="industry" name="industry" placeholder="Ex: Commerce de détail, Services professionnels, Santé..." value={formData.industry} onChange={handleChange} required className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
               </div>
 
               {/* Challenges */}
               <div className="space-y-2">
-                <Label htmlFor="challenges">Quels sont vos principaux défis opérationnels actuellement? *</Label>
-                <Textarea id="challenges" name="challenges" placeholder="Décrivez les problèmes que vous rencontrez au quotidien..." rows={8} value={formData.challenges} onChange={handleChange} required className="bg-background/50 resize-none" />
+                <Label htmlFor="challenges" className="text-white font-medium">Quels sont vos principaux défis opérationnels actuellement? *</Label>
+                <Textarea id="challenges" name="challenges" placeholder="Décrivez les problèmes que vous rencontrez au quotidien..." rows={8} value={formData.challenges} onChange={handleChange} required className="bg-white/10 border-white/20 text-white placeholder:text-white/50 resize-none" />
               </div>
 
               {/* Submit Button */}
               <div className="space-y-4">
-                <Button type="submit" size="lg" className="w-full text-lg text-blue-700">
+                <Button type="submit" size="lg" className="w-full text-lg text-white">
                   Réserver ma consultation gratuite
                 </Button>
                 
                 {/* Risk Reversal */}
-                <p className="text-center text-sm text-white/60">
+                <p className="text-center text-sm text-white/70">
                   {riskReversal}
                 </p>
               </div>
