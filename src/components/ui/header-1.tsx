@@ -6,7 +6,6 @@ import alfaLogo from '@/assets/alfa-logo.svg';
 import { CtaButton } from '@/components/ui/cta-button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
-import { MapPin } from 'lucide-react';
 
 export function Header() {
   const scrolled = useScroll(10);
@@ -19,8 +18,13 @@ export function Header() {
     { label: 'FAQ', href: '#faq' },
   ];
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setMobileMenuOpen(false);
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -50,6 +54,7 @@ export function Header() {
                 'text-sm xl:text-base relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-3/4'
               )} 
               href={link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
             >
               {link.label}
             </a>
@@ -83,19 +88,13 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] sm:w-[320px] bg-background/95 backdrop-blur-xl">
               <div className="flex flex-col h-full pt-8">
-                {/* Quebec badge */}
-                <div className="flex items-center gap-2 px-2 py-3 mb-4 rounded-lg bg-primary/10 text-primary">
-                  <MapPin className="h-4 w-4" />
-                  <span className="text-sm font-medium">Entreprise fièrement québécoise</span>
-                </div>
-                
                 {/* Navigation Links */}
                 <nav className="flex flex-col gap-1">
                   {links.map(link => (
                     <SheetClose asChild key={link.label}>
                       <a 
                         href={link.href}
-                        onClick={handleLinkClick}
+                        onClick={(e) => handleLinkClick(e, link.href)}
                         className="px-4 py-3 rounded-lg text-base font-medium text-foreground hover:bg-accent transition-colors"
                       >
                         {link.label}
@@ -107,7 +106,7 @@ export function Header() {
                 {/* CTA at bottom */}
                 <div className="mt-auto pb-8">
                   <SheetClose asChild>
-                    <a href="#contact" onClick={handleLinkClick} className="block">
+                    <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="block">
                       <CtaButton 
                         headline="Commencer" 
                         subheadline="Obtenez un audit gratuit" 
