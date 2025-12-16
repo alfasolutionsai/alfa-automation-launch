@@ -38,7 +38,7 @@ export function Solutions() {
   return <section id="solutions" className="py-20 bg-gradient-to-b from-background to-card">
       <div className="container mx-auto px-4">
         {/* Featured 3D Section */}
-        <Card className="w-full h-auto mb-16 bg-card relative overflow-hidden border-border">
+        <Card className="w-full h-auto md:h-[500px] mb-16 bg-card relative overflow-hidden border-border">
           <div className="flex flex-col md:flex-row h-full">
             {/* Left content */}
             <div className="flex-1 p-6 md:p-12 relative z-10 flex flex-col justify-center py-8 md:py-0">
@@ -49,7 +49,7 @@ export function Solutions() {
             </div>
 
             {/* Right content - 3D Scene - visible on mobile */}
-            <div className="flex-1 relative h-[280px] md:h-[500px]">
+            <div className="w-full md:flex-1 relative h-[300px] md:h-full">
               <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
             </div>
           </div>
