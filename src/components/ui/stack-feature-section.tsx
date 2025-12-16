@@ -52,7 +52,7 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section className="relative w-full my-16 md:my-32 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between min-h-[20rem] md:h-[40rem] border-y border-border bg-card overflow-hidden py-12 md:py-0 gap-8 md:gap-0">
+    <section className="relative w-full my-16 md:my-32 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between min-h-[28rem] md:h-[40rem] border-y border-border bg-card overflow-hidden py-12 md:py-0 gap-8 md:gap-0">
       {/* Left side: Heading and Text */}
       <div className="w-full md:w-1/2 z-10 text-center md:text-left">
         <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 text-foreground">
@@ -70,16 +70,22 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
         )}
       </div>
 
-
-      {/* Right side: Orbit animation - half circle on both mobile and desktop */}
-      <div className="flex relative w-full md:w-1/2 h-[20rem] md:h-full items-center justify-center md:justify-end overflow-hidden">
+      {/* Right side: Orbit animation - half circle */}
+      <div className="relative w-full md:w-1/2 h-[16rem] md:h-full flex items-center justify-center md:justify-end overflow-hidden">
         <TooltipProvider>
-          <div className="relative w-[28rem] h-[28rem] md:w-[50rem] md:h-[50rem] translate-y-[32%] md:translate-y-0 md:translate-x-[50%] flex items-center justify-center">
+          <div 
+            className="relative flex items-center justify-center"
+            style={{
+              width: "clamp(24rem, 50vw, 50rem)",
+              height: "clamp(24rem, 50vw, 50rem)",
+              transform: "translateY(50%)",
+            }}
+          >
             {/* Center Circle */}
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-muted shadow-lg flex items-center justify-center cursor-pointer">
-                  <img src={n8nLogo} alt="n8n" className="w-8 h-8 md:w-12 md:h-12 object-contain" />
+                <div className="absolute w-16 h-16 md:w-24 md:h-24 rounded-full bg-muted shadow-lg flex items-center justify-center cursor-pointer z-10">
+                  <img src={n8nLogo} alt="n8n" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
                 </div>
               </TooltipTrigger>
               <TooltipContent>
@@ -89,9 +95,7 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
 
             {/* Generate Orbits */}
             {[...Array(orbitCount)].map((_, orbitIdx) => {
-              const mobileSize = 16 + orbitIdx * 6; // rem (mobile)
-              const desktopSize = 28 + orbitIdx * 10; // rem (desktop)
-              const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
+              const size = `${12 + orbitGap * (orbitIdx + 1)}rem`;
               const angleStep = (2 * Math.PI) / iconsPerOrbit;
 
               return (
@@ -99,41 +103,41 @@ export default function StackFeatureSection({ headline, subheadline, ctaText, ct
                   key={orbitIdx}
                   className="absolute rounded-full border-2 border-dotted border-border"
                   style={{
-                    width: `clamp(${mobileSize}rem, calc(${mobileSize}rem + (${desktopSize} - ${mobileSize}) * ((100vw - 20rem) / (80rem - 20rem))), ${desktopSize}rem)`,
-                    height: `clamp(${mobileSize}rem, calc(${mobileSize}rem + (${desktopSize} - ${mobileSize}) * ((100vw - 20rem) / (80rem - 20rem))), ${desktopSize}rem)`,
+                    width: size,
+                    height: size,
                     animation: `spin ${12 + orbitIdx * 6}s linear infinite`,
                   }}
                 >
-                {iconConfigs
-                  .slice(orbitIdx * iconsPerOrbit, orbitIdx * iconsPerOrbit + iconsPerOrbit)
-                  .map((cfg, iconIdx) => {
-                    const angle = iconIdx * angleStep;
-                    const x = 50 + 50 * Math.cos(angle);
-                    const y = 50 + 50 * Math.sin(angle);
+                  {iconConfigs
+                    .slice(orbitIdx * iconsPerOrbit, orbitIdx * iconsPerOrbit + iconsPerOrbit)
+                    .map((cfg, iconIdx) => {
+                      const angle = iconIdx * angleStep;
+                      const x = 50 + 50 * Math.cos(angle);
+                      const y = 50 + 50 * Math.sin(angle);
 
-                    return (
-                      <Tooltip key={iconIdx}>
-                        <TooltipTrigger asChild>
-                          <div
-                            className="absolute bg-background rounded-full p-0.5 md:p-1 shadow-md cursor-pointer hover:scale-110 transition-transform"
-                            style={{
-                              left: `${x}%`,
-                              top: `${y}%`,
-                              transform: "translate(-50%, -50%)",
-                            }}
-                          >
-                            <cfg.Icon className="w-5 h-5 md:w-8 md:h-8" style={{ color: cfg.color }} />
-                          </div>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>{cfg.name}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    );
-                  })}
-              </div>
-            );
-          })}
+                      return (
+                        <Tooltip key={iconIdx}>
+                          <TooltipTrigger asChild>
+                            <div
+                              className="absolute bg-background rounded-full p-1.5 md:p-2 shadow-md cursor-pointer hover:scale-110 transition-transform"
+                              style={{
+                                left: `${x}%`,
+                                top: `${y}%`,
+                                transform: "translate(-50%, -50%)",
+                              }}
+                            >
+                              <cfg.Icon className="w-5 h-5 md:w-8 md:h-8" style={{ color: cfg.color }} />
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{cfg.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      );
+                    })}
+                </div>
+              );
+            })}
           </div>
         </TooltipProvider>
       </div>
