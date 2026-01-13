@@ -6,7 +6,7 @@ import { Wrench, Cloud, Settings, Rocket, Lock } from "lucide-react";
 export function Solutions() {
   const features = [{
     title: "Sécurité et confidentialité",
-    blurb: "Nos systèmes sécurisés protègent parfaitement vos informations et nos solutions garantissent la sécurité et la confidentialité de vos données et celles de vos clients. Tous nos systèmes les lois relatives à la protection des renseignements personnels ou n'importe quelle règles de conformités spécifiques à votre industrie ou votre entreprise. Avec Alfa vous pouvez avoir la conscience tranquille et vous concentrez sur ce qui compte vraiment.",
+    blurb: "Nos systèmes sécurisés protègent parfaitement vos informations et nos solutions garantissent la sécurité et la confidentialité de vos données et celles de vos clients. Tous nos systèmes respectent les lois relatives à la protection des renseignements personnels ou n'importe quelles règles de conformités spécifiques à votre industrie ou votre entreprise. Avec Alfa vous pouvez avoir la conscience tranquille et vous concentrez sur ce qui compte vraiment.",
     meta: "Sécurité",
     icon: Lock,
     animation: "bento2-glow 7s ease-in-out infinite"
