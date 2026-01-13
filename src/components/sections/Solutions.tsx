@@ -45,7 +45,7 @@ export function Solutions() {
               <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
                 IA sur mesure qui travaille comme vous travaillez
               </h2>
-              <p className="text-base md:text-xl text-muted-foreground max-w-lg">Alfa crée des systèmes d'IA adaptés à vos processus. Pas des outils génériques que vous devez tordre pour faire fonctionner. On construit des automatisations intelligentes conçues autour de votre manière réelle de travailler.</p>
+              <p className="text-base md:text-xl text-muted-foreground max-w-lg">Alfa crée des systèmes d'IA adaptés à vos processus. Pas des outils génériques que vous devez tordre pour faire fonctionner. On construit des outils intelligents conçus autour de votre manière réelle de travailler.</p>
             </div>
 
             {/* Right content - 3D Scene - visible on mobile */}
