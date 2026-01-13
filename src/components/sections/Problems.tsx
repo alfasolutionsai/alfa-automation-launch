@@ -4,7 +4,7 @@ import { DollarSign, Clock, AlertCircle, TrendingUp } from "lucide-react";
 const problems = [
   {
     icon: DollarSign,
-    title: "Revenus Manqués",
+    title: "Revenus perdus",
     description: "Que ce soit des appels manqués, des mauvais suivis ou du temps perdu inutilement, vous laissez de l'argent et des clients sur la table. Chez Alfa Solutions on vous aide à aller chercher chaque client et dollar que vous perdez aujourd'hui. On transforme vos appels manqués en opportunités, on automatise vos suivis et on élimine les tâches qui vous font perdre de l'argent. Résultat : plus de ventes, plus vite, sans effort supplémentaire et plus d'argent dans vos poches."
   },
   {
