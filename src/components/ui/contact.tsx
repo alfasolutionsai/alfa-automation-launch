@@ -113,7 +113,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
               {/* Submit Button */}
               <div className="space-y-4">
-                <Button type="submit" size="lg" className="w-full text-lg text-white">
+                <Button type="submit" size="lg" className="w-full text-lg text-white border-4 border-solid">
                   Réserver ma consultation gratuite
                 </Button>
                 
