@@ -7,10 +7,12 @@ export function Hero() {
   const handleContactClick = async () => {
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      contactSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
-
   return <section className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 min-h-[calc(100vh-40px)] overflow-hidden bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_50%,hsl(var(--border))_88%)] dark:bg-[linear-gradient(to_bottom,hsl(var(--background)),hsl(var(--background))_30%,hsl(var(--muted))_78%,hsl(var(--foreground))_99%_50%)] rounded-b-xl">
       {/* Grid BG */}
       <div className="absolute -z-10 inset-0 opacity-80 h-[600px] w-full bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,hsl(var(--muted))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--muted))_1px,transparent_1px)] bg-[size:6rem_5rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
@@ -32,33 +34,18 @@ export function Hero() {
             <h1 className="mb-8 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-6xl lg:text-7xl">
               Utilisez l'IA pour{" "}
               <span className="block mt-2">
-                <MorphingText 
-                  words={[
-                    "Faire croître votre entreprise", 
-                    "Capturer plus de leads", 
-                    "Économiser de l'argent", 
-                    "Améliorer votre service client", 
-                    "Gagner du temps", 
-                    "Mieux s'organiser"
-                  ]} 
-                  className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl" 
-                  interval={3500} 
-                />
+                <MorphingText words={["Faire croître votre entreprise", "Capturer plus de leads", "Économiser de l'argent", "Améliorer votre service client", "Gagner du temps", "Mieux s'organiser"]} className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl" interval={3500} />
               </span>
             </h1>
 
-            <p className="mb-10 text-lg text-muted-foreground md:text-xl">Chez Alfa on trouve des solutions à vos problème pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.</p>
+            <p className="mb-10 text-lg text-muted-foreground md:text-xl">Chez Alfa on trouve des solutions à vos problèmes pour que vous puissiez vous concentrer sur ce qui fait vraiment avancer votre entreprise.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <SaveButton 
-                text={{
-                  idle: "Obtenez une consultation gratuite",
-                  saving: "Redirection...",
-                  saved: "C'est parti!"
-                }}
-                className="w-full sm:w-auto"
-                onSave={handleContactClick}
-              />
+              <SaveButton text={{
+              idle: "Obtenez une consultation gratuite",
+              saving: "Redirection...",
+              saved: "C'est parti!"
+            }} className="w-full sm:w-auto" onSave={handleContactClick} />
             </div>
 
             <div className="flex justify-center lg:justify-start">
